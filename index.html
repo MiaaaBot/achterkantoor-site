@@ -15,19 +15,85 @@
     <meta name="twitter:description" content="Private AI-backoffice voor Nederlandse accountants. Wij regelen alles. U bespaart uren per week.">
     <meta name="twitter:image" content="https://achterkantoor.nl/og-image.png">
     <link rel="canonical" href="https://achterkantoor.nl">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' achterkantoor.goatcounter.com;">
     <link rel="icon" href="/favicon.ico">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": "https://achterkantoor.nl/#organization",
       "name": "AchterKantoor",
       "url": "https://achterkantoor.nl",
-      "description": "Private AI-backoffice voor Nederlandse accountants en administratiekantoren",
+      "logo": "https://achterkantoor.nl/og-image.png",
+      "description": "Private AI-backoffice voor Nederlandse accountants en administratiekantoren. Wij regelen de automatisering, u bespaart 8+ uur per week.",
+      "foundingDate": "2026",
       "areaServed": {
         "@type": "Country",
-        "name": "Netherlands"
+        "name": "NL"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "url": "https://cal.com/achterkantoor/kennismaking",
+        "availableLanguage": "Dutch"
       },
       "serviceType": "AI Automatisering voor Accountants"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://achterkantoor.nl/#localbusiness",
+      "name": "AchterKantoor",
+      "url": "https://achterkantoor.nl",
+      "logo": "https://achterkantoor.nl/og-image.png",
+      "image": "https://achterkantoor.nl/og-image.png",
+      "description": "Private AI-backoffice voor Nederlandse accountants en administratiekantoren.",
+      "priceRange": "Vanaf \u20ac650/maand",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "NL"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "NL"
+      },
+      "serviceArea": {
+        "@type": "Country",
+        "name": "NL"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://achterkantoor.nl/#website",
+      "name": "AchterKantoor",
+      "url": "https://achterkantoor.nl",
+      "publisher": {
+        "@id": "https://achterkantoor.nl/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://achterkantoor.nl/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://achterkantoor.nl"
+        }
+      ]
     }
     </script>
     <script type="application/ld+json">
@@ -37,7 +103,15 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Moet ik iets van techniek of AI weten?",
+          "name": "Wat kost AI-automatisering voor mijn kantoor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "De kennismaking en proefperiode van 2 weken zijn gratis. Daarna hangt de prijs af van wat u nodig heeft. Typisch vanaf 650 euro per maand voor een compleet pakket. Geen lange contracten."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Moet ik technische kennis hebben?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Nee, helemaal niets. Wij regelen alles. U vertelt ons welke taken u tijd kosten, wij bouwen de oplossing en zetten die voor u klaar. U hoeft alleen op 'akkoord' te klikken."
@@ -45,10 +119,34 @@
         },
         {
           "@type": "Question",
-          "name": "Hoe zit het met beveiliging en privacy?",
+          "name": "Hoe lang duurt de implementatie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "E\u00e9n gesprek van 30 minuten. Daarna regelen wij alles. Binnen 2 weken draait uw eerste automatisering."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Werkt het met Exact Online of Twinfield?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AchterKantoor is gebouwd voor hoe Nederlandse kantoren werken en kan worden gekoppeld aan gangbare boekhoudpakketten. Tijdens het kennismakingsgesprek bespreken we uw specifieke software-omgeving."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is mijn data veilig?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Uw data blijft van u. Wij werken privacy-first: gevoelige klantgegevens worden versleuteld opgeslagen en verlaten nooit uw eigen omgeving zonder uw toestemming."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoeveel tijd bespaart AI-automatisering?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Gemiddeld besparen onze klanten 8 uur per week. Dat is een volledige werkdag die u kunt besteden aan advieswerk, nieuwe klanten, of gewoon op tijd naar huis."
           }
         },
         {
@@ -61,10 +159,10 @@
         },
         {
           "@type": "Question",
-          "name": "Hoeveel tijd kost het opstarten?",
+          "name": "Wat als het niet bevalt?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Eén gesprek van 30 minuten. Daarna regelen wij alles. Binnen 2 weken draait uw eerste automatisering."
+            "text": "Dan stopt het. De proefperiode is gratis en vrijblijvend. Geen kleine lettertjes, geen opzegkosten."
           }
         }
       ]
@@ -511,6 +609,20 @@
             <h3>Wat als het niet bevalt?</h3>
             <p>Dan stopt het. De proefperiode is gratis en vrijblijvend. Geen kleine lettertjes, geen opzegkosten.</p>
         </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Uit onze blog</h2>
+        <p class="lead">Praktische inzichten over automatisering voor accountants.</p>
+        <ul class="pain-list">
+            <li><a href="/blog/hoe-ai-8-uur-bespaart.html" style="color:var(--text);text-decoration:none;">Hoe AI accountants 8 uur per week bespaart</a></li>
+            <li><a href="/blog/case-study-kantoor-de-vries.html" style="color:var(--text);text-decoration:none;">Case study: Kantoor De Vries bespaart 10 uur per week</a></li>
+            <li><a href="/blog/waarom-accountants-nu-automatiseren.html" style="color:var(--text);text-decoration:none;">Waarom accountants nu moeten automatiseren</a></li>
+            <li><a href="/blog/toekomst-boekhouden-automatisering.html" style="color:var(--text);text-decoration:none;">De toekomst van boekhouden: automatisering als standaard</a></li>
+        </ul>
+        <p style="margin-top:20px;"><a href="/blog/" style="color:var(--accent);font-weight:600;text-decoration:none;">Bekijk alle artikelen &rarr;</a></p>
     </div>
 </section>
 
