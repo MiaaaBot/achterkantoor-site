@@ -35,7 +35,7 @@
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "sales",
-        "url": "https://cal.com/achterkantoor/kennismaking",
+        "url": "https://cal.com/achterkantoor-app/30min",
         "availableLanguage": "Dutch"
       },
       "serviceType": "AI Automatisering voor Accountants"
@@ -1069,26 +1069,12 @@
     <div class="container">
         <h2 class="fade-in">Laten we kennismaken</h2>
         <p class="fade-in">Plan een gesprek van 30 minuten. Wij luisteren naar uw praktijk en laten zien wat er concreet mogelijk is. Geen verkooppraatje, gewoon een eerlijk gesprek.</p>
-        <div id="cal-booking" class="cal-embed fade-in" style="margin: 2rem auto; max-width: 700px; min-height: 400px;"></div>
-        <script>
-        (function(C,A,L){
-            var p=function(a,ar){a.q.push(ar)};
-            var d=C.document;
-            C.Cal=C.Cal||function(){var cal=C.Cal;var ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}if(ar[0]===L){var api=function(){p(api,arguments)};var namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace]);}else p(cal,ar);return;}p(cal,ar);};
-        })(window,"https://app.cal.com/embed/embed.js","init");
-        Cal("init", {origin:"https://app.cal.com"});
-        Cal("inline", {
-            elementOrSelector: "#cal-booking",
-            calLink: "achterkantoor/kennismaking",
-            layout: "month_view",
-            config: {theme: "light"}
-        });
-        Cal("ui", {
-            theme: "light",
-            styles: {branding: {brandColor: "#2563eb"}},
-            hideEventTypeDetails: false,
-            layout: "month_view"
-        });
+        <button class="btn fade-in" data-cal-link="achterkantoor-app/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Plan een gesprek in</button>
+        <!-- Cal element-click embed -->
+        <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", "30min", {origin:"https://app.cal.com"});
+        Cal.ns["30min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
         </script>
         <span class="btn-sub fade-in">Vrijblijvend. Geen verplichtingen. Gewoon een gesprek.</span>
         <p class="trust-line fade-in">Gebouwd voor de Nederlandse accountancy</p>
@@ -1097,7 +1083,7 @@
 
 <!-- Sticky mobile CTA -->
 <div class="sticky-cta" id="stickyCta">
-    <a href="https://cal.com/achterkantoor/kennismaking" class="btn" target="_blank" rel="noopener">Plan een gesprek</a>
+    <a href="https://cal.com/achterkantoor-app/30min" class="btn" target="_blank" rel="noopener">Plan een gesprek</a>
 </div>
 
 <footer>
