@@ -547,6 +547,52 @@
             font-size: 0.95rem;
         }
 
+        /* ---- Email capture ---- */
+        .signup-box {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        }
+        .signup-form {
+            display: grid;
+            gap: 12px;
+            max-width: 560px;
+            margin-top: 18px;
+        }
+        .signup-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 12px;
+        }
+        .signup-form input {
+            width: 100%;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 16px;
+            font: inherit;
+            background: #fff;
+            color: var(--text);
+        }
+        .signup-form input:focus {
+            outline: 2px solid var(--accent-light);
+            border-color: var(--accent);
+        }
+        .signup-form .btn { white-space: nowrap; }
+        .form-note {
+            font-size: 0.92rem;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+        .form-status {
+            font-size: 0.95rem;
+            font-weight: 500;
+            min-height: 1.4em;
+        }
+        .form-status.success { color: var(--green); }
+        .form-status.error { color: #b91c1c; }
+
         /* ---- Integrations bar ---- */
         .integrations-bar {
             text-align: center;
@@ -1064,6 +1110,25 @@
     </div>
 </section>
 
+<!-- Email capture -->
+<section>
+    <div class="container">
+        <div class="signup-box fade-in">
+            <h2>Wilt u eerst even meekijken?</h2>
+            <p class="lead">Laat uw naam en e-mailadres achter. Wij sturen alleen een korte, nette opvolging. Geen spam, geen lijstjes, geen gezeur.</p>
+            <form class="signup-form" id="signupForm" novalidate>
+                <div class="signup-form-row">
+                    <input type="text" name="name" id="signupName" placeholder="Uw naam" autocomplete="name" required>
+                    <input type="email" name="email" id="signupEmail" placeholder="Uw e-mailadres" autocomplete="email" required>
+                    <button type="submit" class="btn">Verstuur</button>
+                </div>
+                <div class="form-status" id="signupStatus" aria-live="polite"></div>
+                <p class="form-note">Door te verzenden gaat u akkoord dat we uw gegevens alleen gebruiken om contact op te nemen over AchterKantoor.</p>
+            </form>
+        </div>
+    </div>
+</section>
+
 <!-- CTA -->
 <section class="final-cta" id="contact">
     <div class="container">
@@ -1183,6 +1248,40 @@
             }
         });
     });
+
+    // Email capture form
+    (function () {
+        var form = document.getElementById('signupForm');
+        var status = document.getElementById('signupStatus');
+        if (!form || !status) return;
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            status.textContent = '';
+            status.className = 'form-status';
+            var name = document.getElementById('signupName').value.trim();
+            var email = document.getElementById('signupEmail').value.trim();
+            if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                status.textContent = 'Vul alstublieft een naam en geldig e-mailadres in.';
+                status.classList.add('error');
+                return;
+            }
+            try {
+                var response = await fetch('/api/email-signup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: name, email: email, source: 'landing-page' })
+                });
+                var data = await response.json().catch(function () { return {}; });
+                if (!response.ok) throw new Error(data.error || 'Opslaan mislukt.');
+                form.reset();
+                status.textContent = data.message || 'Dank u. We nemen snel contact op.';
+                status.classList.add('success');
+            } catch (err) {
+                status.textContent = err.message || 'Er ging iets mis. Probeer het nog eens.';
+                status.classList.add('error');
+            }
+        });
+    })();
 </script>
 
 <!-- GoatCounter analytics — free, no cookies, GDPR compliant -->
@@ -1254,3 +1353,14 @@ WHAT WAS CUT AND WHY
 
 </body>
 </html>
+
+<script>
+const form = document.getElementById('capture-form');
+if (form) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(form).entries());
+    alert('Bedankt, we houden je op de hoogte.');
+  });
+}
+</script>
