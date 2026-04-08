@@ -16,7 +16,7 @@
     <meta name="twitter:description" content="Praktische automatisering voor Nederlandse accountantskantoren. Minder losse mails, meer rust.">
     <meta name="twitter:image" content="https://achterkantoor.nl/og-image.png">
     <link rel="canonical" href="https://achterkantoor.nl">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' achterkantoor.goatcounter.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' achterkantoor.goatcounter.com; frame-src cal.com;">
     <link rel="icon" href="/favicon.ico">
     <script type="application/ld+json">
     {
@@ -714,6 +714,10 @@
             .trust-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 24px !important;
+            }
             .audience-cards {
                 grid-template-columns: 1fr;
                 max-width: 360px;
@@ -792,6 +796,30 @@
     </div>
 </header>
 
+<!-- Dashboard stats -->
+<section style="padding: 40px 0; background: #fff; border-bottom: 1px solid var(--border);">
+    <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; text-align: center;" class="stats-grid">
+            <div class="dash-stat fade-in">
+                <div style="font-size: 2.5rem; font-weight: 800; color: var(--accent); letter-spacing: -0.03em; font-variant-numeric: tabular-nums;" class="count-up" data-target="8" data-suffix="+">0</div>
+                <div style="font-size: 0.85rem; color: var(--muted); margin-top: 4px;">uur per week terug</div>
+            </div>
+            <div class="dash-stat fade-in">
+                <div style="font-size: 2.5rem; font-weight: 800; color: var(--accent); letter-spacing: -0.03em; font-variant-numeric: tabular-nums;" class="count-up" data-target="30" data-suffix=" min">0</div>
+                <div style="font-size: 0.85rem; color: var(--muted); margin-top: 4px;">opstartgesprek</div>
+            </div>
+            <div class="dash-stat fade-in">
+                <div style="font-size: 2.5rem; font-weight: 800; color: var(--accent); letter-spacing: -0.03em; font-variant-numeric: tabular-nums;" class="count-up" data-target="2" data-suffix=" wkn">0</div>
+                <div style="font-size: 0.85rem; color: var(--muted); margin-top: 4px;">tot eerste resultaat</div>
+            </div>
+            <div class="dash-stat fade-in">
+                <div style="font-size: 2.5rem; font-weight: 800; color: var(--accent); letter-spacing: -0.03em; font-variant-numeric: tabular-nums;" class="count-up" data-target="0" data-suffix="">✓</div>
+                <div style="font-size: 0.85rem; color: var(--muted); margin-top: 4px;">technische kennis nodig</div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Herkenbaar? -->
 <section class="alt">
     <div class="container">
@@ -827,8 +855,8 @@
                 <h3>Met AchterKantoor</h3>
                 <ul>
                     <li>Herinneringen gaan automatisch, op het juiste moment</li>
-                    <li>Follow-ups lopen door zonder uw tussenkomst</li>
-                    <li>Statusvragen worden direct beantwoord</li>
+                    <li>Follow-ups lopen door, ook als u er niet achteraan zit</li>
+                    <li>Veel statusvragen worden automatisch afgehandeld</li>
                     <li>Standaard communicatie is geregeld</li>
                     <li>Overzicht en rust in uw planning</li>
                 </ul>
@@ -895,7 +923,7 @@
 <!-- Integrations - subtle -->
 <div class="integrations-bar">
     <div class="container">
-        <p class="int-label">Werkt met uw bestaande software</p>
+        <p class="int-label">Sluit aan op de pakketten die uw kantoor al gebruikt</p>
         <div class="integrations-logos">
             <span class="int-logo">Exact Online</span>
             <span class="int-logo">Twinfield</span>
@@ -919,7 +947,7 @@
             <div class="step fade-in">
                 <h3>Wij richten het in</h3>
                 <p>Binnen 2 weken bouwen wij de automatisering voor uw kantoor. Afgestemd op uw werkwijze, uw teksten, uw regels. U keurt alles goed voordat het live gaat.</p>
-                <span class="step-time">Uw investering: niets. Wij doen het werk.</span>
+                <span class="step-time">Uw investering in tijd: minimaal. Wij doen het uitvoerende werk.</span>
             </div>
             <div class="step fade-in">
                 <h3>Uw team begint met een pilot</h3>
@@ -936,7 +964,7 @@
 </section>
 
 <!-- Credibility line -->
-<p class="credibility fade-in">Gebouwd door mensen die begrijpen hoe kantoren werken.</p>
+<p class="credibility fade-in">Gebouwd rondom de terugkerende taken in Nederlandse accountants- en administratiekantoren.</p>
 
 <!-- Waarom dit veilig is -->
 <section class="alt" id="over-ons">
@@ -1093,6 +1121,38 @@
             });
         }, { threshold: 0 });
         obs.observe(hero);
+    })();
+
+    // Dashboard counting animation
+    (function() {
+        var counters = document.querySelectorAll('.count-up');
+        if (!counters.length || !('IntersectionObserver' in window)) return;
+        var animated = false;
+        var obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && !animated) {
+                    animated = true;
+                    counters.forEach(function(el) {
+                        var target = parseInt(el.getAttribute('data-target'));
+                        var suffix = el.getAttribute('data-suffix') || '';
+                        if (target === 0) return; // skip the checkmark
+                        var start = 0;
+                        var duration = 1500;
+                        var startTime = null;
+                        function step(timestamp) {
+                            if (!startTime) startTime = timestamp;
+                            var progress = Math.min((timestamp - startTime) / duration, 1);
+                            var eased = 1 - Math.pow(1 - progress, 3);
+                            var current = Math.round(eased * target);
+                            el.textContent = current + suffix;
+                            if (progress < 1) requestAnimationFrame(step);
+                        }
+                        requestAnimationFrame(step);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+        obs.observe(document.querySelector('.stats-grid'));
     })();
 
     // Smooth scroll for anchor links
