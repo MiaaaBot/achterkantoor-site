@@ -1262,5 +1262,22 @@
 <!-- GoatCounter analytics — free, no cookies, GDPR compliant -->
 <!-- ACTION REQUIRED: Mia must create a free account at https://www.goatcounter.com/ with site code "achterkantoor" to activate tracking -->
 <script data-goatcounter="https://achterkantoor.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+<script>
+const menuBtn = document.querySelector('[data-menu-button]');
+const nav = document.querySelector('[data-nav]');
+if (menuBtn && nav) {
+  menuBtn.addEventListener('click', () => nav.classList.toggle('open'));
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  });
+});
+</script>
 </body>
 </html>
