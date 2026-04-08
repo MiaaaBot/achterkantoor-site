@@ -16,7 +16,7 @@
     <meta name="twitter:description" content="Praktische automatisering voor Nederlandse accountantskantoren. Minder losse mails, meer rust.">
     <meta name="twitter:image" content="https://achterkantoor.nl/og-image.png">
     <link rel="canonical" href="https://achterkantoor.nl">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' achterkantoor.goatcounter.com; frame-src cal.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at app.cal.com; style-src 'self' 'unsafe-inline' app.cal.com; img-src 'self' data: app.cal.com; connect-src 'self' achterkantoor.goatcounter.com app.cal.com; frame-src app.cal.com cal.com;">
     <link rel="icon" href="/favicon.ico">
     <script type="application/ld+json">
     {
@@ -966,8 +966,22 @@
 <!-- Credibility line -->
 <p class="credibility fade-in">Gebouwd rondom de terugkerende taken in Nederlandse accountants- en administratiekantoren.</p>
 
-<!-- Waarom dit veilig is -->
+<!-- Over AchterKantoor -->
 <section class="alt" id="over-ons">
+    <div class="container">
+        <h2 class="fade-in">Over AchterKantoor</h2>
+        <p class="lead fade-in">AchterKantoor is gebouwd voor kantoren die minder tijd kwijt willen zijn aan terugkerend backoffice-werk, zonder in te leveren op privacy, controle of betrouwbaarheid.</p>
+        <div style="max-width: 860px; margin: 0 auto; display: grid; gap: 1.25rem;">
+            <p class="fade-in">AchterKantoor is ontstaan vanuit een simpele observatie: veel AI-oplossingen worden op schaal verkocht, maar niet opgebouwd voor de realiteit van accountants- en administratiekantoren, waar privacy, betrouwbaarheid en controle centraal staan.</p>
+            <p class="fade-in">Vanuit een achtergrond in technologie en ervaring met hoe bedrijven processen inrichten, zagen wij hetzelfde patroon steeds terugkomen: veel herhaalwerk, veel losse opvolging, en veel tijdverlies in de backoffice. Tegelijkertijd zagen we dat de opkomst van AI vaak leidde tot snelle beloftes, terwijl kantoren juist behoefte hebben aan rust, veiligheid en voorspelbaarheid.</p>
+            <p class="fade-in">Daarom bouwen wij AchterKantoor anders. Niet als massaproduct met zoveel mogelijk functies, maar als praktische ondersteuning voor terugkerend werk dat kantoren dagelijks tijd kost. Veilig ingericht, met menselijke controle, en bedoeld om op de lange termijn betrouwbaar mee te draaien in uw werkwijze.</p>
+            <p class="fade-in"><strong>Wij geloven dat goede automatisering niet luid hoeft te zijn. Ze moet gewoon kloppen.</strong></p>
+        </div>
+    </div>
+</section>
+
+<!-- Waarom dit veilig is -->
+<section>
     <div class="container">
         <h2 class="fade-in">Waarom dit veilig is</h2>
         <p class="lead fade-in">Vertrouwen begint bij transparantie. Dit is hoe wij werken.</p>
@@ -1055,9 +1069,27 @@
     <div class="container">
         <h2 class="fade-in">Laten we kennismaken</h2>
         <p class="fade-in">Plan een gesprek van 30 minuten. Wij luisteren naar uw praktijk en laten zien wat er concreet mogelijk is. Geen verkooppraatje, gewoon een eerlijk gesprek.</p>
-        <div class="cal-embed fade-in" style="margin: 2rem auto; max-width: 700px; min-height: 500px; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 4px 24px rgba(0,0,0,0.08);">
-            <iframe src="https://cal.com/achterkantoor/kennismaking?embed=true&layout=month_view&theme=light" style="width:100%;height:100%;min-height:500px;border:none;" frameborder="0" loading="lazy"></iframe>
-        </div>
+        <div id="cal-booking" class="cal-embed fade-in" style="margin: 2rem auto; max-width: 700px; min-height: 400px;"></div>
+        <script>
+        (function(C,A,L){
+            var p=function(a,ar){a.q.push(ar)};
+            var d=C.document;
+            C.Cal=C.Cal||function(){var cal=C.Cal;var ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true;}if(ar[0]===L){var api=function(){p(api,arguments)};var namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace]);}else p(cal,ar);return;}p(cal,ar);};
+        })(window,"https://app.cal.com/embed/embed.js","init");
+        Cal("init", {origin:"https://app.cal.com"});
+        Cal("inline", {
+            elementOrSelector: "#cal-booking",
+            calLink: "achterkantoor/kennismaking",
+            layout: "month_view",
+            config: {theme: "light"}
+        });
+        Cal("ui", {
+            theme: "light",
+            styles: {branding: {brandColor: "#2563eb"}},
+            hideEventTypeDetails: false,
+            layout: "month_view"
+        });
+        </script>
         <span class="btn-sub fade-in">Vrijblijvend. Geen verplichtingen. Gewoon een gesprek.</span>
         <p class="trust-line fade-in">Gebouwd voor de Nederlandse accountancy</p>
     </div>
