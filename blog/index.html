@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — AchterKantoor</title>
+    <meta name="description" content="Praktische inzichten over AI-automatisering voor accountants en administratiekantoren. Tips, case studies en trends.">
+    <meta property="og:title" content="Blog — AchterKantoor">
+    <meta property="og:description" content="Praktische inzichten over AI-automatisering voor accountants en administratiekantoren.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://achterkantoor-site.vercel.app/blog/">
+    <meta property="og:image" content="https://achterkantoor-site.vercel.app/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://achterkantoor-site.vercel.app/blog/">
+    <link rel="icon" href="/favicon.ico">
+    <style>
+        :root {
+            --bg: #fafaf9;
+            --text: #1c1917;
+            --muted: #57534e;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --card-bg: #ffffff;
+            --border: #e7e5e4;
+            --section-alt: #f5f5f4;
+            --green: #16a34a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        nav {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        .logo span { color: var(--accent); }
+        nav a.cta-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        nav a.cta-link:hover { text-decoration: underline; }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .page-header {
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        .page-header h1 {
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+        }
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--muted);
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .blog-grid {
+            display: grid;
+            gap: 24px;
+            padding-bottom: 60px;
+        }
+
+        .blog-card {
+            padding: 28px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            transition: box-shadow 0.2s;
+        }
+        .blog-card:hover {
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .blog-card .tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 8px;
+        }
+        .blog-card h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+        .blog-card h2 a {
+            color: var(--text);
+            text-decoration: none;
+        }
+        .blog-card h2 a:hover {
+            color: var(--accent);
+        }
+        .blog-card p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+        .blog-card .read-more {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .blog-card .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .final-cta {
+            text-align: center;
+            padding: 60px 0;
+            background: var(--section-alt);
+        }
+        .final-cta h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+        .final-cta p {
+            color: var(--muted);
+            margin-bottom: 24px;
+            font-size: 1.05rem;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: var(--accent-hover); }
+
+        footer {
+            padding: 32px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.85rem;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 10px;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 639px) {
+            nav .container { gap: 12px; }
+            nav .nav-links { display: none; }
+            .nav-toggle {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="/" class="logo">Achter<span>Kantoor</span></a>
+        <div class="nav-links">
+            <a href="/" class="cta-link">Home</a>
+            <a href="/#diensten" class="cta-link">Wat we doen</a>
+            <a href="/#contact" class="cta-link">Contact</a>
+        </div>
+        <button class="nav-toggle" type="button" aria-label="Open navigatie" onclick="document.body.classList.toggle('menu-open')">Menu</button>
+    </div>
+</nav>
+
+<header class="page-header">
+    <div class="container">
+        <h1>Blog</h1>
+        <p>Praktische inzichten over automatisering, tijdsbesparing en de toekomst van het accountantskantoor.</p>
+    </div>
+</header>
+
+<section>
+    <div class="container">
+        <div class="blog-grid">
+            <article class="blog-card">
+                <span class="tag">Tijdsbesparing</span>
+                <h2><a href="/blog/hoe-ai-8-uur-bespaart.html">Hoe AI accountants 8 uur per week bespaart</a></h2>
+                <p>Ontdek welke taken het meeste tijd kosten en hoe slimme automatisering die uren teruggeeft aan uw team. Concrete voorbeelden uit de praktijk.</p>
+                <a href="/blog/hoe-ai-8-uur-bespaart.html" class="read-more">Lees meer &rarr;</a>
+            </article>
+
+            <article class="blog-card">
+                <span class="tag">Trends</span>
+                <h2><a href="/blog/toekomst-boekhouden-automatisering.html">De toekomst van boekhouden: automatisering als standaard</a></h2>
+                <p>Waarom automatisering niet langer optioneel is voor moderne administratiekantoren. Een blik op waar de sector naartoe gaat.</p>
+                <a href="/blog/toekomst-boekhouden-automatisering.html" class="read-more">Lees meer &rarr;</a>
+            </article>
+
+            <article class="blog-card">
+                <span class="tag">Praktijk</span>
+                <h2><a href="/blog/waarom-accountants-nu-automatiseren.html">Waarom accountants nu moeten automatiseren</a></h2>
+                <p>De 5 signalen dat uw kantoor klaar is voor automatisering — en wat er gebeurt als u te lang wacht.</p>
+                <a href="/blog/waarom-accountants-nu-automatiseren.html" class="read-more">Lees meer &rarr;</a>
+            </article>
+
+            <article class="blog-card">
+                <span class="tag">Case study</span>
+                <h2><a href="/blog/case-study-kantoor-de-vries.html">Case study: Kantoor De Vries bespaart 10 uur per week</a></h2>
+                <p>Hoe een administratiekantoor met 6 medewerkers hun complete follow-up automatiseerde en weer tijd kreeg voor advieswerk.</p>
+                <a href="/blog/case-study-kantoor-de-vries.html" class="read-more">Lees meer &rarr;</a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="final-cta">
+    <div class="container">
+        <h2>Benieuwd wat automatisering voor u kan betekenen?</h2>
+        <p>Plan een gratis kennismaking. Wij laten zien wat er mogelijk is voor uw kantoor.</p>
+        <a href="/#contact" class="btn">Plan een gratis kennismaking</a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 AchterKantoor. Alle rechten voorbehouden.</p>
+    </div>
+</footer>
+
+<script>
+    (function () {
+        const toggle = document.querySelector('.nav-toggle');
+        const links = document.querySelector('.nav-links');
+        if (!toggle || !links) return;
+        toggle.addEventListener('click', () => {
+            document.body.classList.toggle('menu-open');
+            links.style.display = document.body.classList.contains('menu-open') ? 'flex' : '';
+            links.style.flexDirection = 'column';
+            links.style.gap = '8px';
+        });
+    })();
+</script>
+</body>
+</html>
