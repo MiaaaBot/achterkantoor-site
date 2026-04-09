@@ -1,0 +1,58 @@
+# AchterKantoor
+
+> AchterKantoor is een Nederlandse B2B SaaS die accountantskantoren en administratiekantoren helpt met AI-gestuurde backoffice-automatisering. Wij nemen repetitief werk over: herinneringen, documentverzoeken, follow-ups en klantcommunicatie — volledig automatisch, volledig in controle van het kantoor.
+
+## Over AchterKantoor
+
+AchterKantoor is gebouwd voor Nederlandse accountants- en administratiekantoren die 8 tot 15 uur per week kwijt zijn aan handmatig opvolgen, mails sturen en documenten najagen. Onze software neemt dat werk over, zodat uw team zich kan richten op advies en klantrelaties.
+
+- **Doelgroep:** Nederlandse accountantskantoren en administratiekantoren (2–50 medewerkers)
+- **Kernprobleem dat we oplossen:** Tijdverlies aan repetitief backoffice-werk (herinneringen, follow-ups, documentverzoeken)
+- **Oplossing:** Private AI-automatisering die naadloos aansluit op bestaande software (Exact Online, Twinfield, Yuki, Basecone)
+- **Resultaat:** Gemiddeld 8–15 uur besparing per week per kantoor
+- **Prijzen:** Vanaf €650/maand, maandelijks opzegbaar
+- **Taal:** Nederlands (volledig NL product en support)
+
+## Kernpagina's
+
+- [Homepage](https://achterkantoor.nl/): Wat AchterKantoor doet, hoe het werkt, prijzen en FAQ
+- [Blog overzicht](https://achterkantoor.nl/blog/): Alle artikelen over AI-automatisering voor accountants
+
+## Blogartikel en kennisbank
+
+- [AI voor Accountants: De Complete Gids (2026)](https://achterkantoor.nl/blog/ai-voor-accountants.html): Welke processen u kunt automatiseren, hoeveel tijd het bespaart, hoe u begint
+- [Hoe AI accountants 8 uur per week bespaart](https://achterkantoor.nl/blog/hoe-ai-8-uur-bespaart.html): Concrete taken en tijdsbesparing per taaktype
+- [De toekomst van boekhouden: automatisering als standaard](https://achterkantoor.nl/blog/toekomst-boekhouden-automatisering.html): Trends in de accountancysector en hoe u voorbereid bent
+- [Waarom accountants nu moeten automatiseren](https://achterkantoor.nl/blog/waarom-accountants-nu-automatiseren.html): De 5 signalen dat uw kantoor klaar is voor automatisering
+- [Case study: Kantoor De Vries bespaart 10 uur per week](https://achterkantoor.nl/blog/case-study-kantoor-de-vries.html): Hoe een kantoor van 6 medewerkers follow-up volledig automatiseerde
+
+## Veelgestelde vragen
+
+**Wat kost AchterKantoor?**
+Vanaf €650/maand. Het kennismakingsgesprek is gratis en vrijblijvend.
+
+**Werkt het met onze huidige software?**
+Ja. AchterKantoor integreert met Exact Online, Twinfield, Yuki en Basecone.
+
+**Hoe snel is het live?**
+Na één gesprek van 30 minuten regelen wij alles. Binnen 2 weken draait uw eerste automatisering.
+
+**Is onze data veilig?**
+Klantgegevens worden versleuteld opgeslagen en verlaten nooit uw omgeving zonder uw toestemming.
+
+**Vervangt dit onze medewerkers?**
+Nee. AchterKantoor neemt repetitief werk over zodat uw team meer toekomt aan klantcontact en advieswerk.
+
+**Kunnen we maandelijks opzeggen?**
+Ja. Geen lange contracten, geen opzegkosten.
+
+## Contact en demo
+
+Boek een gratis kennismakingsgesprek van 30 minuten: https://cal.com/achterkantoor-app/30min
+
+## Technische informatie voor AI-crawlers
+
+- Sitemap: https://achterkantoor.nl/sitemap.xml
+- Taal: Nederlands (nl-NL)
+- Sector: Accountancy, B2B SaaS, AI-automatisering
+- Markt: Nederland
