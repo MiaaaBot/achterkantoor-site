@@ -643,7 +643,8 @@
             grid-template-columns: 1fr 1fr auto;
             gap: 12px;
         }
-        .signup-form input {
+        .signup-form input,
+        .signup-form textarea {
             width: 100%;
             border: 1px solid var(--border);
             border-radius: 12px;
@@ -652,7 +653,12 @@
             background: #fff;
             color: var(--text);
         }
-        .signup-form input:focus {
+        .signup-form textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+        .signup-form input:focus,
+        .signup-form textarea:focus {
             outline: 2px solid var(--accent-light);
             border-color: var(--accent);
         }
@@ -872,6 +878,23 @@
             }
             .sticky-cta {
                 display: block;
+            }
+            .signup-box {
+                padding: 22px 18px;
+                border-radius: 16px;
+            }
+            .signup-form {
+                max-width: 100%;
+            }
+            .signup-form-row {
+                grid-template-columns: 1fr;
+            }
+            .signup-form .btn {
+                width: 100%;
+                white-space: normal;
+            }
+            .form-note {
+                font-size: 0.88rem;
             }
         }
 
@@ -1259,7 +1282,7 @@
             <p class="lead">Beschrijf uw idee, vraag of knelpunt kort hieronder. Wij denken met u mee en sturen een concrete eerste richting terug, zonder vaag AI-verhaal.</p>
             <form class="signup-form" id="ideaBoxForm" novalidate>
                 <div style="display:grid; gap:12px;">
-                    <textarea name="idea" id="ideaText" placeholder="Bijvoorbeeld: we willen minder tijd kwijt zijn aan het najagen van documenten en het verwerken van informatie uit inkomende e-mails." rows="5" style="width:100%; padding:14px 16px; border:1px solid var(--border); border-radius:12px; font:inherit; resize:vertical; min-height:140px; background:#fff; color:var(--text);" required></textarea>
+                    <textarea name="idea" id="ideaText" placeholder="Bijvoorbeeld: we willen minder tijd kwijt zijn aan het najagen van documenten en het verwerken van informatie uit inkomende e-mails." rows="5" required></textarea>
                     <div class="signup-form-row">
                         <input type="text" name="company" id="ideaCompany" placeholder="Kantoornaam (optioneel)" autocomplete="organization">
                         <input type="text" name="contact" id="ideaContact" placeholder="Uw e-mailadres of telefoonnummer" autocomplete="email tel" required>
