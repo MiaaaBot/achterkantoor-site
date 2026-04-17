@@ -1251,20 +1251,23 @@
 -->
 
 
-<!-- Email capture -->
+<!-- Idea box -->
 <section>
     <div class="container">
         <div class="signup-box fade-in">
-            <h2>Wilt u eerst even meekijken?</h2>
-            <p class="lead">Laat uw naam en e-mailadres achter. Wij sturen alleen een korte, nette opvolging. Geen spam, geen lijstjes, geen gezeur.</p>
-            <form class="signup-form" id="signupForm" novalidate>
-                <div class="signup-form-row">
-                    <input type="text" name="name" id="signupName" placeholder="Uw naam" autocomplete="name" required>
-                    <input type="email" name="email" id="signupEmail" placeholder="Uw e-mailadres" autocomplete="email" required>
-                    <button type="submit" class="btn">Verstuur</button>
+            <h2>Heeft u een idee voor AI of automatisering, maar weet u niet goed hoe verder?</h2>
+            <p class="lead">Beschrijf uw idee, vraag of knelpunt kort hieronder. Wij denken met u mee en sturen een concrete eerste richting terug, zonder vaag AI-verhaal.</p>
+            <form class="signup-form" id="ideaBoxForm" novalidate>
+                <div style="display:grid; gap:12px;">
+                    <textarea name="idea" id="ideaText" placeholder="Bijvoorbeeld: we willen minder tijd kwijt zijn aan het najagen van documenten en het verwerken van informatie uit inkomende e-mails." rows="5" style="width:100%; padding:14px 16px; border:1px solid var(--border); border-radius:12px; font:inherit; resize:vertical; min-height:140px; background:#fff; color:var(--text);" required></textarea>
+                    <div class="signup-form-row">
+                        <input type="text" name="company" id="ideaCompany" placeholder="Kantoornaam (optioneel)" autocomplete="organization">
+                        <input type="text" name="contact" id="ideaContact" placeholder="Uw e-mailadres of telefoonnummer" autocomplete="email tel" required>
+                    </div>
+                    <button type="submit" class="btn">Ontvang een concrete eerste richting</button>
                 </div>
-                <div class="form-status" id="signupStatus" aria-live="polite"></div>
-                <p class="form-note">Door te verzenden gaat u akkoord dat we uw gegevens alleen gebruiken om contact op te nemen over AchterKantoor.</p>
+                <div class="form-status" id="ideaStatus" aria-live="polite"></div>
+                <p class="form-note">Liever direct sparren? <a href="https://cal.com/achterkantoor-app/30min" target="_blank" rel="noopener">Plan een korte kennismaking</a>. We gebruiken uw gegevens alleen om inhoudelijk op uw bericht te reageren.</p>
             </form>
         </div>
     </div>
@@ -1391,19 +1394,20 @@
         });
     });
 
-    // Email capture form
+    // Idea box form
     (function () {
-        var form = document.getElementById('signupForm');
-        var status = document.getElementById('signupStatus');
+        var form = document.getElementById('ideaBoxForm');
+        var status = document.getElementById('ideaStatus');
         if (!form || !status) return;
         form.addEventListener('submit', async function (e) {
             e.preventDefault();
             status.textContent = '';
             status.className = 'form-status';
-            var name = document.getElementById('signupName').value.trim();
-            var email = document.getElementById('signupEmail').value.trim();
-            if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                status.textContent = 'Vul alstublieft een naam en geldig e-mailadres in.';
+            var idea = document.getElementById('ideaText').value.trim();
+            var company = document.getElementById('ideaCompany').value.trim();
+            var contact = document.getElementById('ideaContact').value.trim();
+            if (!idea || !contact) {
+                status.textContent = 'Beschrijf kort uw idee en laat uw contactgegevens achter.';
                 status.classList.add('error');
                 return;
             }
@@ -1411,12 +1415,12 @@
                 var response = await fetch('/api/email-signup', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name: name, email: email, source: 'landing-page' })
+                    body: JSON.stringify({ mode: 'idea-box', inputType: 'text', idea: idea, company: company, contact: contact, source: 'homepage-idea-box' })
                 });
                 var data = await response.json().catch(function () { return {}; });
                 if (!response.ok) throw new Error(data.error || 'Opslaan mislukt.');
                 form.reset();
-                status.textContent = data.message || 'Dank u. We nemen snel contact op.';
+                status.textContent = data.message || 'Dank u. We komen hier persoonlijk op terug met een eerste richting.';
                 status.classList.add('success');
             } catch (err) {
                 status.textContent = err.message || 'Er ging iets mis. Probeer het nog eens.';
