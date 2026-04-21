@@ -682,6 +682,38 @@
             padding: 28px 0;
             border-top: 1px solid var(--border);
         }
+        .proof-band {
+            padding: 18px 22px;
+            margin: 28px auto 0;
+            max-width: 760px;
+            background: rgba(255,255,255,0.78);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+        }
+        .proof-band strong {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+        .proof-band p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+        .proof-band ul {
+            list-style: none;
+            display: grid;
+            gap: 8px;
+            text-align: left;
+            color: var(--text);
+            font-size: 0.92rem;
+        }
+        .proof-band li::before {
+            content: "✓  ";
+            color: var(--green);
+            font-weight: 700;
+        }
         .integrations-bar .int-label {
             font-size: 0.8rem;
             color: var(--muted);
@@ -957,6 +989,15 @@
             <a href="#hoe-het-werkt" class="btn-ghost">Bekijk hoe het werkt</a>
         </div>
         <span class="btn-sub">30 minuten, vrijblijvend. Wij luisteren, u beslist.</span>
+        <div class="proof-band fade-in">
+            <strong>Rust, controle en een haalbare eerste stap.</strong>
+            <p>Geen zwaar verandertraject, maar een praktische eerste automatisering die past bij uw huidige manier van werken.</p>
+            <ul>
+                <li>Geen technisch project voor uw team</li>
+                <li>Eerst een kleine pilot, daarna pas uitbreiden</li>
+                <li>Duidelijke afspraken over processen, teksten en goedkeuring</li>
+            </ul>
+        </div>
     </div>
 </header>
 
@@ -1274,48 +1315,42 @@
 -->
 
 
-<!-- Idea box -->
-<section>
+<!-- Gratis Automatiseringsscan -->
+<section id="contact">
     <div class="container">
         <div class="signup-box fade-in">
-            <h2>Heeft u een idee voor AI of automatisering, maar weet u niet goed hoe verder?</h2>
-            <p class="lead">Beschrijf uw idee, vraag of knelpunt kort hieronder. Wij denken met u mee en sturen een concrete eerste richting terug, zonder vaag AI-verhaal.</p>
+            <h2>Vraag uw Gratis Automatiseringsscan aan</h2>
+            <p class="lead">Beantwoord een paar korte vragen en wij laten zien waar in uw kantoor waarschijnlijk de eerste praktische automatiseringswinst zit.</p>
             <form class="signup-form" id="ideaBoxForm" novalidate>
                 <div style="display:grid; gap:12px;">
-                    <textarea name="idea" id="ideaText" placeholder="Bijvoorbeeld: we willen minder tijd kwijt zijn aan het najagen van documenten en het verwerken van informatie uit inkomende e-mails." rows="5" required></textarea>
+                    <textarea name="idea" id="ideaText" placeholder="Welk terugkerend proces kost nu de meeste tijd in uw kantoor? Bijvoorbeeld: documenten najagen, statusvragen beantwoorden of handmatige opvolging." rows="5" required></textarea>
                     <div class="signup-form-row">
-                        <input type="text" name="company" id="ideaCompany" placeholder="Kantoornaam (optioneel)" autocomplete="organization">
+                        <input type="text" name="company" id="ideaCompany" placeholder="Kantoornaam" autocomplete="organization" required>
                         <input type="text" name="contact" id="ideaContact" placeholder="Uw e-mailadres of telefoonnummer" autocomplete="email tel" required>
                     </div>
-                    <button type="submit" class="btn">Ontvang een concrete eerste richting</button>
+                    <button type="submit" class="btn">Laat de scan voor uw kantoor invullen</button>
                 </div>
                 <div class="form-status" id="ideaStatus" aria-live="polite"></div>
-                <p class="form-note">Liever direct sparren? <a href="https://cal.com/achterkantoor-app/30min" target="_blank" rel="noopener">Plan een korte kennismaking</a>. We gebruiken uw gegevens alleen om inhoudelijk op uw bericht te reageren.</p>
+                <p class="form-note">Gratis, compact en zonder technisch traject. Liever direct mailen? Stuur uw vraag naar <a href="mailto:info@achterkantoor.nl">info@achterkantoor.nl</a>.</p>
             </form>
         </div>
     </div>
 </section>
 
 <!-- CTA -->
-<section class="final-cta" id="contact">
+<section class="final-cta">
     <div class="container">
-        <h2 class="fade-in">Laten we kennismaken</h2>
-        <p class="fade-in">Plan een gesprek van 30 minuten. We brengen in kaart waar uw kantoor tijd verliest aan terugkerende backoffice-taken, en laten zien wat u als eerste slim kunt automatiseren. Geen verkooppraatje, gewoon een eerlijk en concreet gesprek.</p>
-        <button class="btn fade-in" data-cal-link="achterkantoor-app/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Plan een 30 min intake</button>
-        <!-- Cal element-click embed -->
-        <script type="text/javascript">
-        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-        Cal("init", "30min", {origin:"https://app.cal.com"});
-        Cal.ns["30min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-        </script>
-        <span class="btn-sub fade-in">Vrijblijvend. Geen verplichtingen. Wel direct zicht op uw grootste tijdlekken.</span>
-        <p class="trust-line fade-in">Gebouwd voor de Nederlandse accountancy</p>
+        <h2 class="fade-in">Eerst één proces slimmer maken werkt vaak beter dan alles tegelijk willen veranderen</h2>
+        <p class="fade-in">In een korte eerste scan laten we zien welk terugkerend proces in uw kantoor het meeste tijdverlies veroorzaakt, wat daar praktisch aan te verbeteren is, en wat een haalbare eerste stap zou zijn.</p>
+        <a href="#contact" class="btn fade-in">Laat de scan voor uw kantoor invullen</a>
+        <span class="btn-sub fade-in">Geen lang adviestraject, geen vage AI-demo, maar een praktische eerste inschatting.</span>
+        <p class="trust-line fade-in">Gebouwd voor Nederlandse administratie- en accountantskantoren</p>
     </div>
 </section>
 
 <!-- Sticky mobile CTA -->
 <div class="sticky-cta" id="stickyCta">
-    <a href="https://cal.com/achterkantoor-app/30min" class="btn" target="_blank" rel="noopener">Plan een gesprek</a>
+    <a href="#contact" class="btn">Vraag de gratis scan aan</a>
 </div>
 
 <footer>
@@ -1435,10 +1470,14 @@
                 return;
             }
             try {
+                var params = new URLSearchParams(window.location.search);
+                var source = params.get('utm_source') || params.get('source') || 'homepage-idea-box';
+                var medium = params.get('utm_medium') || '';
+                var campaign = params.get('utm_campaign') || '';
                 var response = await fetch('/api/email-signup', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ mode: 'idea-box', inputType: 'text', idea: idea, company: company, contact: contact, source: 'homepage-idea-box' })
+                    body: JSON.stringify({ mode: 'idea-box', inputType: 'text', idea: idea, company: company, contact: contact, source: source, medium: medium, campaign: campaign })
                 });
                 var data = await response.json().catch(function () { return {}; });
                 if (!response.ok) throw new Error(data.error || 'Opslaan mislukt.');

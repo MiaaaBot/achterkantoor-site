@@ -66,6 +66,8 @@ async function saveIdeaToNotion(payload) {
     payload.contact ? `Contact: ${payload.contact}` : null,
     payload.idea ? `Idee / knelpunt:\n${payload.idea}` : null,
     payload.source ? `Bron: ${payload.source}` : null,
+    payload.medium ? `Medium: ${payload.medium}` : null,
+    payload.campaign ? `Campagne: ${payload.campaign}` : null,
   ].filter(Boolean).join('\n\n');
 
   const notionPayload = {
@@ -121,12 +123,14 @@ module.exports = async function handler(req, res) {
     const contact = truncate(body.contact, 160);
     const inputType = truncate(body.inputType || 'text', 20);
     const source = truncate(body.source || 'website-idee-box', 80);
+    const medium = truncate(body.medium || '', 40);
+    const campaign = truncate(body.campaign || '', 80);
 
     if (!idea || !contact) {
       return json(res, 400, { error: 'Vul uw idee en contactgegevens in.' });
     }
 
-    const result = await saveIdeaToNotion({ idea, company, contact, inputType, source }).catch(e => ({ ok: false, reason: e.message }));
+    const result = await saveIdeaToNotion({ idea, company, contact, inputType, source, medium, campaign }).catch(e => ({ ok: false, reason: e.message }));
     if (!result.ok) {
       console.error('Notion idea-box save failed:', result);
     }
