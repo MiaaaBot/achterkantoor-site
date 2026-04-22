@@ -643,6 +643,31 @@
             grid-template-columns: 1fr 1fr auto;
             gap: 12px;
         }
+        .scan-reassurance {
+            background: var(--accent-subtle);
+            border: 1px solid var(--accent-light);
+            border-radius: 14px;
+            padding: 20px;
+            margin: 18px 0 20px;
+        }
+        .scan-reassurance h3 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            line-height: 1.3;
+        }
+        .scan-reassurance p {
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+        .scan-reassurance ul {
+            margin: 0 0 12px 18px;
+            display: grid;
+            gap: 8px;
+        }
+        .scan-reassurance-note {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
         .signup-form input,
         .signup-form textarea {
             width: 100%;
@@ -1240,28 +1265,28 @@
     <div class="container">
         <h2 class="fade-in">Veelgestelde vragen</h2>
         <div class="faq-item fade-in">
-            <h3>Moet iemand op ons kantoor iets van techniek weten?</h3>
-            <p>Nee, helemaal niet. Wij regelen alles. U vertelt wat u tijd kost, wij bouwen het en zetten het klaar. Uw medewerkers merken alleen dat er minder handwerk is.</p>
+            <h3>Wat is het verschil tussen de Kantoor Efficiëntie Check en de Gratis Automatiseringsscan?</h3>
+            <p>De Kantoor Efficiëntie Check is een snelle eerste inschatting van waar tijdverlies zit in jullie kantoorproces. De Gratis Automatiseringsscan gaat een stap verder: we kijken samen naar één concreet proces en laten zien waar automatisering direct winst kan opleveren.</p>
         </div>
         <div class="faq-item fade-in">
-            <h3>Wat kost het?</h3>
-            <p>Dat hangt af van de omvang van uw kantoor en welke taken u wilt automatiseren. Het kennismakingsgesprek is gratis en vrijblijvend. U krijgt een helder voorstel, geen verrassingen.</p>
+            <h3>Voor welk soort accountantskantoor is dit bedoeld?</h3>
+            <p>Voor administratiekantoren en accountantskantoren die merken dat te veel tijd blijft hangen in terugkerend handmatig werk, losse communicatie en interne overdrachten. Vooral geschikt voor kleinere teams die sneller willen werken zonder direct nieuwe mensen aan te nemen.</p>
         </div>
         <div class="faq-item fade-in">
-            <h3>Vervangt dit onze medewerkers?</h3>
-            <p>Nee. AchterKantoor vervangt niemand. Het neemt het repetitieve werk over, zodat uw team meer toekomt aan het werk dat er echt toe doet: klantcontact en advies.</p>
+            <h3>Moeten we al met bepaalde software werken?</h3>
+            <p>Nee. Het is juist bruikbaar als jullie al tools zoals Exact, Twinfield, Yuki, e-mail en spreadsheets gebruiken maar merken dat het proces eromheen nog veel handwerk vraagt. We kijken naar de werkwijze, niet alleen naar de software.</p>
+        </div>
+        <div class="faq-item fade-in">
+            <h3>Hoeveel tijd kost het voor ons?</h3>
+            <p>De eerste aanvraag kost maar een paar minuten. Voor de Gratis Automatiseringsscan hebben we daarna meestal alleen een korte toelichting nodig op jullie huidige proces, zodat we gericht kunnen aangeven waar de eerste praktische winst zit.</p>
+        </div>
+        <div class="faq-item fade-in">
+            <h3>Krijgen we meteen een groot traject aangeboden?</h3>
+            <p>Nee. De insteek is juist klein en praktisch. Eerst helder maken waar het meeste tijdverlies zit, daarna bepalen of een beperkte pilot zinvol is. Geen zwaar adviestraject als dat nog niet nodig is.</p>
         </div>
         <div class="faq-item fade-in">
             <h3>Houden wij controle over wat er naar klanten gaat?</h3>
             <p>Altijd. U keurt alles goed voordat het live gaat. U bepaalt de teksten, de tone-of-voice en de regels. Er wordt niets verstuurd zonder uw toestemming.</p>
-        </div>
-        <div class="faq-item fade-in">
-            <h3>Hoe lang duurt het voordat het draait?</h3>
-            <p>Een gesprek van 30 minuten. Daarna regelen wij alles. Binnen 2 weken draait uw eerste automatisering.</p>
-        </div>
-        <div class="faq-item fade-in">
-            <h3>Werkt het met onze huidige software?</h3>
-            <p>AchterKantoor kan worden gekoppeld aan gangbare pakketten zoals Exact Online, Twinfield, Yuki en Basecone. Tijdens het gesprek bespreken we uw specifieke situatie.</p>
         </div>
         <div class="faq-item fade-in">
             <h3>Is onze klantdata veilig?</h3>
@@ -1320,6 +1345,16 @@
         <div class="signup-box fade-in">
             <h2>Vraag uw Gratis Automatiseringsscan aan</h2>
             <p class="lead">Beantwoord een paar korte vragen en wij laten zien waar in uw kantoor waarschijnlijk de eerste praktische automatiseringswinst zit.</p>
+            <div class="scan-reassurance fade-in">
+                <h3>Een praktische eerste stap, geen zwaar adviestraject</h3>
+                <p>De Gratis Automatiseringsscan is bedoeld als een korte, concrete eerste verkenning. Geen langdurige intake, geen ingewikkeld consultancyproces, maar een nuchtere inschatting van waar in uw kantoor waarschijnlijk de meeste automatiseringswinst zit.</p>
+                <ul>
+                    <li>Gratis, praktisch en gericht op één logische eerste kans</li>
+                    <li>Geen zwaar traject, maar een compacte eerste inschatting</li>
+                    <li>U krijgt een menselijk en bruikbaar advies, geen algemene AI-praat</li>
+                </ul>
+                <p class="scan-reassurance-note">U hoeft geen uitgebreid project voor te bereiden. Een korte uitleg van waar het nu vastloopt is genoeg om te starten.</p>
+            </div>
             <form class="signup-form" id="ideaBoxForm" novalidate>
                 <div style="display:grid; gap:12px;">
                     <textarea name="idea" id="ideaText" placeholder="Welk terugkerend proces kost nu de meeste tijd in uw kantoor? Bijvoorbeeld: documenten najagen, statusvragen beantwoorden of handmatige opvolging." rows="5" required></textarea>
