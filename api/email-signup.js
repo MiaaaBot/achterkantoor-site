@@ -117,25 +117,34 @@ module.exports = async function handler(req, res) {
 
   const mode = safeTrim(body.mode || 'signup');
 
-  if (mode === 'idea-box') {
+  if (mode === 'idea-box' || mode === 'scan') {
     const idea = truncate(body.idea, 4000);
     const company = truncate(body.company, 120);
     const contact = truncate(body.contact, 160);
     const inputType = truncate(body.inputType || 'text', 20);
-    const source = truncate(body.source || 'website-idee-box', 80);
+    const source = truncate(body.source || (mode === 'scan' ? 'website-scan' : 'website-idee-box'), 80);
     const medium = truncate(body.medium || '', 40);
     const campaign = truncate(body.campaign || '', 80);
 
-    if (!idea || !contact) {
-      return json(res, 400, { error: 'Vul uw idee en contactgegevens in.' });
+    if (!contact || (mode === 'idea-box' && !idea) || (mode === 'scan' && !company)) {
+      return json(res, 400, { error: mode === 'scan' ? 'Vul uw kantoornaam en contactgegevens in.' : 'Vul uw idee en contactgegevens in.' });
     }
 
-    const result = await saveIdeaToNotion({ idea, company, contact, inputType, source, medium, campaign }).catch(e => ({ ok: false, reason: e.message }));
+    const normalizedIdea = mode === 'scan'
+      ? (idea || 'Aanvraag Gratis Automatiseringsscan zonder extra toelichting.')
+      : idea;
+
+    const result = await saveIdeaToNotion({ idea: normalizedIdea, company, contact, inputType, source, medium, campaign }).catch(e => ({ ok: false, reason: e.message }));
     if (!result.ok) {
       console.error('Notion idea-box save failed:', result);
     }
 
-    return json(res, 200, { ok: true, message: 'Dank u. We komen hier persoonlijk op terug met een eerste richting.' });
+    return json(res, 200, {
+      ok: true,
+      message: mode === 'scan'
+        ? 'Dank u. We nemen binnen één werkdag contact met u op voor de Gratis Automatiseringsscan.'
+        : 'Dank u. We komen hier persoonlijk op terug met een eerste richting.'
+    });
   }
 
   const name = safeTrim(body.name);
