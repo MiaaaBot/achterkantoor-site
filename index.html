@@ -315,9 +315,9 @@
                 <p style="margin-top:14px; color:var(--muted);">Loopt uw team vast op statusvragen, ontbrekende stukken en steeds hetzelfde opvolgwerk? Wij helpen u eerst één concreet proces slimmer inrichten, zodat er snel meer rust en capaciteit ontstaat, zonder zwaar traject.</p>
                 <div class="cta-group">
                     <a href="#contact" class="btn">Laat de scan voor uw kantoor invullen</a>
-                    <a href="#hoe-het-werkt" class="btn-ghost">Bekijk hoe het werkt</a>
+                    <a href="/oplossingen/" class="btn-ghost">Bekijk vaste oplossingen</a>
                 </div>
-                <p style="margin-top:12px; font-size:0.95rem; color:var(--muted);">Of mail direct naar <a href="mailto:info@achterkantoor.nl">info@achterkantoor.nl</a></p>
+                <p style="margin-top:12px; font-size:0.95rem; color:var(--muted);">Geen lang adviestraject, geen vage AI-demo. Liever eerst een compacte oplossing bekijken? <a href="/oplossingen/">Bekijk de vaste oplossingen</a> of mail naar <a href="mailto:info@achterkantoor.nl">info@achterkantoor.nl</a></p>
             </div>
             <div class="hero-visual" style="position:relative;">
                 <span class="inbox-demo-pill">AI-concept — u klikt op verstuur</span>
@@ -329,6 +329,10 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                     <span>17:02 — inbox leeg</span>
                 </span>
+                <div class="hero-mobile-proof" aria-hidden="true">
+                    <strong>Minder najagen, meer rust.</strong>
+                    <span>Praktische eerste stap, zonder zwaar traject.</span>
+                </div>
                 <div class="inbox-demo glow-frame" aria-label="Voorbeeld van automatische opvolging in uw inbox" role="img">
                     <div class="inbox-head" aria-hidden="true">
                         <span class="inbox-dot"></span><span class="inbox-dot"></span><span class="inbox-dot"></span>
@@ -418,6 +422,7 @@
   var stream = document.getElementById('activityStream');
   if (!toast || !stream) return;
   var closeBtn = toast.querySelector('.activity-toast-close');
+  if (window.matchMedia && window.matchMedia('(max-width: 639px)').matches) { toast.remove(); return; }
   if (sessionStorage.getItem('ak-toast-dismissed') === '1') { toast.remove(); return; }
   var items = [
     { k: 'Kantoor in Utrecht',   a: '— reminder verstuurd naar 3 klanten',   t: 'zojuist' },
@@ -869,27 +874,100 @@
         <div class="signup-box fade-in">
             <span class="eyebrow">Gratis automatiseringsscan</span>
             <h2 style="margin:10px 0 10px;">Gratis Automatiseringsscan voor administratie- en accountantskantoren</h2>
-            <p class="lead" style="margin-bottom:12px;">In een korte eerste scan laten we zien welk terugkerend proces in uw kantoor het meeste tijdverlies veroorzaakt, wat daar praktisch aan te verbeteren is, en wat een haalbare eerste stap zou zijn.</p>
+            <p class="lead" style="margin-bottom:12px;">Voor veel kantoren zit de winst niet in een groot softwareproject, maar in één proces dat elke week onnodig tijd kost. In een korte eerste scan laten we zien welk terugkerend proces in uw kantoor het meeste tijdverlies veroorzaakt, wat daar praktisch aan te verbeteren is, en wat een haalbare eerste stap zou zijn.</p>
+            <p style="margin:0 0 12px; color:var(--muted);">Voor administratie- en accountantskantoren telt niet een mooie demo, maar minder handmatig gedoe in de praktijk. Daarom starten we met één concreet knelpunt en een haalbare eerste verbeterslag.</p>
             <p style="margin:0 0 18px; color:var(--muted);">Geen lang adviestraject, geen vage AI-demo, maar een praktische eerste inschatting.</p>
-            <ul style="margin:0 0 22px; padding-left:20px; color:var(--text); display:grid; gap:8px;">
+            <div style="margin:0 0 18px; display:grid; gap:10px; padding:18px 20px; background:#fff; border:1px solid var(--border); border-radius:14px;">
+                <p style="margin:0; color:var(--text); font-weight:600;">Zo werkt de Gratis Automatiseringsscan</p>
+                <ol style="margin:0; padding-left:20px; color:var(--text); display:grid; gap:8px;">
+                    <li>U deelt kort waar uw kantoor nu op vastloopt.</li>
+                    <li>Wij beoordelen waar de eerste automatiseringswinst waarschijnlijk zit.</li>
+                    <li>U ontvangt een compacte terugkoppeling met een logische volgende stap.</li>
+                </ol>
+            </div>
+            <ul style="margin:0 0 18px; padding-left:20px; color:var(--text); display:grid; gap:8px;">
                 <li>een snelle inschatting van waar tijd en rust weglekken</li>
                 <li>één concreet proces om als eerste slimmer in te richten</li>
                 <li>een praktische aanbeveling die past bij een klein kantoor of team</li>
                 <li>helder onderscheid tussen wat direct kan en wat later pas zin heeft</li>
             </ul>
+            <div style="margin:0 0 18px; display:grid; gap:8px;">
+                <p style="margin:0; color:var(--text); font-weight:600;">Begin met een praktische pilot, niet met een groot traject.</p>
+                <p style="margin:0; color:var(--muted);">AchterKantoor is bedoeld als een compacte eerste stap voor administratie- en accountantskantoren die terugkerend handmatig werk slimmer willen organiseren. We starten met één duidelijk proces waarin tijd weglekt, zodat snel zichtbaar wordt of een beperkte vervolgstap zinvol is.</p>
+            </div>
+            <ul style="margin:0 0 18px; padding-left:20px; color:var(--text); display:grid; gap:8px;">
+                <li>gericht op één terugkerend proces of knelpunt</li>
+                <li>bedoeld als eerste praktische stap, niet als volledige organisatieverandering</li>
+                <li>compact in opzet, zodat u snel kunt beoordelen of vervolg zinvol is</li>
+            </ul>
+            <div style="margin:0 0 18px; display:grid; gap:10px;">
+                <p style="margin:0; color:var(--text); font-weight:600;">Processen die vaak goed passen in een eerste pilot</p>
+                <ul style="margin:0; padding-left:20px; color:var(--text); display:grid; gap:8px;">
+                    <li>opvolging van ontbrekende klantdocumenten</li>
+                    <li>terugkerende klantvragen over status of deadlines</li>
+                    <li>interne overdracht tussen administratie, samenstel en klantcontact</li>
+                </ul>
+            </div>
+            <div style="margin:0 0 18px; padding:18px 20px; background:#fff; border:1px solid var(--border); border-radius:14px; display:grid; gap:10px;">
+                <p style="margin:0; color:var(--text); font-weight:600;">Herkenbare voorbeelden van terugkerend werk</p>
+                <ul style="margin:0; padding-left:20px; color:var(--text); display:grid; gap:8px;">
+                    <li>Bonnen, bankstukken of loonmutaties blijven ontbreken en moeten steeds opnieuw worden nagejaagd.</li>
+                    <li>Klanten stellen dezelfde statusvragen, waardoor het team telkens uit het inhoudelijke werk wordt gehaald.</li>
+                    <li>Werk blijft hangen tussen collega's omdat overdrachten niet compleet zijn of informatie verspreid staat.</li>
+                </ul>
+                <p style="margin:0; color:var(--muted);">Dit zijn vaak de processen waar een eerste scan snel laat zien waar tijd weglekt en waar een kleine pilot logisch kan starten.</p>
+            </div>
+            <p style="margin:0 0 18px; color:var(--text); font-weight:600;">Klein beginnen is bewust. Eerst één proces slimmer maken levert vaak meer op dan meteen breed willen veranderen.</p>
             <form class="signup-form" id="ideaBoxForm" novalidate>
-                <div style="display:grid; gap:12px;">
+                <div class="scan-form-fields" id="ideaFormFields" style="display:grid; gap:12px;">
                     <textarea name="idea" id="ideaText" placeholder="Welk terugkerend proces kost nu de meeste tijd? (optioneel)" rows="4"></textarea>
                     <div class="signup-form-row">
                         <input type="text" name="company" id="ideaCompany" placeholder="Kantoornaam" autocomplete="organization" required>
                         <input type="text" name="contact" id="ideaContact" placeholder="E-mail of telefoon" autocomplete="email tel" required>
                     </div>
-                    <button type="submit" class="btn">Vraag uw Gratis Automatiseringsscan aan</button>
+                    <button type="submit" class="btn">Laat de scan voor uw kantoor invullen</button>
                 </div>
-                <p class="form-note" style="margin-top:12px; margin-bottom:10px;">Binnen één werkdag een persoonlijke reactie. Geen verkoopdruk, alleen een concrete eerste inschatting. U hoeft nog niets voor te bereiden.</p>
+                <div class="scan-confirmation" id="ideaConfirmation" hidden>
+                    <h3 style="margin:0 0 8px;">Aanvraag ontvangen, we gaan uw Automatiseringsscan voorbereiden</h3>
+                    <p style="margin:0 0 12px; color:var(--muted);">Bedankt. We bekijken uw aanvraag handmatig en sturen meestal binnen 1 werkdag een eerste terugkoppeling met waar de grootste automatiseringswinst waarschijnlijk zit.</p>
+                    <ul style="margin:0 0 14px; padding-left:20px; color:var(--text); display:grid; gap:8px;">
+                        <li>We lezen uw aanvraag handmatig, geen automatische standaardanalyse</li>
+                        <li>We kijken waar in uw kantoor het meeste herhaalwerk of opvolgwerk lijkt te zitten</li>
+                        <li>U ontvangt per mail een compacte eerste inschatting en een logische volgende stap</li>
+                    </ul>
+                    <p style="margin:0 0 10px; color:var(--muted);">Dit is geen uitgebreid adviesrapport en geen zwaar traject. Het doel van deze eerste scan is om snel helder te maken waar een praktische eerste winst zit.</p>
+                    <p style="margin:0; color:var(--text); font-weight:600;">Klein beginnen werkt vaak beter dan meteen breed willen automatiseren.</p>
+                </div>
+                <p class="form-note" style="margin-top:12px; margin-bottom:10px;">Binnen één werkdag een persoonlijke reactie. Gratis, compact en zonder technisch traject. U hoeft nog niets voor te bereiden.</p>
                 <div class="form-status" id="ideaStatus" aria-live="polite"></div>
                 <p class="form-note">Of mail direct naar <a href="mailto:info@achterkantoor.nl">info@achterkantoor.nl</a>.</p>
             </form>
+
+            <div style="margin-top:28px; border-top:1px solid var(--border); padding-top:24px;">
+                <h3 style="margin:0 0 14px;">Veelgestelde vragen</h3>
+                <div style="display:grid; gap:14px; text-align:left;">
+                    <div>
+                        <strong>Wat is het verschil tussen de Kantoor Efficiëntie Check en de Gratis Automatiseringsscan?</strong>
+                        <p style="margin:6px 0 0; color:var(--muted);">De Kantoor Efficiëntie Check is een snelle eerste inschatting van waar tijdverlies zit in jullie kantoorproces. De Gratis Automatiseringsscan gaat een stap verder: we kijken samen naar één concreet proces en laten zien waar automatisering direct winst kan opleveren.</p>
+                    </div>
+                    <div>
+                        <strong>Voor welk soort accountantskantoor is dit bedoeld?</strong>
+                        <p style="margin:6px 0 0; color:var(--muted);">Voor administratiekantoren en accountantskantoren die merken dat te veel tijd blijft hangen in terugkerend handmatig werk, losse communicatie en interne overdrachten. Vooral geschikt voor kleinere teams die sneller willen werken zonder direct nieuwe mensen aan te nemen.</p>
+                    </div>
+                    <div>
+                        <strong>Moeten we al met bepaalde software werken?</strong>
+                        <p style="margin:6px 0 0; color:var(--muted);">Nee. Het is juist bruikbaar als jullie al tools zoals Exact, Twinfield, Yuki, e-mail en spreadsheets gebruiken maar merken dat het proces eromheen nog veel handwerk vraagt. We kijken naar de werkwijze, niet alleen naar de software.</p>
+                    </div>
+                    <div>
+                        <strong>Hoeveel tijd kost het voor ons?</strong>
+                        <p style="margin:6px 0 0; color:var(--muted);">De eerste aanvraag kost maar een paar minuten. Voor de Gratis Automatiseringsscan hebben we daarna meestal alleen een korte toelichting nodig op jullie huidige proces, zodat we gericht kunnen aangeven waar de eerste praktische winst zit.</p>
+                    </div>
+                    <div>
+                        <strong>Krijgen we meteen een groot traject aangeboden?</strong>
+                        <p style="margin:6px 0 0; color:var(--muted);">Nee. De insteek is juist klein en praktisch. Eerst helder maken waar het meeste tijdverlies zit, daarna bepalen of een beperkte pilot zinvol is. Geen zwaar adviestraject als dat nog niet nodig is.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -1002,6 +1080,8 @@
     (function () {
         var form = document.getElementById('ideaBoxForm');
         var status = document.getElementById('ideaStatus');
+        var confirmation = document.getElementById('ideaConfirmation');
+        var formFields = document.getElementById('ideaFormFields');
         if (!form || !status) return;
         form.addEventListener('submit', async function (e) {
             e.preventDefault();
@@ -1029,7 +1109,9 @@
                 var data = await response.json().catch(function () { return {}; });
                 if (!response.ok) throw new Error(data.error || 'Opslaan mislukt.');
                 form.reset();
-                status.textContent = data.message || 'Dank u. We nemen binnen één werkdag contact met u op.';
+                if (formFields) formFields.hidden = true;
+                if (confirmation) confirmation.hidden = false;
+                status.textContent = 'Uw aanvraag is goed binnengekomen.';
                 status.classList.add('success');
             } catch (err) {
                 status.textContent = err.message || 'Er ging iets mis. Probeer het nog eens.';
@@ -1107,91 +1189,3 @@ WHAT WAS CUT AND WHY
 
 </body>
 </html>
-
-<script>
-const form = document.getElementById('capture-form');
-if (form) {
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(form).entries());
-    alert('Bedankt, we houden je op de hoogte.');
-  });
-}
-</script>
-
-<script>
-/* Neural-network background — subtle moving nodes + connections, accent blue */
-(function () {
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const c = document.getElementById('neural-bg');
-  if (!c || !c.getContext) return;
-  const ctx = c.getContext('2d');
-  const DPR = Math.min(window.devicePixelRatio || 1, 2);
-  const COLOR = '37, 99, 235';
-  let W, H, nodes, raf, last = 0;
-  const count = () => Math.min(70, Math.max(30, Math.round(innerWidth * innerHeight / 22000)));
-  const linkDist = () => Math.min(190, Math.max(120, innerWidth / 8));
-
-  function resize() {
-    W = c.width = innerWidth * DPR;
-    H = c.height = innerHeight * DPR;
-    c.style.width = innerWidth + 'px';
-    c.style.height = innerHeight + 'px';
-  }
-  function init() {
-    resize();
-    const N = count();
-    nodes = Array.from({ length: N }, () => ({
-      x: Math.random() * W,
-      y: Math.random() * H,
-      vx: (Math.random() - 0.5) * 0.45 * DPR,
-      vy: (Math.random() - 0.5) * 0.45 * DPR,
-    }));
-  }
-  function step(t) {
-    if (t - last < 33) { raf = requestAnimationFrame(step); return; }
-    last = t;
-    ctx.clearRect(0, 0, W, H);
-    for (const n of nodes) {
-      n.x += n.vx; n.y += n.vy;
-      if (n.x < 0 || n.x > W) n.vx *= -1;
-      if (n.y < 0 || n.y > H) n.vy *= -1;
-    }
-    const LD = linkDist() * DPR;
-    const LD2 = LD * LD;
-    ctx.lineWidth = DPR;
-    for (let i = 0; i < nodes.length; i++) {
-      for (let j = i + 1; j < nodes.length; j++) {
-        const a = nodes[i], b = nodes[j];
-        const dx = a.x - b.x, dy = a.y - b.y;
-        const d2 = dx * dx + dy * dy;
-        if (d2 < LD2) {
-          const alpha = (1 - d2 / LD2) * 0.55;
-          ctx.strokeStyle = `rgba(${COLOR},${alpha.toFixed(3)})`;
-          ctx.beginPath();
-          ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
-          ctx.stroke();
-        }
-      }
-    }
-    ctx.fillStyle = `rgba(${COLOR},0.75)`;
-    for (const n of nodes) {
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, 1.5 * DPR, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    raf = requestAnimationFrame(step);
-  }
-  let rTimer;
-  window.addEventListener('resize', () => {
-    clearTimeout(rTimer);
-    rTimer = setTimeout(() => { init(); }, 120);
-  });
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) { cancelAnimationFrame(raf); }
-    else { last = 0; raf = requestAnimationFrame(step); }
-  });
-  init();
-  raf = requestAnimationFrame(step);
-})();
-</script>

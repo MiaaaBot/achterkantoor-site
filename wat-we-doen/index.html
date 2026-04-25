@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wat we doen — AchterKantoor</title>
+    <meta name="description" content="Welk terugkerend werk AchterKantoor automatiseert voor Nederlandse accountantskantoren: herinneringen, documentopvragingen, statusvragen en standaardcommunicatie — in uw tone-of-voice.">
+    <meta property="og:title" content="Wat we doen — AchterKantoor">
+    <meta property="og:description" content="Bekijk concreet wat AchterKantoor voor uw kantoor doet: herinneringen, documentopvolging, statusvragen en standaardmail in uw eigen stijl.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://achterkantoor.nl/wat-we-doen/">
+    <meta property="og:image" content="https://achterkantoor.nl/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://achterkantoor.nl/wat-we-doen/">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: www.google-analytics.com; connect-src 'self' achterkantoor.goatcounter.com www.google-analytics.com region1.google-analytics.com;">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/assets/site.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J77FF15YMK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-J77FF15YMK');
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Voor welk soort accountantskantoor is dit bedoeld?", "acceptedAnswer": { "@type": "Answer", "text": "Voor administratiekantoren en accountantskantoren die merken dat te veel tijd blijft hangen in terugkerend handmatig werk, losse communicatie en interne overdrachten." } },
+        { "@type": "Question", "name": "Moeten we al met bepaalde software werken?", "acceptedAnswer": { "@type": "Answer", "text": "Nee. Het is juist bruikbaar als jullie al tools zoals Exact, Twinfield, Yuki, e-mail en spreadsheets gebruiken maar merken dat het proces eromheen nog veel handwerk vraagt." } },
+        { "@type": "Question", "name": "Houden wij controle over wat er naar klanten gaat?", "acceptedAnswer": { "@type": "Answer", "text": "Altijd. U keurt alles goed voordat het live gaat. U bepaalt de teksten, de tone-of-voice en de regels." } },
+        { "@type": "Question", "name": "Is onze klantdata veilig?", "acceptedAnswer": { "@type": "Answer", "text": "Uw data blijft van u. Privacy-first, altijd. Klantgegevens worden versleuteld opgeslagen en verlaten nooit uw omgeving zonder uw toestemming." } },
+        { "@type": "Question", "name": "Wat als het niet bevalt?", "acceptedAnswer": { "@type": "Answer", "text": "Dan stopt u. Geen lange contracten, geen opzegkosten. Maandelijks opzegbaar, zonder gedoe." } }
+      ]
+    }
+    </script>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="/" class="logo">Achter<span>Kantoor</span></a>
+        <div class="nav-links">
+            <a href="/wat-we-doen/" class="cta-link" aria-current="page">Wat we doen</a>
+            <a href="/oplossingen/" class="cta-link">Vaste oplossingen</a>
+            <a href="/blog/" class="cta-link">Blog</a>
+            <a href="/#contact" class="cta-link">Plan een gesprek</a>
+        </div>
+        <button class="nav-toggle" type="button" aria-label="Open navigatie">Menu</button>
+    </div>
+</nav>
+
+<!-- Page header -->
+<header class="hero" style="padding-top: 48px; padding-bottom: 24px;">
+    <div class="container" style="text-align:center;">
+        <p style="font-size:0.9rem; color:var(--muted); margin-bottom:12px;">
+            <a href="/" style="color:var(--muted); text-decoration:none;">Home</a> → Wat we doen
+        </p>
+        <span class="eyebrow fade-in">Wat we doen</span>
+        <h1 style="font-size: clamp(2.2rem, 5vw, 3.4rem); margin: 12px 0 18px;">Wat er van uw bord gaat.</h1>
+        <p class="lead fade-in" style="max-width:720px; margin:0 auto;">Vier soorten werk waar uw team geen tijd meer aan kwijt hoeft te zijn. U bepaalt de regels, wij zorgen dat het elke keer klopt.</p>
+    </div>
+</header>
+
+<!-- Flip cards -->
+<section class="alt-gradient tint-sky">
+    <style>
+        .flip-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+        .flip-card { perspective: 1200px; min-height: 210px; cursor: pointer; }
+        .flip-inner { position: relative; width: 100%; height: 100%; min-height: 210px; transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1); transform-style: preserve-3d; }
+        .flip-card.flipped .flip-inner,
+        .flip-card:hover .flip-inner { transform: rotateY(180deg); }
+        .flip-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+        .flip-face.back { transform: rotateY(180deg); background: var(--accent-subtle); border-color: var(--accent-light); font-size: 0.88rem; }
+        .flip-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--accent-subtle); color: var(--accent); display: flex; align-items: center; justify-content: center; }
+        .flip-icon svg { width: 22px; height: 22px; }
+        .flip-face h3 { font-size: 1.05rem; margin: 0; }
+        .flip-tap { margin-top: auto; font-size: 0.8rem; color: var(--accent); font-weight: 600; }
+        .flip-email { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.8rem; background: #fff; border-radius: 8px; padding: 8px 10px; color: var(--text); border: 1px solid var(--border); }
+        .flip-email b { color: var(--accent); font-weight: 600; }
+        .flip-face.back p { margin: 0; color: var(--muted); font-size: 0.85rem; }
+        .flip-grid > .flip-card:nth-child(2) .flip-face.front { border-left: 3px solid var(--accent-sage); }
+        .flip-grid > .flip-card:nth-child(3) .flip-face.front { border-left: 3px solid var(--accent-sand); }
+        .flip-grid > .flip-card:nth-child(4) .flip-face.front { border-left: 3px solid var(--accent-lavender); }
+        .flip-grid > .flip-card:nth-child(2) .flip-icon { color: var(--accent-sage); background: rgba(22, 163, 74, 0.10); }
+        .flip-grid > .flip-card:nth-child(3) .flip-icon { color: var(--accent-sand); background: rgba(180, 83, 9, 0.10); }
+        .flip-grid > .flip-card:nth-child(4) .flip-icon { color: var(--accent-lavender); background: rgba(99, 102, 241, 0.10); }
+        @media (prefers-reduced-motion: reduce) { .flip-inner { transition: none; } }
+    </style>
+    <div class="container">
+        <p class="lead fade-in" style="text-align:center; margin-bottom: 32px;">Hover of tik — zie wat AchterKantoor zelf verstuurt.</p>
+        <div class="flip-grid">
+            <div class="flip-card fade-in" tabindex="0" role="button" aria-label="Herinneringen najagen — voorbeeld">
+                <div class="flip-inner">
+                    <div class="flip-face front">
+                        <span class="flip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>
+                        <h3>Herinneringen najagen</h3>
+                        <p style="color: var(--muted); font-size: 0.9rem; margin: 0;">Klanten krijgen automatisch een nette reminder.</p>
+                        <span class="flip-tap">↻ Bekijk voorbeeld</span>
+                    </div>
+                    <div class="flip-face back">
+                        <div class="flip-email"><b>Aan:</b> boekhouding@jansen-bv.nl<br><b>Onderwerp:</b> Kwartaalcijfers Q1 — nog één document<br><br>Beste dhr. Jansen,<br>we missen nog de bankafschriften van februari. Kunt u die vandaag aanleveren? Alvast dank.</div>
+                        <p>Verstuurd vanuit AchterKantoor in uw tone-of-voice.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card fade-in" tabindex="0" role="button" aria-label="Documenten opvragen — voorbeeld">
+                <div class="flip-inner">
+                    <div class="flip-face front">
+                        <span class="flip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg></span>
+                        <h3>Documenten opvragen</h3>
+                        <p style="color: var(--muted); font-size: 0.9rem; margin: 0;">Duidelijk overzicht van wat ontbreekt. Follow-up volgt.</p>
+                        <span class="flip-tap">↻ Bekijk voorbeeld</span>
+                    </div>
+                    <div class="flip-face back">
+                        <div class="flip-email"><b>Voor uw jaarrekening missen we:</b><br>✓ Bankafschriften Q4 — ontvangen<br>◯ Auto: kilometeradministratie<br>◯ Factuur inkoop nr. 2025-118<br><br>Upload hier: <b>portal.achterkantoor.nl/j-bv</b></div>
+                        <p>Bij geen reactie: automatische herinnering na 3 en 7 dagen.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card fade-in" tabindex="0" role="button" aria-label="Standaard communicatie — voorbeeld">
+                <div class="flip-inner">
+                    <div class="flip-face front">
+                        <span class="flip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></span>
+                        <h3>Standaard communicatie</h3>
+                        <p style="color: var(--muted); font-size: 0.9rem; margin: 0;">Intake, bevestigingen, info-verzoeken.</p>
+                        <span class="flip-tap">↻ Bekijk voorbeeld</span>
+                    </div>
+                    <div class="flip-face back">
+                        <div class="flip-email"><b>Onderwerp:</b> Welkom bij Kantoor De Vries<br><br>Beste mw. Pietersen,<br>fijn u als nieuwe klant te verwelkomen. Hieronder vindt u een korte intake met 5 vragen.<br><br><b>Start intake →</b></div>
+                        <p>Elk bericht gaat in uw huisstijl en tone-of-voice.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card fade-in" tabindex="0" role="button" aria-label="Statusvragen beantwoorden — voorbeeld">
+                <div class="flip-inner">
+                    <div class="flip-face front">
+                        <span class="flip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+                        <h3>Statusvragen beantwoorden</h3>
+                        <p style="color: var(--muted); font-size: 0.9rem; margin: 0;">Klanten krijgen direct antwoord.</p>
+                        <span class="flip-tap">↻ Bekijk voorbeeld</span>
+                    </div>
+                    <div class="flip-face back">
+                        <div class="flip-email"><b>Vraag klant:</b> "Hoe staat het ermee?"<br><br><b>Antwoord (automatisch):</b><br>Uw BTW-aangifte Q1 is verstuurd op 15/4. We wachten nog op uw bankafschriften van februari. Zodra die binnen zijn, ronden we de jaarrekening af.</div>
+                        <p>Binnen regels die u vooraf goedkeurt.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    (function(){
+        document.querySelectorAll('.flip-card').forEach(function(card){
+            var toggle = function(){ card.classList.toggle('flipped'); };
+            card.addEventListener('click', toggle);
+            card.addEventListener('keydown', function(e){ if (e.key === ' ' || e.key === 'Enter'){ e.preventDefault(); toggle(); }});
+        });
+    })();
+    </script>
+</section>
+
+<!-- Tone of voice / typing email -->
+<section class="tint-cloud">
+    <div class="container">
+        <div class="section-card fade-in">
+            <div class="split-grid ratio-4-6">
+                <div class="split-left">
+                    <span class="eyebrow">Zo klinkt het</span>
+                    <h2 style="margin:10px 0 14px;">Uw stem. Uw regels. Automatisch.</h2>
+                    <p style="color:var(--muted); margin:0 0 18px;">Elke mail in uw eigen tone-of-voice. U bepaalt de toon, wij zorgen dat het élke keer klopt.</p>
+                    <ul style="list-style:none; padding:0; margin:0; display:grid; gap:10px;">
+                        <li style="display:flex; align-items:center; gap:10px;"><span style="width:8px; height:8px; border-radius:50%; background:var(--accent-sage);"></span><span>Vriendelijk, zakelijk, formeel — u kiest</span></li>
+                        <li style="display:flex; align-items:center; gap:10px;"><span style="width:8px; height:8px; border-radius:50%; background:var(--accent);"></span><span>Altijd dezelfde kwaliteit, ook op drukke dagen</span></li>
+                        <li style="display:flex; align-items:center; gap:10px;"><span style="width:8px; height:8px; border-radius:50%; background:var(--accent-sand);"></span><span>U ziet alles vóór verzending</span></li>
+                    </ul>
+                </div>
+                <div class="split-right">
+                    <div class="typing-email" id="typingEmail" aria-live="polite">
+                        <div class="to">Aan: boekhouding@jansenbv.nl</div>
+                        <div class="subject" id="typeSubject"></div>
+                        <div class="body" id="typeBody"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    (function(){
+        var subjectEl = document.getElementById('typeSubject');
+        var bodyEl = document.getElementById('typeBody');
+        if (!subjectEl || !bodyEl) return;
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var subject = 'Vriendelijke herinnering — BTW-aangifte Q1';
+        var body = 'Beste heer Jansen,\n\nEven een korte herinnering: we missen nog de btw-stukken over het eerste kwartaal. Kunt u deze vandaag aanleveren, dan dienen we morgen in.\n\nAlvast dank,\nTeam AchterKantoor';
+        function write(el, text, speed, cb){
+            el.textContent = '';
+            var cursor = document.createElement('span');
+            cursor.className = 'cursor';
+            el.appendChild(cursor);
+            var i = 0;
+            function tick(){
+                if (i >= text.length){ if (cb) cb(); return; }
+                var ch = text.charAt(i++);
+                var node = ch === '\n' ? document.createElement('br') : document.createTextNode(ch);
+                el.insertBefore(node, cursor);
+                setTimeout(tick, speed);
+            }
+            tick();
+        }
+        function run(){
+            if (reduce){ subjectEl.textContent = subject; bodyEl.innerHTML = body.replace(/\n/g, '<br>'); return; }
+            write(subjectEl, subject, 22, function(){ setTimeout(function(){ write(bodyEl, body, 14); }, 400); });
+        }
+        var started = false;
+        if (!('IntersectionObserver' in window)) { run(); return; }
+        var io = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){ if (e.isIntersecting && !started){ started = true; run(); io.disconnect(); }});
+        }, { threshold: 0.35 });
+        io.observe(document.getElementById('typingEmail'));
+    })();
+    </script>
+</section>
+
+<!-- Integrations -->
+<div class="integrations-bar">
+    <div class="container">
+        <p class="int-label">Sluit aan op de pakketten die uw kantoor al gebruikt</p>
+        <div class="integrations-logos">
+            <span class="int-logo">Exact Online</span>
+            <span class="int-logo">Twinfield</span>
+            <span class="int-logo">Yuki</span>
+            <span class="int-logo">Basecone</span>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ -->
+<section>
+    <div class="container">
+        <h2 class="fade-in">Veelgestelde vragen</h2>
+        <details class="faq-item fade-in">
+            <summary>Voor welk soort accountantskantoor is dit bedoeld?</summary>
+            <p>Voor administratiekantoren en accountantskantoren die merken dat te veel tijd blijft hangen in terugkerend handmatig werk, losse communicatie en interne overdrachten. Vooral geschikt voor kleinere teams die sneller willen werken zonder direct nieuwe mensen aan te nemen.</p>
+        </details>
+        <details class="faq-item fade-in">
+            <summary>Moeten we al met bepaalde software werken?</summary>
+            <p>Nee. Het is juist bruikbaar als jullie al tools zoals Exact, Twinfield, Yuki, e-mail en spreadsheets gebruiken maar merken dat het proces eromheen nog veel handwerk vraagt. We kijken naar de werkwijze, niet alleen naar de software.</p>
+        </details>
+        <details class="faq-item fade-in">
+            <summary>Hoeveel tijd kost het voor ons?</summary>
+            <p>De eerste aanvraag kost maar een paar minuten. Voor de Gratis Automatiseringsscan hebben we daarna meestal alleen een korte toelichting nodig op jullie huidige proces, zodat we gericht kunnen aangeven waar de eerste praktische winst zit.</p>
+        </details>
+        <details class="faq-item fade-in">
+            <summary>Krijgen we meteen een groot traject aangeboden?</summary>
+            <p>Nee. De insteek is juist klein en praktisch. Eerst helder maken waar het meeste tijdverlies zit, daarna bepalen of een beperkte pilot zinvol is. Geen zwaar adviestraject als dat nog niet nodig is.</p>
+        </details>
+        <details class="faq-item fade-in">
+            <summary>Houden wij controle over wat er naar klanten gaat?</summary>
+            <p>Altijd. U keurt alles goed voordat het live gaat. U bepaalt de teksten, de tone-of-voice en de regels. Er wordt niets verstuurd zonder uw toestemming.</p>
+        </details>
+        <details class="faq-item fade-in">
+            <summary>Is onze klantdata veilig?</summary>
+            <p>Uw data blijft van u. Privacy-first, altijd. Klantgegevens worden versleuteld opgeslagen en verlaten nooit uw omgeving zonder uw toestemming.</p>
+        </details>
+        <details class="faq-item fade-in">
+            <summary>Wat als het niet bevalt?</summary>
+            <p>Dan stopt u. Geen lange contracten, geen opzegkosten. Maandelijks opzegbaar, zonder gedoe.</p>
+        </details>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="tint-sky">
+    <div class="container" style="text-align:center;">
+        <h2 class="fade-in">Klaar om uw eerste proces te automatiseren?</h2>
+        <p class="lead fade-in">Vraag de Gratis Automatiseringsscan aan — we laten in één gesprek zien waar de winst zit.</p>
+        <a href="/#contact" class="btn fade-in" style="margin-top:12px;">Vraag uw scan aan</a>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 AchterKantoor. Alle rechten voorbehouden.</p>
+        <p class="powered-by">Een product van M3trics Lab</p>
+    </div>
+</footer>
+
+<script>
+    // Mobile nav toggle
+    (function () {
+        var toggle = document.querySelector('.nav-toggle');
+        var links = document.querySelector('.nav-links');
+        if (!toggle || !links) return;
+        toggle.addEventListener('click', function() {
+            document.body.classList.toggle('menu-open');
+            links.style.display = document.body.classList.contains('menu-open') ? 'flex' : '';
+            links.style.flexDirection = 'column';
+            links.style.gap = '8px';
+        });
+    })();
+    // Fade-in observer
+    (function () {
+        var targets = document.querySelectorAll('.fade-in');
+        if (!('IntersectionObserver' in window)) {
+            targets.forEach(function(t){ t.classList.add('visible'); });
+            return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        targets.forEach(function(t){ io.observe(t); });
+    })();
+</script>
+<script data-goatcounter="https://achterkantoor.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+</body>
+</html>

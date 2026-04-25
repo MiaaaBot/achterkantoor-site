@@ -12,8 +12,16 @@
     <meta property="og:image" content="https://achterkantoor.nl/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://achterkantoor.nl/blog/">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' achterkantoor.goatcounter.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: www.google-analytics.com; connect-src 'self' achterkantoor.goatcounter.com www.google-analytics.com region1.google-analytics.com;">
     <link rel="icon" href="/favicon.ico">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J77FF15YMK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-J77FF15YMK');
+    </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -37,32 +45,50 @@
           {
             "@type": "ListItem",
             "position": 1,
-            "url": "https://achterkantoor.nl/blog/ai-voor-accountants.html",
+            "url": "https://achterkantoor.nl/blog/pillar-ai-voor-accountants.html",
             "name": "AI voor Accountants: De Complete Gids"
           },
           {
             "@type": "ListItem",
             "position": 2,
+            "url": "https://achterkantoor.nl/blog/ai-voor-accountants.html",
+            "name": "AI voor accountants: wat het is en hoe u begint"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
             "url": "https://achterkantoor.nl/blog/hoe-ai-8-uur-bespaart.html",
             "name": "Hoe AI accountants 8 uur per week bespaart"
           },
           {
             "@type": "ListItem",
-            "position": 3,
+            "position": 4,
             "url": "https://achterkantoor.nl/blog/toekomst-boekhouden-automatisering.html",
             "name": "De toekomst van boekhouden: automatisering als standaard"
           },
           {
             "@type": "ListItem",
-            "position": 4,
+            "position": 5,
             "url": "https://achterkantoor.nl/blog/waarom-accountants-nu-automatiseren.html",
             "name": "Waarom accountants nu moeten automatiseren"
           },
           {
             "@type": "ListItem",
-            "position": 5,
+            "position": 6,
             "url": "https://achterkantoor.nl/blog/case-study-kantoor-de-vries.html",
             "name": "Case study: Kantoor De Vries bespaart 10 uur per week"
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "url": "https://achterkantoor.nl/blog/hoe-ai-uw-administratiekantoor-8-uur-per-week-bespaart.html",
+            "name": "Hoe AI uw administratiekantoor 8 uur per week bespaart"
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "url": "https://achterkantoor.nl/blog/de-toekomst-van-boekhouden-automatisering-voor-het-mkb.html",
+            "name": "De toekomst van boekhouden: automatisering voor het MKB"
           }
         ]
       }
@@ -295,7 +321,7 @@
 <header class="page-header">
     <div class="container">
         <h1>Blog</h1>
-        <p>Praktische inzichten over automatisering, tijdsbesparing en de toekomst van het accountantskantoor.</p>
+        <p>Praktische gidsen en voorbeelden voor administratiekantoren die slimmer willen automatiseren.</p>
     </div>
 </header>
 
@@ -303,10 +329,17 @@
     <div class="container">
         <div class="blog-grid">
             <article class="blog-card" style="border: 2px solid var(--accent);">
-                <span class="tag">Complete gids</span>
-                <h2><a href="/blog/ai-voor-accountants.html">AI voor Accountants: De Complete Gids</a></h2>
-                <p>Alles over AI voor accountants: welke processen u kunt automatiseren, hoeveel tijd en geld het bespaart, en hoe u vandaag nog begint. De complete gids voor Nederlandse kantoren.</p>
-                <a href="/blog/ai-voor-accountants.html" class="read-more">Lees de complete gids &rarr;</a>
+                <span class="tag">Nieuw • SEO gids</span>
+                <h2><a href="/blog/pillar-ai-voor-accountants.html">AI voor Accountants: De Complete Gids</a></h2>
+                <p>Een uitgebreide gids over AI voor accountants, met concrete processen, ROI-voorbeelden, software-integraties en een praktisch startplan voor Nederlandse kantoren.</p>
+                <a href="/blog/pillar-ai-voor-accountants.html" class="read-more">Lees de complete gids &rarr;</a>
+            </article>
+
+            <article class="blog-card">
+                <span class="tag">Pillar</span>
+                <h2><a href="/blog/ai-voor-accountants.html">AI voor accountants: wat het is en hoe u begint</a></h2>
+                <p>Wat AI voor accountants concreet betekent, welke processen u als eerste automatiseert en hoe u klein kunt starten zonder uw huidige software te vervangen.</p>
+                <a href="/blog/ai-voor-accountants.html" class="read-more">Lees meer &rarr;</a>
             </article>
 
             <article class="blog-card">
@@ -326,16 +359,31 @@
             <article class="blog-card">
                 <span class="tag">Praktijk</span>
                 <h2><a href="/blog/waarom-accountants-nu-automatiseren.html">Waarom accountants nu moeten automatiseren</a></h2>
-                <p>De 5 signalen dat uw kantoor klaar is voor automatisering — en wat er gebeurt als u te lang wacht.</p>
+                <p>Waarom handmatig blijven werken duurder, trager en foutgevoeliger wordt, en hoe accountants stap voor stap tijd terugkopen met slimme automatisering.</p>
                 <a href="/blog/waarom-accountants-nu-automatiseren.html" class="read-more">Lees meer &rarr;</a>
             </article>
 
             <article class="blog-card">
                 <span class="tag">Case study</span>
                 <h2><a href="/blog/case-study-kantoor-de-vries.html">Case study: Kantoor De Vries bespaart 10 uur per week</a></h2>
-                <p>Hoe een administratiekantoor met 6 medewerkers hun complete follow-up automatiseerde en weer tijd kreeg voor advieswerk.</p>
+                <p>Hoe een accountantskantoor in Amsterdam met vier medewerkers documentherinneringen, standaardmails en inbox-triage automatiseerde.</p>
                 <a href="/blog/case-study-kantoor-de-vries.html" class="read-more">Lees meer &rarr;</a>
             </article>
+
+            <article class="blog-card">
+                <span class="tag">Administratiekantoor</span>
+                <h2><a href="/blog/hoe-ai-uw-administratiekantoor-8-uur-per-week-bespaart.html">Hoe AI uw administratiekantoor 8 uur per week bespaart</a></h2>
+                <p>Hoe u met AI standaardvragen, documentopvolging en taakverdeling kunt opvangen, zodat uw team minder schakelt en meer tijd overhoudt.</p>
+                <a href="/blog/hoe-ai-uw-administratiekantoor-8-uur-per-week-bespaart.html" class="read-more">Lees meer &rarr;</a>
+            </article>
+
+            <article class="blog-card">
+                <span class="tag">MKB</span>
+                <h2><a href="/blog/de-toekomst-van-boekhouden-automatisering-voor-het-mkb.html">De toekomst van boekhouden: automatisering voor het MKB</a></h2>
+                <p>Waarom moderne boekhouding steeds meer draait om slimme automatisering, met minder handwerk en meer ruimte voor advies.</p>
+                <a href="/blog/de-toekomst-van-boekhouden-automatisering-voor-het-mkb.html" class="read-more">Lees meer &rarr;</a>
+            </article>
+
         </div>
     </div>
 </section>
