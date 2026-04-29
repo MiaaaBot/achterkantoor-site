@@ -2,6 +2,11 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 
+function extractJsonLdObjects(html) {
+  return [...html.matchAll(/<script type="application\/ld\+json">\s*([\s\S]*?)\s*<\/script>/g)]
+    .map((match) => JSON.parse(match[1]));
+}
+
 test('oplossingen page exposes mount points for package rendering', () => {
   const html = fs.readFileSync('oplossingen/index.html', 'utf8');
 
@@ -44,6 +49,27 @@ test('oplossingen page ships fallback catalog and demo content in the HTML shell
 
   assert.match(html, /<div id="solutionsGrid" class="solutions-grid">[\s\S]*data-solution-card="ontbrekende-stukken"/);
   assert.match(html, /<div id="demoPanels" class="demo-panels">[\s\S]*data-demo-slug="ontbrekende-stukken"/);
+});
+
+test('oplossingen page ships product SEO metadata and direct-buy schema copy', () => {
+  const html = fs.readFileSync('oplossingen/index.html', 'utf8');
+  const jsonLdObjects = extractJsonLdObjects(html);
+  const breadcrumbSchema = jsonLdObjects.find((item) => item['@type'] === 'BreadcrumbList');
+  const faqSchema = jsonLdObjects.find((item) => item['@type'] === 'FAQPage');
+  const faqAnswers = faqSchema?.mainEntity?.map((item) => item.acceptedAnswer?.text).join(' ') || '';
+
+  assert.match(html, /<title>Koop vaste automatiseringen voor accountantskantoren \| AchterKantoor<\/title>/);
+  assert.match(html, /<meta name="description" content="Bestel een vaste automatisering voor uw administratie- of accountantskantoor met duidelijke scope, vaste prijzen en een scope wizard voor de laatste check\."\s*\/?>/);
+  assert.match(html, /<meta property="og:title" content="Koop vaste automatiseringen voor accountantskantoren \| AchterKantoor"\s*\/?>/);
+  assert.match(html, /<meta property="og:description" content="Kies een oplossing, rond de scope wizard af en koop een vaste automatisering met privacy- en implementatieafspraken vooraf\."\s*\/?>/);
+  assert.match(html, /<meta name="twitter:title" content="Koop vaste automatiseringen voor accountantskantoren \| AchterKantoor"\s*\/?>/);
+  assert.match(html, /<meta name="twitter:description" content="Kies een oplossing, rond de scope wizard af en koop een vaste automatisering met privacy- en implementatieafspraken vooraf\."\s*\/?>/);
+  assert.ok(breadcrumbSchema, 'expected breadcrumb schema to remain present');
+  assert.ok(faqSchema, 'expected FAQ schema to remain present');
+  assert.match(faqAnswers, /scope wizard/i);
+  assert.match(faqAnswers, /bestel|bestellen|bestelling/i);
+  assert.match(faqAnswers, /privacy-check/i);
+  assert.match(faqAnswers, /10 tot 15 werkdagen/i);
 });
 
 test('solutions page JS keeps CTA hooks on rendered cards and avoids hidden injected panels', () => {
