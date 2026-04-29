@@ -13,6 +13,14 @@ test('oplossingen page exposes mount points for package rendering', () => {
   assert.equal(fs.existsSync('assets/solutions-page.js'), true);
 });
 
+test('oplossingen page contains wizard and product CTA hooks', () => {
+  const html = fs.readFileSync('oplossingen/index.html', 'utf8');
+
+  assert.match(html, /id="wizardBody"/);
+  assert.match(html, /data-solution-action="buy"/);
+  assert.match(html, /data-solution-action="demo"/);
+});
+
 test('oplossingen page includes product conversion and trust sections', () => {
   const html = fs.readFileSync('oplossingen/index.html', 'utf8');
 
