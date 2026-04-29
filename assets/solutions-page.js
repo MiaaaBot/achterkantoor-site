@@ -255,7 +255,7 @@ function renderWizard() {
       ${canGoBack ? '<button type="button" class="btn btn-secondary" data-wizard-nav="back">Vorige</button>' : '<span></span>'}
       <div class="wizard-actions-end">
         <button type="button" class="btn btn-secondary" data-wizard-close="true">Annuleren</button>
-        <button type="button" class="btn" data-wizard-nav="${isFinalStep ? 'submit' : 'next'}">${isFinalStep ? 'Verstuur intake' : 'Volgende'}</button>
+        <button type="${isFinalStep ? 'submit' : 'button'}" class="btn" data-wizard-nav="${isFinalStep ? 'submit' : 'next'}">${isFinalStep ? 'Verstuur intake' : 'Volgende'}</button>
       </div>
     </div>
   `;
@@ -493,7 +493,15 @@ function bindEvents() {
       }
       const navButton = event.target.closest('[data-wizard-nav]');
       if (!navButton) return;
+      if (navButton.getAttribute('type') === 'submit') return;
       handleWizardNavigation(navButton.getAttribute('data-wizard-nav'));
+    });
+  }
+
+  if (wizardForm) {
+    wizardForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      handleWizardNavigation(wizardState.step === 2 ? 'submit' : 'next');
     });
   }
 
