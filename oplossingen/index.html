@@ -75,7 +75,7 @@
     }
     </script>
 </head>
-<body>
+<body class="solutions-page">
 
 <nav>
     <div class="container">
@@ -96,28 +96,28 @@
     <div class="container solutions-hero-inner">
         <div class="solutions-hero-copy reveal">
             <p class="eyebrow">Vaste oplossingen voor kleinere accountantskantoren</p>
-            <h1>Koop een vaste automatisering met heldere scope, privacy-check en een vaste maandstructuur.</h1>
-            <p class="lead">Kies een oplossing, rond de scope wizard af en bestel een vaste automatisering die binnen 10 tot 15 werkdagen live kan.</p>
+            <h1>1 vaste automatisering. Heldere scope vooraf.</h1>
+            <p class="lead">Kies de workflow die nu het meeste handwerk kost. Daarna controleren we via de scope wizard of de oplossing, privacy-aanpak en planning passen bij uw kantoor.</p>
             <div class="hero-actions">
                 <a href="#solutionsGrid" class="btn">Bekijk oplossingen</a>
-                <a href="#demoSection" class="btn btn-secondary">Bekijk demo's</a>
+                <a href="/#contact" class="btn btn-secondary">Plan een gesprek</a>
             </div>
             <div class="hero-proof">
-                <span>Direct bestellen</span>
+                <span>1 workflow per oplossing</span>
                 <span>Privacy-check vooraf</span>
-                <span>Live in 10-15 werkdagen</span>
+                <span>Live in 10 tot 15 werkdagen</span>
             </div>
         </div>
-        <div class="solutions-hero-panel reveal" aria-hidden="true">
+        <aside class="solutions-hero-panel reveal" aria-label="Samenvatting vaste oplossingen">
             <div class="dashboard-mini">
-                <strong>Actieve automatiseringen</strong>
+                <p class="solutions-panel-title">Compact traject</p>
                 <ul>
-                    <li>Ontbrekende stukken opvolgen <span>Actief</span></li>
-                    <li>Inbox triage <span>3 goedkeuringen</span></li>
-                    <li>Statusoverdracht <span>1 aandachtspunt</span></li>
+                    <li><strong>Start klein</strong><span>Begin met 1 terugkerende workflow, niet met een compleet verandertraject.</span></li>
+                    <li><strong>Scope eerst</strong><span>De wizard maakt mailboxen, dossiers en uitzonderingen vooraf expliciet.</span></li>
+                    <li><strong>Vaste opvolging</strong><span>Na akkoord plannen we intake, privacy-check en livegang.</span></li>
                 </ul>
             </div>
-        </div>
+        </aside>
     </div>
 </header>
 
@@ -125,16 +125,20 @@
     <div class="container">
         <div class="section-heading reveal">
             <p class="eyebrow">Direct inzetbare oplossingen</p>
-            <h2>Kies een vaste oplossing die past bij uw kantoor.</h2>
-            <p class="section-lead">Vergelijk vaste oplossingen, controleer de fit via de scope wizard en bestel alleen wat vooraf duidelijk is afgebakend.</p>
+            <h2>Kies uw eerste oplossing.</h2>
+            <p class="section-lead">De eerste kaart is meestal de snelste start. De andere twee zijn voor mailboxdrukte en overdracht waar meer vaste routing nodig is.</p>
         </div>
         <div id="solutionsGrid" class="solutions-grid">
-            <article class="solution-card" data-solution-card="ontbrekende-stukken">
-                <div>
-                    <p class="eyebrow">Vaste oplossing</p>
+            <article class="solution-card solution-card-featured" data-solution-card="ontbrekende-stukken">
+                <div class="solution-card-head">
+                    <div class="solution-card-topline">
+                        <p class="solution-label">Voor dossiervolgwerk</p>
+                        <span class="solution-badge">Beste startpunt</span>
+                    </div>
                     <h3>Ontbrekende stukken opvolgen</h3>
+                    <p class="solution-context">Voor kantoren die nu vooral stukken najagen via losse mails, lijstjes en herinneringen.</p>
                 </div>
-                <p>Laat ontbrekende stukken automatisch opvolgen zonder losse lijstjes, mailbox-chaos of handmatig najagen.</p>
+                <p class="solution-summary">Laat ontbrekende stukken automatisch opvolgen zonder losse lijstjes, mailbox-chaos of handmatig najagen.</p>
                 <div class="solution-price-row">
                     <span>Vanaf €950</span>
                     <span>Vanaf €149 p/m</span>
@@ -159,35 +163,37 @@
                         </ul>
                     </div>
                 </div>
-                <div class="demo-meta">
+                <div class="solution-meta">
                     <span>Past vaak bij:</span>
-                    <ul>
+                    <ul class="solution-fit-list">
                         <li>Exact Online</li>
                         <li>Twinfield</li>
                         <li>Moneybird</li>
                         <li>Outlook</li>
                         <li>SharePoint</li>
                     </ul>
+                    <p class="solution-note">Neemt het meeste handmatige volgwerk weg zonder nieuw portaal of groot softwareproject.</p>
                 </div>
                 <div class="solution-actions">
-                    <a href="/#contact" class="btn">Plan intake</a>
-                    <a href="#demo-ontbrekende-stukken" class="btn btn-secondary">Bekijk demo</a>
+                    <a href="/#contact" class="btn">Start intake</a>
+                    <a href="#demo-ontbrekende-stukken" class="btn btn-secondary">Bekijk voorbeeld</a>
                 </div>
             </article>
-            <article class="solution-card" data-solution-card="inbox-triage">
-                <div>
-                    <p class="eyebrow">Vaste oplossing</p>
+            <article class="solution-card solution-card-secondary solution-card-mail" data-solution-card="inbox-triage">
+                <div class="solution-card-head">
+                    <p class="solution-label">Voor mailboxdrukte</p>
                     <h3>Inbox triage voor klantmails</h3>
+                    <p class="solution-context">Voor teams die steeds dezelfde klantmails sorteren, doorzetten en voorbereiden.</p>
                 </div>
-                <p>Breng structuur in terugkerende klantmails met routering, conceptreacties en heldere opvolging.</p>
+                <p class="solution-summary">Breng structuur in terugkerende klantmails met routering, conceptreacties en heldere opvolging.</p>
                 <div class="solution-price-row">
                     <span>Vanaf €1.250</span>
                     <span>Vanaf €199 p/m</span>
                     <span>Live in 15 werkdagen</span>
                 </div>
-                <div class="solution-columns">
+                <div class="solution-compact-grid">
                     <div>
-                        <strong>Inbegrepen</strong>
+                        <strong>Wat u krijgt</strong>
                         <ul>
                             <li>1 inboxtriage-flow voor veelvoorkomende berichten</li>
                             <li>Routering naar administratie, samenstel of klantcontact</li>
@@ -195,44 +201,42 @@
                             <li>Afstemming op uw mailboxproces</li>
                         </ul>
                     </div>
-                    <div>
-                        <strong>Buiten scope</strong>
-                        <ul>
-                            <li>Geen volledig ticketsysteem</li>
-                            <li>Geen onbeperkte maatwerkclassificaties</li>
-                            <li>Geen brede helpdeskimplementatie</li>
-                        </ul>
+                    <div class="solution-scope-note">
+                        <strong>Niet bedoeld als</strong>
+                        <p>Geen volledig ticketsysteem of brede helpdeskimplementatie met onbeperkte maatwerkclassificaties.</p>
                     </div>
                 </div>
-                <div class="demo-meta">
+                <div class="solution-meta">
                     <span>Past vaak bij:</span>
-                    <ul>
+                    <ul class="solution-fit-list">
                         <li>Outlook</li>
                         <li>Gmail</li>
                         <li>SharePoint</li>
                         <li>OneDrive</li>
                         <li>Google Drive</li>
                     </ul>
+                    <p class="solution-note">Brengt rust in de mailbox zonder er een compleet helpdesksysteem van te maken.</p>
                 </div>
                 <div class="solution-actions">
-                    <a href="/#contact" class="btn">Plan intake</a>
-                    <a href="#demo-inbox-triage" class="btn btn-secondary">Bekijk demo</a>
+                    <a href="/#contact" class="btn">Start intake</a>
+                    <a href="#demo-inbox-triage" class="btn btn-secondary">Bekijk voorbeeld</a>
                 </div>
             </article>
-            <article class="solution-card" data-solution-card="klantstatus-overdracht">
-                <div>
-                    <p class="eyebrow">Vaste oplossing</p>
+            <article class="solution-card solution-card-secondary solution-card-status" data-solution-card="klantstatus-overdracht">
+                <div class="solution-card-head">
+                    <p class="solution-label">Voor overdracht</p>
                     <h3>Klantstatus en interne overdracht</h3>
+                    <p class="solution-context">Voor teams die statusupdates tussen dossier, collega en klant overzichtelijk willen houden.</p>
                 </div>
-                <p>Houd klanten en collega’s beter op de hoogte met vaste statusmomenten en strakke overdracht.</p>
+                <p class="solution-summary">Houd klanten en collega’s beter op de hoogte met vaste statusmomenten en strakke overdracht.</p>
                 <div class="solution-price-row">
                     <span>Vanaf €1.250</span>
                     <span>Vanaf €199 p/m</span>
                     <span>Live in 15 werkdagen</span>
                 </div>
-                <div class="solution-columns">
+                <div class="solution-compact-grid">
                     <div>
-                        <strong>Inbegrepen</strong>
+                        <strong>Wat u krijgt</strong>
                         <ul>
                             <li>1 status- of overdrachtsflow</li>
                             <li>Vaste updates voor gekozen procesmomenten</li>
@@ -240,28 +244,25 @@
                             <li>Afstemming op 1 bestaand teamproces</li>
                         </ul>
                     </div>
-                    <div>
-                        <strong>Buiten scope</strong>
-                        <ul>
-                            <li>Geen volledig klantportaal</li>
-                            <li>Geen vrije workflow-editor voor klanten</li>
-                            <li>Geen herontwerp van uw volledige operatie</li>
-                        </ul>
+                    <div class="solution-scope-note">
+                        <strong>Niet bedoeld als</strong>
+                        <p>Geen volledig klantportaal, vrije workflow-editor of herontwerp van uw hele operatie.</p>
                     </div>
                 </div>
-                <div class="demo-meta">
+                <div class="solution-meta">
                     <span>Past vaak bij:</span>
-                    <ul>
+                    <ul class="solution-fit-list">
                         <li>Exact Online</li>
                         <li>Twinfield</li>
                         <li>Outlook</li>
                         <li>Microsoft 365</li>
                         <li>Google Workspace</li>
                     </ul>
+                    <p class="solution-note">Maakt vaste statusmomenten zichtbaar zonder een los klantportaal te hoeven bouwen.</p>
                 </div>
                 <div class="solution-actions">
-                    <a href="/#contact" class="btn">Plan intake</a>
-                    <a href="#demo-klantstatus-overdracht" class="btn btn-secondary">Bekijk demo</a>
+                    <a href="/#contact" class="btn">Start intake</a>
+                    <a href="#demo-klantstatus-overdracht" class="btn btn-secondary">Bekijk voorbeeld</a>
                 </div>
             </article>
         </div>
@@ -274,19 +275,28 @@
     </form>
 </dialog>
 
-<section id="demoSection" class="section section-accent">
+<section id="demoSection" class="section solutions-proof-section">
     <div class="container">
         <div class="section-heading reveal">
-            <p class="eyebrow">Demo's</p>
-            <h2>Zie eerst wat er verandert in uw dagelijkse werk.</h2>
+            <p class="eyebrow">Licht bewijs</p>
+            <h2>Zie per oplossing wat er in het dagelijkse werk verandert.</h2>
+            <p class="section-lead">Geen donkere productdemo, maar korte voorbeeldflows die laten zien waar de winst zit.</p>
         </div>
         <div id="demoPanels" class="demo-panels">
-            <article class="demo-card" id="demo-ontbrekende-stukken" data-demo-slug="ontbrekende-stukken">
-                <div>
-                    <p class="eyebrow">Demo voor Ontbrekende stukken opvolgen</p>
+            <article class="demo-card proof-card" id="demo-ontbrekende-stukken" data-demo-slug="ontbrekende-stukken">
+                <div class="proof-card-header">
+                    <p class="eyebrow">Voorbeeldflow</p>
                     <h3>Ontbrekende stukken opvolgen</h3>
                 </div>
                 <p>Bekijk hoe herinneringen, statussen en dossier-signalen samenkomen in 1 flow.</p>
+                <div class="demo-flow">
+                    <strong>Wat u ziet</strong>
+                    <ol>
+                        <li>Een dossier mist nog stukken en krijgt automatisch opvolging.</li>
+                        <li>Herinneringen lopen op vaste momenten door zonder handmatig najagen.</li>
+                        <li>Het team ziet alleen complete of vastgelopen dossiers terug.</li>
+                    </ol>
+                </div>
                 <div class="demo-meta">
                     <span>Koppelingen in beeld</span>
                     <ul>
@@ -297,21 +307,22 @@
                         <li>SharePoint</li>
                     </ul>
                 </div>
-                <div class="demo-flow">
-                    <strong>Wat u ziet</strong>
-                    <ol>
-                        <li>Nieuwe input wordt herkend en gerouteerd.</li>
-                        <li>Uw team krijgt alleen de uitzonderingen of goedkeuringen.</li>
-                        <li>De status blijft zichtbaar voor overdracht en opvolging.</li>
-                    </ol>
-                </div>
+                <p class="proof-note">Geschikt als eerste stap wanneer stukken najagen nog verspreid over mailboxen en lijstjes loopt.</p>
             </article>
-            <article class="demo-card" id="demo-inbox-triage" data-demo-slug="inbox-triage">
-                <div>
-                    <p class="eyebrow">Demo voor Inbox triage voor klantmails</p>
+            <article class="demo-card proof-card" id="demo-inbox-triage" data-demo-slug="inbox-triage">
+                <div class="proof-card-header">
+                    <p class="eyebrow">Voorbeeldflow</p>
                     <h3>Inbox triage voor klantmails</h3>
                 </div>
                 <p>Bekijk hoe terugkerende klantmails worden gesorteerd, voorbereid en doorgestuurd.</p>
+                <div class="demo-flow">
+                    <strong>Wat u ziet</strong>
+                    <ol>
+                        <li>Binnenkomende klantmails worden herkend en gecategoriseerd.</li>
+                        <li>Het juiste team krijgt de mail of een conceptreactie voorgeselecteerd.</li>
+                        <li>Alleen uitzonderingen of goedkeuringen blijven bij uw team liggen.</li>
+                    </ol>
+                </div>
                 <div class="demo-meta">
                     <span>Koppelingen in beeld</span>
                     <ul>
@@ -322,21 +333,22 @@
                         <li>Google Drive</li>
                     </ul>
                 </div>
-                <div class="demo-flow">
-                    <strong>Wat u ziet</strong>
-                    <ol>
-                        <li>Nieuwe input wordt herkend en gerouteerd.</li>
-                        <li>Uw team krijgt alleen de uitzonderingen of goedkeuringen.</li>
-                        <li>De status blijft zichtbaar voor overdracht en opvolging.</li>
-                    </ol>
-                </div>
+                <p class="proof-note">Handig als klantvragen steeds op dezelfde mailbox blijven terugkomen en veel sorteerwerk vragen.</p>
             </article>
-            <article class="demo-card" id="demo-klantstatus-overdracht" data-demo-slug="klantstatus-overdracht">
-                <div>
-                    <p class="eyebrow">Demo voor Klantstatus en interne overdracht</p>
+            <article class="demo-card proof-card" id="demo-klantstatus-overdracht" data-demo-slug="klantstatus-overdracht">
+                <div class="proof-card-header">
+                    <p class="eyebrow">Voorbeeldflow</p>
                     <h3>Klantstatus en interne overdracht</h3>
                 </div>
                 <p>Bekijk hoe een dossierstatus helder doorloopt van team naar klant en terug.</p>
+                <div class="demo-flow">
+                    <strong>Wat u ziet</strong>
+                    <ol>
+                        <li>Een procesmoment activeert automatisch de volgende statusupdate.</li>
+                        <li>De volgende verantwoordelijke krijgt alleen het juiste overdrachtssein.</li>
+                        <li>Klant en team blijven naar hetzelfde statusbeeld kijken.</li>
+                    </ol>
+                </div>
                 <div class="demo-meta">
                     <span>Koppelingen in beeld</span>
                     <ul>
@@ -347,58 +359,70 @@
                         <li>Google Workspace</li>
                     </ul>
                 </div>
-                <div class="demo-flow">
-                    <strong>Wat u ziet</strong>
-                    <ol>
-                        <li>Nieuwe input wordt herkend en gerouteerd.</li>
-                        <li>Uw team krijgt alleen de uitzonderingen of goedkeuringen.</li>
-                        <li>De status blijft zichtbaar voor overdracht en opvolging.</li>
-                    </ol>
-                </div>
+                <p class="proof-note">Sterk wanneer overdracht tussen administratie, samenstel en klant nu vooral via losse updates gebeurt.</p>
             </article>
+        </div>
+    </div>
+</section>
+
+<section id="startSection" class="section solutions-start-section">
+    <div class="container">
+        <div class="start-strip reveal">
+            <div class="start-strip-copy">
+                <p class="eyebrow">Zo start het</p>
+                <h2>De eerste oplossing blijft klein, toetsbaar en snel te starten.</h2>
+                <p class="section-lead">U koopt niet blind. Eerst leggen we fit, planning en privacy-afspraken vast.</p>
+            </div>
+            <div class="start-steps">
+                <article class="start-step">
+                    <span>1</span>
+                    <strong>Kies uw oplossing</strong>
+                    <p>Kies het knelpunt dat uw team het vaakst onderbreekt.</p>
+                </article>
+                <article class="start-step">
+                    <span>2</span>
+                    <strong>Doorloop de wizard</strong>
+                    <p>We toetsen mailboxen, dossiers, stack en uitzonderingen vooraf.</p>
+                </article>
+                <article class="start-step">
+                    <span>3</span>
+                    <strong>Bevestig livegang</strong>
+                    <p>Na akkoord plannen we intake, privacy-check en oplevering.</p>
+                </article>
+            </div>
         </div>
     </div>
 </section>
 
 <section id="privacySection" class="section">
     <div class="container privacy-grid reveal">
-        <div>
-            <p class="eyebrow">Privacy voorop</p>
-            <h2>Gemaakt voor kantoren die grip willen houden op data, toegang en uitzonderingen.</h2>
+        <div class="privacy-copy">
+            <p class="eyebrow">Privacy en vertrouwen</p>
+            <h2>Voor livegang spreken we data, toegang en uitzonderingen in gewone taal af.</h2>
+            <p class="section-lead">Zo blijft de oplossing werkbaar voor uw team en veilig voor uw klanten.</p>
         </div>
-        <div class="privacy-points">
-            <p>Voor elke bestelling leggen we in gewone taal vast welke privacy-check, hostingrichting en toegangsafspraken nodig zijn voordat de oplossing live gaat.</p>
-            <ul>
-                <li>EU-hosting als standaardrichting</li>
-                <li>Afgeschermde credentials per klant</li>
-                <li>Optie voor dedicated omgeving</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section id="dashboardPreview" class="section tint-sky">
-    <div class="container">
-        <div class="solutions-section-card reveal">
-            <p class="eyebrow">Dashboard preview</p>
-            <h2>Klanten zien straks precies wat draait, wat wacht op goedkeuring en welke koppelingen actief zijn.</h2>
-            <div class="dashboard-preview-grid">
-                <article>
-                    <strong>Automatiseringen</strong>
-                    <p>Actief, gepauzeerd of in controle.</p>
+        <div class="privacy-stack">
+            <div class="privacy-points">
+                <article class="privacy-point">
+                    <strong>EU-hosting als standaardrichting</strong>
+                    <p>We leggen vooraf vast welke hosting of extra afscherming nodig is.</p>
                 </article>
-                <article>
-                    <strong>Goedkeuringen</strong>
-                    <p>Conceptreacties en uitzonderingen op 1 plek.</p>
+                <article class="privacy-point">
+                    <strong>Afgeschermde credentials per klant</strong>
+                    <p>Toegang en verantwoordelijken worden vastgelegd voor we live gaan.</p>
                 </article>
-                <article>
-                    <strong>Integraties</strong>
-                    <p>Overzicht van gekoppelde pakketten en status.</p>
+                <article class="privacy-point">
+                    <strong>Ruimte voor dedicated eisen</strong>
+                    <p>Als compliance of IT extra eisen stelt, nemen we die mee in de intake.</p>
                 </article>
-                <article>
-                    <strong>Contacten</strong>
-                    <p>Wijzig de operationele eigenaar zonder supportticket.</p>
-                </article>
+            </div>
+            <div class="dashboard-glimpse">
+                <strong>Na livegang in beeld</strong>
+                <ul>
+                    <li>Status per workflow</li>
+                    <li>Open goedkeuringen en uitzonderingen</li>
+                    <li>Actieve koppelingen en eigenaar van het proces</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -426,6 +450,20 @@
                     <summary>Wat gebeurt er na de eerste oplossing?</summary>
                     <p>Na uw bestelling plannen we de intake en privacy-check, daarna bouwen we de gekozen oplossing en gaan we meestal binnen 10 tot 15 werkdagen live. Daarna kunt u optioneel een tweede oplossing toevoegen.</p>
                 </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="finalCtaSection" class="section solutions-final-cta-section">
+    <div class="container">
+        <div class="final-cta-card reveal">
+            <p class="eyebrow">Klaar om te starten?</p>
+            <h2>Kies uw eerste oplossing of plan eerst een kort gesprek.</h2>
+            <p class="section-lead">We kijken eerst of de scope past. Pas daarna bevestigt u prijs, planning en privacy-aanpak.</p>
+            <div class="hero-actions">
+                <a href="#solutionsGrid" class="btn">Bekijk oplossingen</a>
+                <a href="/#contact" class="btn btn-secondary">Plan een gesprek</a>
             </div>
         </div>
     </div>

@@ -35,6 +35,49 @@ const privacyOptions = [
   'Eerst afstemmen met compliance of IT'
 ];
 
+const solutionPresentation = {
+  'ontbrekende-stukken': {
+    label: 'Voor dossiervolgwerk',
+    context: 'Voor kantoren die nu vooral stukken najagen via losse mails, lijstjes en herinneringen.',
+    note: 'Neemt het meeste handmatige volgwerk weg zonder nieuw portaal of groot softwareproject.',
+    badge: 'Beste startpunt',
+    featured: true,
+    variantClass: 'solution-card-featured',
+    proofPoints: [
+      'Een dossier mist nog stukken en krijgt automatisch opvolging.',
+      'Herinneringen lopen op vaste momenten door zonder handmatig najagen.',
+      'Het team ziet alleen complete of vastgelopen dossiers terug.'
+    ],
+    proofNote: 'Geschikt als eerste stap wanneer stukken najagen nog verspreid over mailboxen en lijstjes loopt.'
+  },
+  'inbox-triage': {
+    label: 'Voor mailboxdrukte',
+    context: 'Voor teams die steeds dezelfde klantmails sorteren, doorzetten en voorbereiden.',
+    note: 'Brengt rust in de mailbox zonder er een compleet helpdesksysteem van te maken.',
+    scopeSummary: 'Geen volledig ticketsysteem of brede helpdeskimplementatie met onbeperkte maatwerkclassificaties.',
+    variantClass: 'solution-card-secondary solution-card-mail',
+    proofPoints: [
+      'Binnenkomende klantmails worden herkend en gecategoriseerd.',
+      'Het juiste team krijgt de mail of een conceptreactie voorgeselecteerd.',
+      'Alleen uitzonderingen of goedkeuringen blijven bij uw team liggen.'
+    ],
+    proofNote: 'Handig als klantvragen steeds op dezelfde mailbox blijven terugkomen en veel sorteerwerk vragen.'
+  },
+  'klantstatus-overdracht': {
+    label: 'Voor overdracht',
+    context: 'Voor teams die statusupdates tussen dossier, collega en klant overzichtelijk willen houden.',
+    note: 'Maakt vaste statusmomenten zichtbaar zonder een los klantportaal te hoeven bouwen.',
+    scopeSummary: 'Geen volledig klantportaal, vrije workflow-editor of herontwerp van uw hele operatie.',
+    variantClass: 'solution-card-secondary solution-card-status',
+    proofPoints: [
+      'Een procesmoment activeert automatisch de volgende statusupdate.',
+      'De volgende verantwoordelijke krijgt alleen het juiste overdrachtssein.',
+      'Klant en team blijven naar hetzelfde statusbeeld kijken.'
+    ],
+    proofNote: 'Sterk wanneer overdracht tussen administratie, samenstel en klant nu vooral via losse updates gebeurt.'
+  }
+};
+
 function escapeHtml(value) {
   return String(value || '').replace(/[&<>"']/g, (char) => ({
     '&': '&amp;',
@@ -47,6 +90,22 @@ function escapeHtml(value) {
 
 function getPackage(slug) {
   return solutionPackages.find((item) => item.slug === slug) || null;
+}
+
+function getSolutionPresentation(slug) {
+  return solutionPresentation[slug] || {
+    label: 'Vaste oplossing',
+    context: '',
+    note: '',
+    scopeSummary: '',
+    variantClass: 'solution-card-secondary',
+    proofPoints: [
+      'Nieuwe input wordt herkend en gerouteerd.',
+      'Uw team krijgt alleen de uitzonderingen of goedkeuringen.',
+      'De status blijft zichtbaar voor overdracht en opvolging.'
+    ],
+    proofNote: ''
+  };
 }
 
 function resetWizardState(packageSlug = '') {
@@ -66,71 +125,126 @@ function resetWizardState(packageSlug = '') {
 
 function renderSolutions() {
   if (!grid) return;
-  grid.innerHTML = solutionPackages.map((item) => `
-    <article class="solution-card" data-solution-card="${item.slug}">
-      <div>
-        <p class="eyebrow">Vaste oplossing</p>
-        <h3>${escapeHtml(item.name)}</h3>
-      </div>
-      <p>${escapeHtml(item.summary)}</p>
-      <div class="solution-price-row">
-        <span>${escapeHtml(item.setupPrice)}</span>
-        <span>${escapeHtml(item.monthlyPrice)}</span>
-        <span>${escapeHtml(item.turnaround)}</span>
-      </div>
-      <div class="solution-columns">
-        <div>
-          <strong>Inbegrepen</strong>
-          <ul>
-            ${item.included.map((entry) => `<li>${escapeHtml(entry)}</li>`).join('')}
-          </ul>
+  grid.innerHTML = solutionPackages.map((item) => {
+    const presentation = getSolutionPresentation(item.slug);
+    const integrations = item.integrations.map((entry) => `<li>${escapeHtml(entry)}</li>`).join('');
+    const included = item.included.map((entry) => `<li>${escapeHtml(entry)}</li>`).join('');
+    const excluded = item.excluded.map((entry) => `<li>${escapeHtml(entry)}</li>`).join('');
+
+    if (presentation.featured) {
+      return `
+        <article class="solution-card ${presentation.variantClass}" data-solution-card="${item.slug}">
+          <div class="solution-card-head">
+            <div class="solution-card-topline">
+              <p class="solution-label">${escapeHtml(presentation.label)}</p>
+              <span class="solution-badge">${escapeHtml(presentation.badge)}</span>
+            </div>
+            <h3>${escapeHtml(item.name)}</h3>
+            <p class="solution-context">${escapeHtml(presentation.context)}</p>
+          </div>
+          <p class="solution-summary">${escapeHtml(item.summary)}</p>
+          <div class="solution-price-row">
+            <span>${escapeHtml(item.setupPrice)}</span>
+            <span>${escapeHtml(item.monthlyPrice)}</span>
+            <span>${escapeHtml(item.turnaround)}</span>
+          </div>
+          <div class="solution-columns">
+            <div>
+              <strong>Inbegrepen</strong>
+              <ul>
+                ${included}
+              </ul>
+            </div>
+            <div>
+              <strong>Buiten scope</strong>
+              <ul>
+                ${excluded}
+              </ul>
+            </div>
+          </div>
+          <div class="solution-meta">
+            <span>Past vaak bij:</span>
+            <ul class="solution-fit-list">
+              ${integrations}
+            </ul>
+            <p class="solution-note">${escapeHtml(presentation.note)}</p>
+          </div>
+          <div class="solution-actions">
+            <button type="button" class="btn" data-solution-action="buy" data-package-slug="${item.slug}">Start intake</button>
+            <button type="button" class="btn btn-secondary" data-solution-action="demo" data-package-slug="${item.slug}">Bekijk voorbeeld</button>
+          </div>
+        </article>
+      `;
+    }
+
+    return `
+      <article class="solution-card ${presentation.variantClass}" data-solution-card="${item.slug}">
+        <div class="solution-card-head">
+          <p class="solution-label">${escapeHtml(presentation.label)}</p>
+          <h3>${escapeHtml(item.name)}</h3>
+          <p class="solution-context">${escapeHtml(presentation.context)}</p>
         </div>
-        <div>
-          <strong>Buiten scope</strong>
-          <ul>
-            ${item.excluded.map((entry) => `<li>${escapeHtml(entry)}</li>`).join('')}
-          </ul>
+        <p class="solution-summary">${escapeHtml(item.summary)}</p>
+        <div class="solution-price-row">
+          <span>${escapeHtml(item.setupPrice)}</span>
+          <span>${escapeHtml(item.monthlyPrice)}</span>
+          <span>${escapeHtml(item.turnaround)}</span>
         </div>
-      </div>
-      <div class="demo-meta">
-        <span>Past vaak bij:</span>
-        <ul>
-          ${item.integrations.map((entry) => `<li>${escapeHtml(entry)}</li>`).join('')}
-        </ul>
-      </div>
-      <div class="solution-actions">
-        <button type="button" class="btn" data-solution-action="buy" data-package-slug="${item.slug}">Direct kopen</button>
-        <button type="button" class="btn btn-secondary" data-solution-action="demo" data-package-slug="${item.slug}">Bekijk demo</button>
-      </div>
-    </article>
-  `).join('');
+        <div class="solution-compact-grid">
+          <div>
+            <strong>Wat u krijgt</strong>
+            <ul>
+              ${included}
+            </ul>
+          </div>
+          <div class="solution-scope-note">
+            <strong>Niet bedoeld als</strong>
+            <p>${escapeHtml(presentation.scopeSummary)}</p>
+          </div>
+        </div>
+        <div class="solution-meta">
+          <span>Past vaak bij:</span>
+          <ul class="solution-fit-list">
+            ${integrations}
+          </ul>
+          <p class="solution-note">${escapeHtml(presentation.note)}</p>
+        </div>
+        <div class="solution-actions">
+          <button type="button" class="btn" data-solution-action="buy" data-package-slug="${item.slug}">Start intake</button>
+          <button type="button" class="btn btn-secondary" data-solution-action="demo" data-package-slug="${item.slug}">Bekijk voorbeeld</button>
+        </div>
+      </article>
+    `;
+  }).join('');
 }
 
 function renderDemos() {
   if (!demoPanels) return;
-  demoPanels.innerHTML = solutionPackages.map((item) => `
-    <article class="demo-card" id="demo-${item.slug}" data-demo-slug="${item.slug}">
-      <div>
-        <p class="eyebrow">Demo voor ${escapeHtml(item.name)}</p>
-        <h3>${escapeHtml(item.name)}</h3>
-      </div>
-      <p>${escapeHtml(item.demoLabel)}</p>
-      <div class="demo-meta">
-        <span>Koppelingen in beeld</span>
-        <ul>
-          ${item.integrations.map((entry) => `<li>${escapeHtml(entry)}</li>`).join('')}
-        </ul>
-      </div>
-      <div class="demo-flow">
-        <strong>Wat u ziet</strong>
-        <ol>
-          <li>Nieuwe input wordt herkend en gerouteerd.</li>
-          <li>Uw team krijgt alleen de uitzonderingen of goedkeuringen.</li>
-          <li>De status blijft zichtbaar voor overdracht en opvolging.</li>
-        </ol>
-      </div>
-    </article>
-  `).join('');
+  demoPanels.innerHTML = solutionPackages.map((item) => {
+    const presentation = getSolutionPresentation(item.slug);
+    return `
+      <article class="demo-card proof-card" id="demo-${item.slug}" data-demo-slug="${item.slug}">
+        <div class="proof-card-header">
+          <p class="eyebrow">Voorbeeldflow</p>
+          <h3>${escapeHtml(item.name)}</h3>
+        </div>
+        <p>${escapeHtml(item.demoLabel)}</p>
+        <div class="demo-flow">
+          <strong>Wat u ziet</strong>
+          <ol>
+            ${presentation.proofPoints.map((entry) => `<li>${escapeHtml(entry)}</li>`).join('')}
+          </ol>
+        </div>
+        <div class="demo-meta">
+          <span>Koppelingen in beeld</span>
+          <ul>
+            ${item.integrations.map((entry) => `<li>${escapeHtml(entry)}</li>`).join('')}
+          </ul>
+        </div>
+        <p class="proof-note">${escapeHtml(presentation.proofNote)}</p>
+      </article>
+    `;
+  }).join('');
 }
 
 function renderWizard() {
