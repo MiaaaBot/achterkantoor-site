@@ -157,7 +157,7 @@ nav a.cta-link:hover {
 .hero {
     position: relative;
     overflow: hidden;
-    padding: clamp(64px, 9vw, 110px) 0 clamp(52px, 8vw, 90px);
+    padding: clamp(64px, 9vw, 104px) 0 clamp(44px, 7vw, 74px);
 }
 
 .neural-bg {
@@ -165,48 +165,48 @@ nav a.cta-link:hover {
     inset: 0;
     overflow: hidden;
     pointer-events: none;
-    opacity: 0.48;
+    opacity: 0.34;
 }
 
 .neural-bg::before,
 .neural-bg::after {
     content: "";
     position: absolute;
-    inset: 8% -8% auto auto;
-    width: min(680px, 62vw);
-    height: min(420px, 48vw);
+    inset: 10% -6% auto auto;
+    width: min(560px, 50vw);
+    height: min(340px, 38vw);
     background:
-        linear-gradient(33deg, transparent 12%, rgba(89, 141, 219, 0.16) 12.2%, transparent 12.8%),
-        linear-gradient(148deg, transparent 28%, rgba(89, 141, 219, 0.13) 28.2%, transparent 28.8%),
-        linear-gradient(74deg, transparent 42%, rgba(219, 102, 89, 0.1) 42.2%, transparent 42.8%),
-        radial-gradient(circle at 18% 36%, rgba(89, 141, 219, 0.28) 0 4px, transparent 5px),
-        radial-gradient(circle at 38% 18%, rgba(11, 33, 64, 0.18) 0 3px, transparent 4px),
-        radial-gradient(circle at 52% 54%, rgba(89, 141, 219, 0.24) 0 4px, transparent 5px),
-        radial-gradient(circle at 72% 28%, rgba(219, 102, 89, 0.22) 0 3px, transparent 4px),
-        radial-gradient(circle at 84% 62%, rgba(89, 141, 219, 0.2) 0 4px, transparent 5px);
+        linear-gradient(33deg, transparent 12%, rgba(89, 141, 219, 0.14) 12.2%, transparent 12.8%),
+        linear-gradient(148deg, transparent 28%, rgba(89, 141, 219, 0.1) 28.2%, transparent 28.8%),
+        linear-gradient(74deg, transparent 42%, rgba(219, 102, 89, 0.08) 42.2%, transparent 42.8%),
+        radial-gradient(circle at 18% 36%, rgba(89, 141, 219, 0.24) 0 3px, transparent 4px),
+        radial-gradient(circle at 38% 18%, rgba(11, 33, 64, 0.14) 0 2px, transparent 3px),
+        radial-gradient(circle at 52% 54%, rgba(89, 141, 219, 0.2) 0 3px, transparent 4px),
+        radial-gradient(circle at 72% 28%, rgba(219, 102, 89, 0.18) 0 2px, transparent 3px),
+        radial-gradient(circle at 84% 62%, rgba(89, 141, 219, 0.18) 0 3px, transparent 4px);
     filter: blur(0.1px);
     transform: translate3d(0, 0, 0);
-    animation: neuralDrift 14s ease-in-out infinite alternate;
+    animation: neuralDrift 18s ease-in-out infinite alternate;
 }
 
 .neural-bg::after {
-    inset: auto auto 8% -12%;
-    width: min(520px, 48vw);
-    height: min(320px, 34vw);
-    opacity: 0.55;
-    transform: rotate(8deg);
-    animation-duration: 18s;
+    inset: auto auto 10% -8%;
+    width: min(420px, 38vw);
+    height: min(250px, 28vw);
+    opacity: 0.42;
+    transform: rotate(6deg);
+    animation-duration: 22s;
     animation-direction: alternate-reverse;
 }
 
 .neural-bg span {
     position: absolute;
-    width: 7px;
-    height: 7px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
-    background: rgba(89, 141, 219, 0.2);
-    box-shadow: 0 0 22px rgba(89, 141, 219, 0.22);
-    animation: neuralPulse 4.5s ease-in-out infinite;
+    background: rgba(89, 141, 219, 0.18);
+    box-shadow: 0 0 16px rgba(89, 141, 219, 0.16);
+    animation: neuralPulse 5.8s ease-in-out infinite;
 }
 
 .neural-bg span:nth-child(1) { left: 56%; top: 24%; animation-delay: -0.8s; }
@@ -218,21 +218,21 @@ nav a.cta-link:hover {
 
 @keyframes neuralDrift {
     from {
-        transform: translate3d(-10px, -6px, 0) scale(1);
+        transform: translate3d(-6px, -4px, 0) scale(0.98);
     }
     to {
-        transform: translate3d(14px, 10px, 0) scale(1.03);
+        transform: translate3d(8px, 6px, 0) scale(1.01);
     }
 }
 
 @keyframes neuralPulse {
     0%, 100% {
-        opacity: 0.35;
-        transform: scale(0.9);
+        opacity: 0.28;
+        transform: scale(0.92);
     }
     50% {
-        opacity: 0.72;
-        transform: scale(1.2);
+        opacity: 0.58;
+        transform: scale(1.08);
     }
 }
 
@@ -240,13 +240,13 @@ nav a.cta-link:hover {
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: clamp(36px, 6vw, 72px);
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: clamp(28px, 5vw, 58px);
     align-items: center;
 }
 
 .hero-copy {
-    max-width: 620px;
+    max-width: 560px;
 }
 
 .eyebrow {
@@ -269,27 +269,27 @@ nav a.cta-link:hover {
 }
 
 .hero h1 {
-    max-width: 760px;
+    max-width: 680px;
     color: var(--heading);
-    font-size: clamp(2.45rem, 5.1vw, 4.9rem);
+    font-size: clamp(2.2rem, 4.4vw, 4.2rem);
     font-weight: 700;
     letter-spacing: -0.035em;
-    line-height: 1;
+    line-height: 1.02;
 }
 
 .headline-switch {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    column-gap: 0.24em;
-    row-gap: 0.04em;
+    column-gap: 0.2em;
+    row-gap: 0.06em;
 }
 
 .rotating-words {
     position: relative;
     display: inline-grid;
-    min-width: min(100%, 11.8em);
-    height: 1.08em;
+    min-width: min(100%, 10.6em);
+    height: 1.06em;
     overflow: hidden;
     color: var(--blue);
     vertical-align: bottom;
@@ -494,7 +494,7 @@ nav a.cta-link:hover {
 .mail-panel {
     border-radius: 16px;
     justify-self: end;
-    width: min(100%, 390px);
+    width: min(100%, 520px);
 }
 
 .mail-window-top {
@@ -834,6 +834,24 @@ nav a.cta-link:hover {
     border-block: 1px solid var(--border);
     background: #ffffff;
     padding: 42px 0;
+}
+
+.intro-band-overlap {
+    position: relative;
+    z-index: 2;
+    margin-top: -24px;
+    border-block: 0;
+    background: transparent;
+    padding-top: 0;
+}
+
+.intro-band-overlap .container {
+    position: relative;
+    border-top: 1px solid rgba(11, 33, 64, 0.12);
+    border-radius: 26px 26px 0 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(248, 251, 248, 0.98) 100%);
+    box-shadow: 0 -10px 30px rgba(11, 33, 64, 0.04);
+    padding-top: 26px;
 }
 
 .intro-grid {
@@ -1439,14 +1457,24 @@ footer {
 
     .hero {
         padding-top: 46px;
+        padding-bottom: 40px;
     }
 
     .hero h1 {
-        font-size: clamp(2rem, 11vw, 3.4rem);
+        font-size: clamp(1.86rem, 9.6vw, 3.05rem);
     }
 
     .rotating-words {
         min-width: 100%;
+    }
+
+    .intro-band-overlap {
+        margin-top: -12px;
+    }
+
+    .intro-band-overlap .container {
+        border-radius: 20px 20px 0 0;
+        padding-top: 20px;
     }
 
     .hero-actions {
