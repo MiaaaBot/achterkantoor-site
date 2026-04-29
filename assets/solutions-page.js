@@ -3,7 +3,10 @@ import { solutionPackages, integrationGroups } from '/assets/solutions-data.js';
 const grid = document.getElementById('solutionsGrid');
 const demoPanels = document.getElementById('demoPanels');
 const wizard = document.getElementById('solutionWizard');
+const wizardForm = document.getElementById('solutionWizardForm');
 const wizardBody = document.getElementById('wizardBody');
+let lastWizardTrigger = null;
+let wizardSubmitPending = false;
 
 let wizardState = {
   step: 0,
@@ -64,7 +67,7 @@ function resetWizardState(packageSlug = '') {
 function renderSolutions() {
   if (!grid) return;
   grid.innerHTML = solutionPackages.map((item) => `
-    <article class="solution-card reveal" data-solution-card="${item.slug}">
+    <article class="solution-card" data-solution-card="${item.slug}">
       <div>
         <p class="eyebrow">Vaste oplossing</p>
         <h3>${escapeHtml(item.name)}</h3>
@@ -106,7 +109,7 @@ function renderSolutions() {
 function renderDemos() {
   if (!demoPanels) return;
   demoPanels.innerHTML = solutionPackages.map((item) => `
-    <article class="demo-card reveal" id="demo-${item.slug}" data-demo-slug="${item.slug}">
+    <article class="demo-card" id="demo-${item.slug}" data-demo-slug="${item.slug}">
       <div>
         <p class="eyebrow">Demo voor ${escapeHtml(item.name)}</p>
         <h3>${escapeHtml(item.name)}</h3>
@@ -155,7 +158,7 @@ function renderWizard() {
     stepMarkup = `
       <div class="wizard-panel">
         <p class="eyebrow">Stap 1 van 3</p>
-        <h3>Past ${escapeHtml(selectedPackage.name)} bij uw kantoor?</h3>
+        <h3 tabindex="-1" data-wizard-step-title="true">Past ${escapeHtml(selectedPackage.name)} bij uw kantoor?</h3>
         <p>Bevestig eerst de basis van uw scope. Dan houden we de intake klein en concreet.</p>
         <div class="wizard-fields">
           <label>
@@ -190,7 +193,7 @@ function renderWizard() {
     stepMarkup = `
       <div class="wizard-panel">
         <p class="eyebrow">Stap 2 van 3</p>
-        <h3>Wie moet hierbij betrokken zijn?</h3>
+        <h3 tabindex="-1" data-wizard-step-title="true">Wie moet hierbij betrokken zijn?</h3>
         <div class="wizard-fields">
           <label>
             Naam contactpersoon
@@ -222,7 +225,7 @@ function renderWizard() {
     stepMarkup = `
       <div class="wizard-panel">
         <p class="eyebrow">Stap 3 van 3</p>
-        <h3>Controleer de intake voor ${escapeHtml(selectedPackage.name)}</h3>
+        <h3 tabindex="-1" data-wizard-step-title="true">Controleer de intake voor ${escapeHtml(selectedPackage.name)}</h3>
         <div class="wizard-review">
           <div><strong>Pakket</strong><span>${escapeHtml(selectedPackage.name)}</span></div>
           <div><strong>Kantoorgrootte</strong><span>${escapeHtml(wizardState.officeSize)}</span></div>
@@ -266,6 +269,66 @@ function setWizardStatus(message, variant = '') {
   if (variant) status.classList.add(variant);
 }
 
+function setWizardSubmitting(isSubmitting) {
+  wizardSubmitPending = isSubmitting;
+  if (wizardForm) wizardForm.setAttribute('aria-busy', isSubmitting ? 'true' : 'false');
+  if (!wizardBody) return;
+  wizardBody.querySelectorAll('button, input, select, textarea').forEach((element) => {
+    element.disabled = isSubmitting;
+  });
+}
+
+function restoreWizardTriggerFocus() {
+  const trigger = lastWizardTrigger;
+  lastWizardTrigger = null;
+  if (trigger && trigger.isConnected && typeof trigger.focus === 'function') {
+    trigger.focus();
+  }
+}
+
+function focusWizardStep() {
+  if (!wizardBody) return;
+  const selectors = [];
+  if (!getPackage(wizardState.packageSlug)) {
+    selectors.push('[data-wizard-close]');
+  } else if (wizardState.step === 2) {
+    selectors.push('[data-wizard-nav="submit"]');
+  } else if (wizardState.step === 1) {
+    selectors.push('input[name="contactName"]');
+  } else {
+    selectors.push('select[name="officeSize"]');
+  }
+  selectors.push('[data-wizard-step-title="true"]', 'button:not([disabled])');
+  const target = selectors.map((selector) => wizardBody.querySelector(selector)).find(Boolean);
+  if (!target || typeof target.focus !== 'function') return;
+  window.requestAnimationFrame(() => target.focus());
+}
+
+function focusWizardErrorField() {
+  if (!wizardBody) return;
+  let target = null;
+  if (wizardState.step === 0) {
+    if (!wizardState.officeSize) {
+      target = wizardBody.querySelector('select[name="officeSize"]');
+    } else if (!wizardState.mailStack) {
+      target = wizardBody.querySelector('select[name="mailStack"]');
+    }
+  } else if (wizardState.step === 1) {
+    if (!wizardState.contactName) {
+      target = wizardBody.querySelector('input[name="contactName"]');
+    } else if (!wizardState.contactDetails) {
+      target = wizardBody.querySelector('input[name="contactDetails"]');
+    } else if (!wizardState.company) {
+      target = wizardBody.querySelector('input[name="company"]');
+    } else if (!wizardState.privacyNeeds) {
+      target = wizardBody.querySelector('select[name="privacyNeeds"]');
+    }
+  }
+  if (target && typeof target.focus === 'function') {
+    target.focus();
+  }
+}
+
 function syncWizardState() {
   if (!wizardBody) return;
   const formData = new FormData(wizardBody.closest('form'));
@@ -295,22 +358,27 @@ function validateStep() {
   return '';
 }
 
-function openWizard(packageSlug) {
+function openWizard(packageSlug, trigger = null) {
+  lastWizardTrigger = trigger;
   resetWizardState(packageSlug);
+  setWizardSubmitting(false);
   renderWizard();
   if (wizard && typeof wizard.showModal === 'function') {
     wizard.showModal();
   } else if (wizard) {
     wizard.setAttribute('open', 'open');
   }
+  focusWizardStep();
 }
 
 function closeWizard() {
   if (!wizard) return;
+  if (wizardSubmitPending) return;
   if (typeof wizard.close === 'function') {
     wizard.close();
   } else {
     wizard.removeAttribute('open');
+    restoreWizardTriggerFocus();
   }
 }
 
@@ -323,6 +391,7 @@ function scrollToDemo(packageSlug) {
 }
 
 async function submitWizard() {
+  if (wizardSubmitPending) return;
   syncWizardState();
   const selectedPackage = getPackage(wizardState.packageSlug);
   if (!selectedPackage) {
@@ -346,6 +415,7 @@ async function submitWizard() {
     source: 'website-fixed-solution'
   };
 
+  setWizardSubmitting(true);
   setWizardStatus('Intake wordt verzonden…');
 
   try {
@@ -357,23 +427,30 @@ async function submitWizard() {
     const data = await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(data.error || 'Verzenden mislukt.');
     setWizardStatus('Uw intake is ontvangen. We nemen snel contact op.', 'success');
-    window.setTimeout(closeWizard, 900);
+    window.setTimeout(() => {
+      setWizardSubmitting(false);
+      closeWizard();
+    }, 900);
   } catch (error) {
     setWizardStatus(error.message || 'Er ging iets mis. Probeer het opnieuw.', 'error');
+    setWizardSubmitting(false);
   }
 }
 
 function handleWizardNavigation(action) {
+  if (wizardSubmitPending) return;
   if (action === 'back') {
     syncWizardState();
     wizardState.step = Math.max(0, wizardState.step - 1);
     renderWizard();
+    focusWizardStep();
     return;
   }
   if (action === 'submit') {
     const error = validateStep();
     if (error) {
       setWizardStatus(error, 'error');
+      focusWizardErrorField();
       return;
     }
     submitWizard();
@@ -382,10 +459,12 @@ function handleWizardNavigation(action) {
   const error = validateStep();
   if (error) {
     setWizardStatus(error, 'error');
+    focusWizardErrorField();
     return;
   }
   wizardState.step = Math.min(2, wizardState.step + 1);
   renderWizard();
+  focusWizardStep();
 }
 
 function bindEvents() {
@@ -395,7 +474,7 @@ function bindEvents() {
       if (!actionButton) return;
       const packageSlug = actionButton.getAttribute('data-package-slug') || '';
       const action = actionButton.getAttribute('data-solution-action');
-      if (action === 'buy') openWizard(packageSlug);
+      if (action === 'buy') openWizard(packageSlug, actionButton);
       if (action === 'demo') scrollToDemo(packageSlug);
     });
   }
@@ -419,7 +498,14 @@ function bindEvents() {
   }
 
   if (wizard) {
+    if (typeof wizard.addEventListener === 'function') {
+      wizard.addEventListener('close', restoreWizardTriggerFocus);
+      wizard.addEventListener('cancel', (event) => {
+        if (wizardSubmitPending) event.preventDefault();
+      });
+    }
     wizard.addEventListener('click', (event) => {
+      if (wizardSubmitPending) return;
       const bounds = wizard.getBoundingClientRect();
       const isBackdropClick = event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom;
       if (isBackdropClick) closeWizard();

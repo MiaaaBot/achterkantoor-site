@@ -1081,6 +1081,12 @@ section h2 {
     cursor: pointer;
 }
 
+.wizard-close:disabled,
+.wizard-actions button:disabled {
+    cursor: wait;
+    opacity: 0.68;
+}
+
 .wizard-panel {
     display: grid;
     gap: 16px;
