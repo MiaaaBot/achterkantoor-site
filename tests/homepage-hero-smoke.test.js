@@ -2,19 +2,17 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 
-test('homepage hero exposes the refined audience copy and transition hook', () => {
+test('homepage below-hero sections expose the new story structure', () => {
   const html = fs.readFileSync('index.html', 'utf8');
 
-  assert.match(html, /Voor slimmer werkende administratiekantoren/);
-  assert.match(html, /class="intro-band intro-band-overlap"/);
-  assert.match(html, /class="workflow-panel mail-panel reveal"/);
-});
-
-test('homepage hero keeps the rotating headline phrases', () => {
-  const html = fs.readFileSync('index.html', 'utf8');
-
-  assert.match(html, /extra personeel/);
-  assert.match(html, /technische kennis/);
-  assert.match(html, /langdurende setup/);
-  assert.match(html, /generieke AI teksten/);
+  assert.match(html, /class="[^"]*\bworkflow-story\b/);
+  assert.match(html, /AchterKantoor helpt u zien waar AI tijd scheelt/);
+  assert.match(html, /class="[^"]*\bstart-rhythm\b/);
+  assert.match(html, /We starten klein, in een proces dat elke week tijd kost/);
+  assert.match(html, /id="voorbeelden"/);
+  assert.match(html, /Zo ziet slimmer werk in uw kantoor eruit/);
+  assert.match(html, /documenten najagen/i);
+  assert.match(html, /statusvragen beantwoorden/i);
+  assert.match(html, /class="[^"]*\bcontrol-story\b/);
+  assert.match(html, /wat automatisch loopt en wat bij het team blijft/i);
 });
