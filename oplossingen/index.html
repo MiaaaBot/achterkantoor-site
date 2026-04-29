@@ -178,6 +178,23 @@
     </div>
 </section>
 
+<section class="solutions-catalog section">
+    <div class="container">
+        <div class="section-heading reveal">
+            <p class="eyebrow">Direct inzetbare oplossingen</p>
+            <h2>Kies een vaste oplossing die past bij uw kantoor.</h2>
+            <p class="section-lead">Koop direct met een heldere scope of bekijk eerst de demo per oplossing.</p>
+        </div>
+        <div id="solutionsGrid" class="solutions-grid"></div>
+    </div>
+</section>
+
+<dialog id="solutionWizard" class="solution-wizard">
+    <form method="dialog" class="wizard-shell" id="solutionWizardForm">
+        <div id="wizardBody"></div>
+    </form>
+</dialog>
+
 <section class="tint-sky">
     <div class="container">
         <div class="section-card fade-in">
@@ -269,6 +286,7 @@
         targets.forEach(function(t){ io.observe(t); });
     })();
 </script>
+<script type="module" src="/assets/solutions-page.js"></script>
 <script data-goatcounter="https://achterkantoor.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
 </body>
