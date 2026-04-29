@@ -21,3 +21,11 @@ test('oplossingen page includes product conversion and trust sections', () => {
   assert.match(html, /id="dashboardPreview"/);
   assert.match(html, /"@type": "FAQPage"/);
 });
+
+test('oplossingen page reveal script observes new reveal targets', () => {
+  const html = fs.readFileSync('oplossingen/index.html', 'utf8');
+
+  assert.match(html, /class="solutions-hero-copy reveal"/);
+  assert.match(html, /class="container privacy-grid reveal"/);
+  assert.match(html, /querySelectorAll\('\.reveal,? ?\.fade-in'\)/);
+});

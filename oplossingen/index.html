@@ -237,7 +237,7 @@
         });
     })();
     (function () {
-        var targets = document.querySelectorAll('.fade-in');
+        var targets = document.querySelectorAll('.reveal, .fade-in');
         if (!('IntersectionObserver' in window)) {
             targets.forEach(function(t){ t.classList.add('visible'); });
             return;
