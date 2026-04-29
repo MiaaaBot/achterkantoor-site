@@ -13,21 +13,21 @@ test('oplossingen page exposes mount points for package rendering', () => {
   assert.equal(fs.existsSync('assets/solutions-page.js'), true);
 });
 
-test('oplossingen page contains wizard and product CTA hooks', () => {
+test('oplossingen page contains task 2 conversion sections', () => {
   const html = fs.readFileSync('oplossingen/index.html', 'utf8');
 
-  assert.match(html, /id="wizardBody"/);
-  assert.match(html, /data-solution-action="buy"/);
-  assert.match(html, /data-solution-action="demo"/);
+  assert.match(html, /<section[^>]+class="solutions-catalog section tint-sand"/);
+  assert.match(html, /<section[^>]+id="demoSection"[^>]*class="section section-accent"/);
+  assert.match(html, /<section[^>]+id="privacySection"[^>]*class="section"/);
+  assert.match(html, /<section[^>]+id="dashboardPreview"[^>]*class="section tint-sky"/);
 });
 
-test('oplossingen page includes product conversion and trust sections', () => {
+test('oplossingen page uses oplossingen-scoped section card wrappers', () => {
   const html = fs.readFileSync('oplossingen/index.html', 'utf8');
 
-  assert.match(html, /id="demoSection"/);
-  assert.match(html, /id="privacySection"/);
-  assert.match(html, /id="dashboardPreview"/);
-  assert.match(html, /"@type": "FAQPage"/);
+  const scopedCards = html.match(/class="solutions-section-card reveal"/g) || [];
+  assert.equal(scopedCards.length, 2);
+  assert.doesNotMatch(html, /class="section-card reveal"/);
 });
 
 test('oplossingen page reveal script observes new reveal targets', () => {
