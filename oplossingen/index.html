@@ -77,7 +77,9 @@
 
 <nav>
     <div class="container">
-        <a href="/" class="logo">Achter<span>Kantoor</span></a>
+        <a href="/" class="logo" aria-label="AchterKantoor home">
+            <img src="/branding/logo-nav-user.png" alt="AchterKantoor" class="logo-img">
+        </a>
         <div class="nav-links">
             <a href="/wat-we-doen/" class="cta-link">Wat we doen</a>
             <a href="/oplossingen/" class="cta-link" aria-current="page">Vaste oplossingen</a>
@@ -102,16 +104,17 @@
 
 <section class="alt tint-sand" id="vaste-oplossingen">
     <style>
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
-        .service-card { background:#fff; border:1px solid var(--border); border-radius:18px; padding: clamp(22px, 3vw, 32px); box-shadow: 6px 6px 0 0 rgba(37,99,235,0.08); display:flex; flex-direction:column; gap: 12px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+        .service-card { background:#fff; border:1px solid var(--border); border-radius:14px; padding: clamp(22px, 3vw, 32px); display:flex; flex-direction:column; gap: 12px; }
         .service-card h3 { font-size: 1.2rem; margin: 0; }
         .service-card > p:first-of-type { color: var(--muted); }
         .service-card ul { padding-left: 18px; display:grid; gap: 6px; color: var(--text); font-size: 0.95rem; }
-        .service-card .price { font-size: 1.05rem; color: var(--accent); font-weight: 700; margin-top: auto; }
+        .service-card .price { font-size: 1.05rem; color: var(--blue); font-weight: 700; margin-top: auto; }
         .service-card .btn { align-self: flex-start; margin-top: 4px; }
         .service-card .fine { color: var(--muted); font-size: 0.85rem; }
-        .mini-benefits { display:flex; flex-wrap:wrap; gap:10px 12px; justify-content:center; margin: 8px 0 32px; }
-        .pill { background:#fff; border:1px solid var(--border); padding:8px 14px; border-radius:999px; font-weight:600; color:var(--muted); font-size: 0.88rem; }
+        .mini-benefits { display:flex; flex-wrap:wrap; gap:8px 18px; justify-content:center; margin: 8px 0 32px; }
+        .pill { display:inline-flex; align-items:center; gap:18px; background:transparent; border:0; padding:0; border-radius:0; font-weight:700; color:rgba(11,33,64,0.72); font-size: 0.88rem; }
+        .pill + .pill::before { content:""; width:5px; height:5px; border-radius:50%; background:var(--coral); }
     </style>
     <div class="container">
         <div class="mini-benefits fade-in">

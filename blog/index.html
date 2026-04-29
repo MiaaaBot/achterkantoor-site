@@ -116,14 +116,14 @@
     </script>
     <style>
         :root {
-            --bg: #fafaf9;
-            --text: #1c1917;
-            --muted: #57534e;
-            --accent: #2563eb;
-            --accent-hover: #1d4ed8;
+            --bg: #f8fbf8;
+            --text: #0b2140;
+            --muted: rgba(11, 33, 64, 0.62);
+            --accent: #598DDB;
+            --accent-hover: #0b2140;
             --card-bg: #ffffff;
-            --border: #e7e5e4;
-            --section-alt: #f5f5f4;
+            --border: rgba(11, 33, 64, 0.12);
+            --section-alt: #ffffff;
             --green: #16a34a;
         }
 
@@ -153,13 +153,9 @@
             align-items: center;
         }
         .logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text);
             text-decoration: none;
-            letter-spacing: -0.02em;
         }
-        .logo span { color: var(--accent); }
+        .logo-img { display: block; width: clamp(148px, 14vw, 188px); height: auto; }
         nav a.cta-link {
             color: var(--accent);
             text-decoration: none;
@@ -308,7 +304,9 @@
 
 <nav>
     <div class="container">
-        <a href="/" class="logo">Achter<span>Kantoor</span></a>
+        <a href="/" class="logo" aria-label="AchterKantoor home">
+            <img src="/branding/logo-nav-user.png" alt="AchterKantoor" class="logo-img">
+        </a>
         <div class="nav-links">
             <a href="/" class="cta-link">Home</a>
             <a href="/#diensten" class="cta-link">Wat we doen</a>
@@ -328,7 +326,7 @@
 <section>
     <div class="container">
         <div class="blog-grid">
-            <article class="blog-card" style="border: 2px solid var(--accent);">
+            <article class="blog-card" style="border-color: rgba(89, 141, 219, 0.32);">
                 <span class="tag">Nieuw • SEO gids</span>
                 <h2><a href="/blog/pillar-ai-voor-accountants.html">AI voor Accountants: De Complete Gids</a></h2>
                 <p>Een uitgebreide gids over AI voor accountants, met concrete processen, ROI-voorbeelden, software-integraties en een praktisch startplan voor Nederlandse kantoren.</p>

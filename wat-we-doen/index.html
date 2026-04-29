@@ -40,7 +40,9 @@
 
 <nav>
     <div class="container">
-        <a href="/" class="logo">Achter<span>Kantoor</span></a>
+        <a href="/" class="logo" aria-label="AchterKantoor home">
+            <img src="/branding/logo-nav-user.png" alt="AchterKantoor" class="logo-img">
+        </a>
         <div class="nav-links">
             <a href="/wat-we-doen/" class="cta-link" aria-current="page">Wat we doen</a>
             <a href="/oplossingen/" class="cta-link">Vaste oplossingen</a>
@@ -71,21 +73,17 @@
         .flip-inner { position: relative; width: 100%; height: 100%; min-height: 210px; transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1); transform-style: preserve-3d; }
         .flip-card.flipped .flip-inner,
         .flip-card:hover .flip-inner { transform: rotateY(180deg); }
-        .flip-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 10px; }
-        .flip-face.back { transform: rotateY(180deg); background: var(--accent-subtle); border-color: var(--accent-light); font-size: 0.88rem; }
-        .flip-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--accent-subtle); color: var(--accent); display: flex; align-items: center; justify-content: center; }
+        .flip-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+        .flip-face.back { transform: rotateY(180deg); background: var(--blue-soft); border-color: var(--border); font-size: 0.88rem; }
+        .flip-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--blue-soft); color: var(--blue); display: flex; align-items: center; justify-content: center; }
         .flip-icon svg { width: 22px; height: 22px; }
         .flip-face h3 { font-size: 1.05rem; margin: 0; }
-        .flip-tap { margin-top: auto; font-size: 0.8rem; color: var(--accent); font-weight: 600; }
+        .flip-tap { margin-top: auto; font-size: 0.8rem; color: var(--blue); font-weight: 600; }
         .flip-email { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.8rem; background: #fff; border-radius: 8px; padding: 8px 10px; color: var(--text); border: 1px solid var(--border); }
-        .flip-email b { color: var(--accent); font-weight: 600; }
+        .flip-email b { color: var(--blue); font-weight: 600; }
         .flip-face.back p { margin: 0; color: var(--muted); font-size: 0.85rem; }
-        .flip-grid > .flip-card:nth-child(2) .flip-face.front { border-left: 3px solid var(--accent-sage); }
-        .flip-grid > .flip-card:nth-child(3) .flip-face.front { border-left: 3px solid var(--accent-sand); }
-        .flip-grid > .flip-card:nth-child(4) .flip-face.front { border-left: 3px solid var(--accent-lavender); }
-        .flip-grid > .flip-card:nth-child(2) .flip-icon { color: var(--accent-sage); background: rgba(22, 163, 74, 0.10); }
-        .flip-grid > .flip-card:nth-child(3) .flip-icon { color: var(--accent-sand); background: rgba(180, 83, 9, 0.10); }
-        .flip-grid > .flip-card:nth-child(4) .flip-icon { color: var(--accent-lavender); background: rgba(99, 102, 241, 0.10); }
+        .flip-grid > .flip-card:nth-child(3) .flip-icon { color: var(--coral); background: var(--coral-soft); }
+        .flip-grid > .flip-card:nth-child(4) .flip-icon { color: var(--charcoal); background: var(--lime-soft); }
         @media (prefers-reduced-motion: reduce) { .flip-inner { transition: none; } }
     </style>
     <div class="container">
