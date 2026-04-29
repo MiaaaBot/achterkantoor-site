@@ -23,7 +23,16 @@ test('homepage below-hero sections expose the new story structure', () => {
 
   assert.match(html, /class="[^"]*\bworkflow-story\b[^"]*"/);
   assert.match(html, /aria-label="Workflowverhaal"/);
-  assert.match(html, /class="[^"]*\boutcome-list\b[^"]*"/);
+  assert.match(html, /class="[^"]*\bworkflow-story-shell\b[^"]*"/);
+  assert.match(html, /class="[^"]*\bworkflow-story-copy\b[^"]*"/);
+  assert.match(html, /class="[^"]*\bworkflow-story-visual\b[^"]*"/);
+  assert.match(html, /class="[^"]*\bworkflow-map\b[^"]*"/);
+  assert.match(html, /Intake/);
+  assert.match(html, /Documenten/);
+  assert.match(html, /Status/);
+  assert.match(html, /Overdracht/);
+  assert.match(html, /class="[^"]*\bworkflow-story-points\b[^"]*"/);
+  assert.equal((html.match(/class="[^"]*\bworkflow-point\b[^"]*"/g) || []).length, 3);
   assert.match(html, /id="werkwijze" class="[^"]*\bsection\b[^"]*\bstart-rhythm\b[^"]*"/);
   assert.match(html, /id="werkwijze"/);
   assert.match(html, /class="[^"]*\bsteps-grid\b[^"]*"/);

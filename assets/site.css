@@ -1124,6 +1124,175 @@ section h2 {
     background: var(--coral);
 }
 
+.workflow-story {
+    padding-top: clamp(34px, 5vw, 54px);
+}
+
+.workflow-story-shell {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    gap: clamp(28px, 4vw, 38px);
+    padding: clamp(30px, 5vw, 48px);
+    border: 1px solid rgba(89, 141, 219, 0.12);
+    border-radius: 32px;
+    background:
+        radial-gradient(circle at top right, rgba(206, 219, 89, 0.18), transparent 30%),
+        radial-gradient(circle at left center, rgba(89, 141, 219, 0.12), transparent 32%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(246, 250, 255, 0.96));
+    box-shadow: 0 28px 70px rgba(11, 33, 64, 0.08);
+}
+
+.workflow-story-shell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(89, 141, 219, 0.08), rgba(89, 141, 219, 0.08)) 0 0 / 100% 1px no-repeat,
+        linear-gradient(90deg, rgba(11, 33, 64, 0.06), rgba(11, 33, 64, 0.01)) 0 62% / 100% 1px no-repeat;
+    pointer-events: none;
+}
+
+.workflow-story-copy {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+}
+
+.workflow-story-copy h2 {
+    max-width: 12ch;
+    font-size: clamp(2rem, 3.5vw, 3.4rem);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+}
+
+.workflow-story-copy p:last-child {
+    max-width: 66ch;
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 1.06rem;
+}
+
+.workflow-story-visual {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 16px;
+    padding: clamp(18px, 2.8vw, 24px);
+    border: 1px solid rgba(11, 33, 64, 0.08);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.52);
+    backdrop-filter: blur(6px);
+}
+
+.workflow-map {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.workflow-stage {
+    position: relative;
+    display: grid;
+    align-content: start;
+    gap: 12px;
+    min-height: 220px;
+    padding: 18px 18px 16px;
+    border-left: 1px solid rgba(11, 33, 64, 0.1);
+}
+
+.workflow-stage:first-child {
+    border-left: 0;
+}
+
+.workflow-stage.highlighted {
+    background: linear-gradient(180deg, rgba(89, 141, 219, 0.08), rgba(89, 141, 219, 0.02));
+    border-radius: 20px;
+    border-left-color: transparent;
+}
+
+.workflow-stage-step {
+    color: rgba(11, 33, 64, 0.42);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+.workflow-stage strong {
+    font-size: 1.26rem;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+}
+
+.workflow-stage p {
+    color: var(--muted);
+    font-size: 0.97rem;
+}
+
+.workflow-stage-tag {
+    align-self: end;
+    display: inline-flex;
+    width: fit-content;
+    margin-top: auto;
+    padding: 8px 12px;
+    border: 1px solid rgba(11, 33, 64, 0.08);
+    border-radius: 999px;
+    background: rgba(248, 251, 248, 0.84);
+    color: var(--charcoal);
+    font-size: 0.79rem;
+    font-weight: 600;
+}
+
+.workflow-story-note {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 18px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(11, 33, 64, 0.08);
+}
+
+.workflow-story-note-label {
+    color: var(--blue);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.workflow-story-note p {
+    max-width: 56ch;
+    color: var(--muted);
+}
+
+.workflow-story-points {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    padding-top: 6px;
+}
+
+.workflow-point {
+    padding-top: 16px;
+    border-top: 1px solid rgba(11, 33, 64, 0.08);
+}
+
+.workflow-point strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.05rem;
+    font-weight: 620;
+    letter-spacing: -0.02em;
+}
+
+.workflow-point p {
+    color: var(--muted);
+    font-size: 0.97rem;
+}
+
 .split-feature,
 .trust-grid,
 .contact-card {
@@ -1400,6 +1569,8 @@ footer {
     .solutions-hero-inner,
     .privacy-grid,
     .hero-grid,
+    .workflow-map,
+    .workflow-story-points,
     .intro-grid,
     .split-feature,
     .trust-grid,
@@ -1409,6 +1580,29 @@ footer {
 
     .example-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .workflow-stage {
+        min-height: 0;
+        border-left: 0;
+        border-top: 1px solid rgba(11, 33, 64, 0.08);
+        padding-left: 0;
+        padding-right: 0;
+        border-radius: 0;
+    }
+
+    .workflow-stage:first-child {
+        border-top: 0;
+    }
+
+    .workflow-stage.highlighted {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .workflow-story-note {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
 
