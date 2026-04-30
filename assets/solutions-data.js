@@ -1,7 +1,7 @@
 export const solutionPackages = [
   {
     slug: 'ontbrekende-stukken',
-    name: 'Ontbrekende stukken opvolgen',
+    name: 'Opvolging',
     setupPrice: 'Vanaf €950',
     monthlyPrice: 'Vanaf €149 p/m',
     turnaround: 'Live in 10 werkdagen',
@@ -22,7 +22,7 @@ export const solutionPackages = [
   },
   {
     slug: 'inbox-triage',
-    name: 'Inbox triage voor klantmails',
+    name: 'Triage',
     setupPrice: 'Vanaf €1.250',
     monthlyPrice: 'Vanaf €199 p/m',
     turnaround: 'Live in 15 werkdagen',
@@ -43,7 +43,7 @@ export const solutionPackages = [
   },
   {
     slug: 'klantstatus-overdracht',
-    name: 'Klantstatus en interne overdracht',
+    name: 'Overdracht',
     setupPrice: 'Vanaf €1.250',
     monthlyPrice: 'Vanaf €199 p/m',
     turnaround: 'Live in 15 werkdagen',

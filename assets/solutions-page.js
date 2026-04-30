@@ -1,11 +1,12 @@
 import { solutionPackages, integrationGroups } from '/assets/solutions-data.js';
 
 const grid = document.getElementById('solutionsGrid');
-const demoPanels = document.getElementById('demoPanels');
 const wizard = document.getElementById('solutionWizard');
 const wizardForm = document.getElementById('solutionWizardForm');
 const wizardBody = document.getElementById('wizardBody');
+const callEmbedDialog = document.getElementById('callEmbedDialog');
 let lastWizardTrigger = null;
+let lastCallTrigger = null;
 let wizardSubmitPending = false;
 
 let wizardState = {
@@ -29,17 +30,19 @@ const officeSizes = [
 ];
 
 const privacyOptions = [
-  'Standaard privacy-aanpak is voldoende',
-  'EU-hosting is vereist',
-  'Dedicated omgeving gewenst',
-  'Eerst afstemmen met compliance of IT'
+  'Onze standaard privacy-aanpak is prima',
+  'We willen dat dit binnen Europa blijft',
+  'We hebben extra eisen vanuit IT of compliance',
+  'Dit moeten we eerst samen afstemmen'
 ];
 
 const solutionPresentation = {
   'ontbrekende-stukken': {
     label: 'Voor dossiervolgwerk',
     context: 'Voor kantoren die nu vooral stukken najagen via losse mails, lijstjes en herinneringen.',
+    bestFor: 'Voor kantoren die stukken najagen nog handmatig doen.',
     note: 'Neemt het meeste handmatige volgwerk weg zonder nieuw portaal of groot softwareproject.',
+    scopeSummary: 'Niet voor een volledig maatwerkportaal, brede uitzonderingslogica of vervanging van uw boekhoudpakket.',
     badge: 'Beste startpunt',
     featured: true,
     variantClass: 'solution-card-featured',
@@ -53,6 +56,7 @@ const solutionPresentation = {
   'inbox-triage': {
     label: 'Voor mailboxdrukte',
     context: 'Voor teams die steeds dezelfde klantmails sorteren, doorzetten en voorbereiden.',
+    bestFor: 'Voor teams met terugkerende vragen in een volle mailbox.',
     note: 'Brengt rust in de mailbox zonder er een compleet helpdesksysteem van te maken.',
     scopeSummary: 'Geen volledig ticketsysteem of brede helpdeskimplementatie met onbeperkte maatwerkclassificaties.',
     variantClass: 'solution-card-secondary solution-card-mail',
@@ -66,6 +70,7 @@ const solutionPresentation = {
   'klantstatus-overdracht': {
     label: 'Voor overdracht',
     context: 'Voor teams die statusupdates tussen dossier, collega en klant overzichtelijk willen houden.',
+    bestFor: 'Voor teams die overdracht en statusmomenten willen standaardiseren.',
     note: 'Maakt vaste statusmomenten zichtbaar zonder een los klantportaal te hoeven bouwen.',
     scopeSummary: 'Geen volledig klantportaal, vrije workflow-editor of herontwerp van uw hele operatie.',
     variantClass: 'solution-card-secondary solution-card-status',
@@ -128,120 +133,62 @@ function renderSolutions() {
   grid.innerHTML = solutionPackages.map((item) => {
     const presentation = getSolutionPresentation(item.slug);
     const integrations = item.integrations.map((entry) => `<li>${escapeHtml(entry)}</li>`).join('');
-    const included = item.included.map((entry) => `<li>${escapeHtml(entry)}</li>`).join('');
-    const excluded = item.excluded.map((entry) => `<li>${escapeHtml(entry)}</li>`).join('');
-
-    if (presentation.featured) {
-      return `
-        <article class="solution-card ${presentation.variantClass}" data-solution-card="${item.slug}">
-          <div class="solution-card-head">
-            <div class="solution-card-topline">
-              <p class="solution-label">${escapeHtml(presentation.label)}</p>
-              <span class="solution-badge">${escapeHtml(presentation.badge)}</span>
-            </div>
-            <h3>${escapeHtml(item.name)}</h3>
-            <p class="solution-context">${escapeHtml(presentation.context)}</p>
-          </div>
-          <p class="solution-summary">${escapeHtml(item.summary)}</p>
-          <div class="solution-price-row">
-            <span>${escapeHtml(item.setupPrice)}</span>
-            <span>${escapeHtml(item.monthlyPrice)}</span>
-            <span>${escapeHtml(item.turnaround)}</span>
-          </div>
-          <div class="solution-columns">
-            <div>
-              <strong>Inbegrepen</strong>
-              <ul>
-                ${included}
-              </ul>
-            </div>
-            <div>
-              <strong>Buiten scope</strong>
-              <ul>
-                ${excluded}
-              </ul>
-            </div>
-          </div>
-          <div class="solution-meta">
-            <span>Past vaak bij:</span>
-            <ul class="solution-fit-list">
-              ${integrations}
-            </ul>
-            <p class="solution-note">${escapeHtml(presentation.note)}</p>
-          </div>
-          <div class="solution-actions">
-            <button type="button" class="btn" data-solution-action="buy" data-package-slug="${item.slug}">Start intake</button>
-            <button type="button" class="btn btn-secondary" data-solution-action="demo" data-package-slug="${item.slug}">Bekijk voorbeeld</button>
-          </div>
-        </article>
-      `;
-    }
+    const includedPreview = item.included.slice(0, 3).map((entry) => `<li>${escapeHtml(entry)}</li>`).join('');
+    const includedFull = item.included.map((entry) => `<li>${escapeHtml(entry)}</li>`).join('');
+    const excludedFull = item.excluded.map((entry) => `<li>${escapeHtml(entry)}</li>`).join('');
+    const detailId = `solution-details-${item.slug}`;
 
     return `
       <article class="solution-card ${presentation.variantClass}" data-solution-card="${item.slug}">
         <div class="solution-card-head">
-          <p class="solution-label">${escapeHtml(presentation.label)}</p>
+          <div class="solution-card-topline">
+            <p class="solution-label">${escapeHtml(presentation.label)}</p>
+            ${presentation.badge ? `<span class="solution-badge">${escapeHtml(presentation.badge)}</span>` : ''}
+          </div>
           <h3>${escapeHtml(item.name)}</h3>
           <p class="solution-context">${escapeHtml(presentation.context)}</p>
         </div>
         <p class="solution-summary">${escapeHtml(item.summary)}</p>
         <div class="solution-price-row">
-          <span>${escapeHtml(item.setupPrice)}</span>
-          <span>${escapeHtml(item.monthlyPrice)}</span>
-          <span>${escapeHtml(item.turnaround)}</span>
+          <div class="solution-stat">
+            <span class="solution-stat-label">Setup</span>
+            <strong>${escapeHtml(item.setupPrice)}</strong>
+          </div>
+          <div class="solution-stat">
+            <span class="solution-stat-label">Per maand</span>
+            <strong>${escapeHtml(item.monthlyPrice)}</strong>
+          </div>
         </div>
-        <div class="solution-compact-grid">
-          <div>
-            <strong>Wat u krijgt</strong>
-            <ul>
-              ${included}
+        <p class="solution-timing">${escapeHtml(item.turnaround)}</p>
+        <ul class="solution-checklist">
+          ${includedPreview}
+        </ul>
+        <div class="solution-actions">
+          <button type="button" class="btn" data-solution-action="buy" data-package-slug="${item.slug}">Start hier</button>
+        </div>
+        <button type="button" class="solution-detail-toggle" data-solution-action="details" data-package-slug="${item.slug}" data-details-target="${detailId}" aria-expanded="false" aria-controls="${detailId}">Bekijk details</button>
+        <div id="${detailId}" class="solution-detail-panel" data-solution-details="true" hidden>
+          <div class="solution-detail-grid">
+            <div class="solution-list-block">
+              <strong>Wat u krijgt</strong>
+              <ul>
+                ${includedFull}
+              </ul>
+            </div>
+            <div class="solution-list-block">
+              <strong>Niet voor</strong>
+              <ul>
+                ${excludedFull}
+              </ul>
+            </div>
+          </div>
+          <div class="solution-detail-foot">
+            <p>${escapeHtml(presentation.note)}</p>
+            <ul class="solution-fit-list">
+              ${integrations}
             </ul>
           </div>
-          <div class="solution-scope-note">
-            <strong>Niet bedoeld als</strong>
-            <p>${escapeHtml(presentation.scopeSummary)}</p>
-          </div>
         </div>
-        <div class="solution-meta">
-          <span>Past vaak bij:</span>
-          <ul class="solution-fit-list">
-            ${integrations}
-          </ul>
-          <p class="solution-note">${escapeHtml(presentation.note)}</p>
-        </div>
-        <div class="solution-actions">
-          <button type="button" class="btn" data-solution-action="buy" data-package-slug="${item.slug}">Start intake</button>
-          <button type="button" class="btn btn-secondary" data-solution-action="demo" data-package-slug="${item.slug}">Bekijk voorbeeld</button>
-        </div>
-      </article>
-    `;
-  }).join('');
-}
-
-function renderDemos() {
-  if (!demoPanels) return;
-  demoPanels.innerHTML = solutionPackages.map((item) => {
-    const presentation = getSolutionPresentation(item.slug);
-    return `
-      <article class="demo-card proof-card" id="demo-${item.slug}" data-demo-slug="${item.slug}">
-        <div class="proof-card-header">
-          <p class="eyebrow">Voorbeeldflow</p>
-          <h3>${escapeHtml(item.name)}</h3>
-        </div>
-        <p>${escapeHtml(item.demoLabel)}</p>
-        <div class="demo-flow">
-          <strong>Wat u ziet</strong>
-          <ol>
-            ${presentation.proofPoints.map((entry) => `<li>${escapeHtml(entry)}</li>`).join('')}
-          </ol>
-        </div>
-        <div class="demo-meta">
-          <span>Koppelingen in beeld</span>
-          <ul>
-            ${item.integrations.map((entry) => `<li>${escapeHtml(entry)}</li>`).join('')}
-          </ul>
-        </div>
-        <p class="proof-note">${escapeHtml(presentation.proofNote)}</p>
       </article>
     `;
   }).join('');
@@ -322,9 +269,9 @@ function renderWizard() {
             <input name="company" type="text" value="${escapeHtml(wizardState.company)}" required>
           </label>
           <label>
-            Privacy of hostingwens
+            Wat is voor u belangrijk rond privacy en IT?
             <select name="privacyNeeds" required>
-              <option value="">Kies wat van toepassing is</option>
+              <option value="">Kies wat het best past</option>
               ${privacyOptions.map((item) => `<option value="${escapeHtml(item)}"${wizardState.privacyNeeds === item ? ' selected' : ''}>${escapeHtml(item)}</option>`).join('')}
             </select>
           </label>
@@ -496,12 +443,62 @@ function closeWizard() {
   }
 }
 
-function scrollToDemo(packageSlug) {
-  const panel = document.getElementById(`demo-${packageSlug}`);
-  if (!panel) return;
-  panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  panel.classList.add('demo-card-active');
-  window.setTimeout(() => panel.classList.remove('demo-card-active'), 1800);
+function toggleSolutionDetails(toggleButton) {
+  if (!grid || !toggleButton) return;
+  const detailsId = toggleButton.getAttribute('data-details-target');
+  if (!detailsId) return;
+  const targetPanel = document.getElementById(detailsId);
+  if (!targetPanel) return;
+  const willOpen = targetPanel.getAttribute('hidden') !== null;
+
+  grid.querySelectorAll('[data-solution-details]').forEach((panel) => {
+    if (panel !== targetPanel) panel.setAttribute('hidden', 'hidden');
+  });
+
+  grid.querySelectorAll('[data-solution-action="details"]').forEach((button) => {
+    if (button !== toggleButton) {
+      button.setAttribute('aria-expanded', 'false');
+      button.textContent = 'Bekijk details';
+    }
+  });
+
+  if (willOpen) {
+    targetPanel.removeAttribute('hidden');
+    toggleButton.setAttribute('aria-expanded', 'true');
+    toggleButton.textContent = 'Verberg details';
+    return;
+  }
+
+  targetPanel.setAttribute('hidden', 'hidden');
+  toggleButton.setAttribute('aria-expanded', 'false');
+  toggleButton.textContent = 'Bekijk details';
+}
+
+function restoreCallTriggerFocus() {
+  const trigger = lastCallTrigger;
+  lastCallTrigger = null;
+  if (trigger && trigger.isConnected && typeof trigger.focus === 'function') {
+    trigger.focus();
+  }
+}
+
+function openCallDialog(trigger = null) {
+  lastCallTrigger = trigger;
+  if (callEmbedDialog && typeof callEmbedDialog.showModal === 'function') {
+    callEmbedDialog.showModal();
+  } else if (callEmbedDialog) {
+    callEmbedDialog.setAttribute('open', 'open');
+  }
+}
+
+function closeCallDialog() {
+  if (!callEmbedDialog) return;
+  if (typeof callEmbedDialog.close === 'function') {
+    callEmbedDialog.close();
+  } else {
+    callEmbedDialog.removeAttribute('open');
+    restoreCallTriggerFocus();
+  }
 }
 
 async function submitWizard() {
@@ -582,14 +579,23 @@ function handleWizardNavigation(action) {
 }
 
 function bindEvents() {
+  if (typeof document.querySelectorAll === 'function') {
+    document.querySelectorAll('[data-open-call-popup]').forEach((trigger) => {
+      trigger.addEventListener('click', (event) => {
+        event.preventDefault();
+        openCallDialog(trigger);
+      });
+    });
+  }
+
   if (grid) {
     grid.addEventListener('click', (event) => {
       const actionButton = event.target.closest('[data-solution-action]');
       if (!actionButton) return;
-      const packageSlug = actionButton.getAttribute('data-package-slug') || '';
       const action = actionButton.getAttribute('data-solution-action');
+      const packageSlug = actionButton.getAttribute('data-package-slug') || '';
       if (action === 'buy') openWizard(packageSlug, actionButton);
-      if (action === 'demo') scrollToDemo(packageSlug);
+      if (action === 'details') toggleSolutionDetails(actionButton);
     });
   }
 
@@ -633,9 +639,22 @@ function bindEvents() {
       if (isBackdropClick) closeWizard();
     });
   }
+
+  if (callEmbedDialog && typeof callEmbedDialog.addEventListener === 'function') {
+    callEmbedDialog.addEventListener('close', restoreCallTriggerFocus);
+    callEmbedDialog.addEventListener('click', (event) => {
+      const closeButton = event.target.closest('[data-call-close]');
+      if (closeButton) {
+        closeCallDialog();
+        return;
+      }
+      const bounds = callEmbedDialog.getBoundingClientRect();
+      const isBackdropClick = event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom;
+      if (isBackdropClick) closeCallDialog();
+    });
+  }
 }
 
 renderSolutions();
-renderDemos();
 renderWizard();
 bindEvents();

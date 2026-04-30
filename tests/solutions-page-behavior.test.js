@@ -384,6 +384,15 @@ test('solutions page runtime hardening keeps injected cards visible and blocks d
   assert.match(page.grid.innerHTML, /data-solution-card="ontbrekende-stukken"/);
   assert.doesNotMatch(page.grid.innerHTML, /solution-card reveal/);
 
+  const detailsButton = page.grid.querySelector('[data-solution-action="details"]');
+  const detailsPanel = page.grid.querySelector('[data-solution-details]');
+  click(page.grid, detailsButton);
+  assert.equal(detailsButton.getAttribute('aria-expanded'), 'true');
+  assert.equal(detailsPanel.getAttribute('hidden'), null);
+  click(page.grid, detailsButton);
+  assert.equal(detailsButton.getAttribute('aria-expanded'), 'false');
+  assert.equal(detailsPanel.getAttribute('hidden'), 'hidden');
+
   const buyButton = page.grid.querySelector('[data-solution-action="buy"]');
   click(page.grid, buyButton);
   assert.equal(page.wizard.open, true);
