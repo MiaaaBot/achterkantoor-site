@@ -92,7 +92,7 @@
     <nav class="site-nav" aria-label="Hoofdnavigatie">
         <div class="container nav-inner">
             <a href="/" class="logo" aria-label="AchterKantoor home">
-                <img src="/branding/logo-canva-wordmark.svg" alt="AchterKantoor" class="logo-img">
+                <img src="/branding/logo-nav-user.png" alt="AchterKantoor" class="logo-img">
             </a>
             <button class="nav-toggle" type="button" aria-label="Open navigatie" aria-expanded="false">Menu</button>
             <div class="nav-links" id="navLinks">
@@ -107,11 +107,30 @@
 
     <main>
         <header class="hero">
+            <div class="neural-bg" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <div class="container hero-grid">
                 <div class="hero-copy reveal">
                     <p class="eyebrow">Voor kleine accountantskantoren</p>
-                    <h1>8 uur per week terug in je agenda. Zonder extra personeel.</h1>
-                    <p class="hero-lead">AchterKantoor neemt het terugkerende opvolgwerk uit je kantoorproces: documenten najagen, reminders sturen, statusvragen beantwoorden en overdrachten strak houden.</p>
+                    <h1>
+                        8 uur per week terug in je agenda.
+                        <span class="headline-switch" aria-label="Zonder extra personeel, technische kennis, langdurende setup of generieke AI teksten">
+                            <span>Zonder:</span>
+                            <span class="rotating-words" aria-hidden="true">
+                                <span>extra personeel</span>
+                                <span>technische kennis</span>
+                                <span>langdurende setup</span>
+                                <span>generieke AI teksten</span>
+                            </span>
+                        </span>
+                    </h1>
+                    <!-- <p class="hero-lead">AchterKantoor neemt het terugkerende opvolgwerk uit je kantoorproces: documenten najagen, reminders sturen, statusvragen beantwoorden en overdrachten strak houden.</p> -->
                     <div class="hero-actions">
                         <a href="#contact" class="btn">Gratis quickscan aanvragen</a>
                         <a href="#voorbeelden" class="btn btn-secondary">Bekijk voorbeelden</a>
@@ -123,37 +142,56 @@
                     </div>
                 </div>
 
-                <div class="workflow-panel reveal" aria-label="Voorbeeld van geautomatiseerd opvolgwerk">
-                    <div class="panel-top">
-                        <span class="panel-kicker">Vandaag in je kantoor</span>
-                        <span class="panel-status">4 taken afgerond</span>
+                <div class="workflow-panel mail-panel reveal" aria-label="Voorbeeld van inbox automatisering">
+                    <div class="mail-window-top">
+                        <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+                        <strong>Inbox</strong>
+                        <span class="mail-client">Gmail</span>
                     </div>
-                    <div class="workflow-list">
-                        <div class="workflow-item done">
-                            <span class="workflow-icon">01</span>
-                            <div>
-                                <strong>BTW-documenten opgevraagd</strong>
-                                <p>Jansen BV kreeg automatisch een nette reminder.</p>
-                            </div>
-                        </div>
-                        <div class="workflow-item done">
-                            <span class="workflow-icon">02</span>
-                            <div>
-                                <strong>Statusvraag beantwoord</strong>
-                                <p>De klant ziet dat alles binnen is. Je team blijft doorwerken.</p>
-                            </div>
-                        </div>
-                        <div class="workflow-item active">
-                            <span class="workflow-icon">03</span>
-                            <div>
-                                <strong>Tweede opvolging klaar</strong>
-                                <p>Concept staat klaar in jullie toon. Versturen na akkoord.</p>
-                            </div>
+                    <div class="mail-window-body">
+                        <aside class="mail-sidebar" aria-hidden="true">
+                            <span class="mail-tool active">M</span>
+                            <span class="mail-tool">T</span>
+                            <span class="mail-tool">D</span>
+                        </aside>
+                        <div class="mail-thread">
+                            <article class="mail-message active">
+                                <span class="mail-avatar">J</span>
+                                <div class="mail-content">
+                                    <div class="mail-row">
+                                        <strong>Jansen BV</strong>
+                                        <span class="mail-label">Concept klaar</span>
+                                        <time>09:04</time>
+                                    </div>
+                                    <h3>Ontbrekende btw-stukken Q1</h3>
+                                    <p>We missen nog de bankafschriften van februari. AchterKantoor heeft een reminder klaargezet in jullie toon.</p>
+                                    <div class="draft-preview">
+                                        <span>Concept</span>
+                                        <p>Beste Jansen BV, voor de btw-aangifte missen we nog de bankafschriften van februari. Kunnen jullie die vandaag uploaden?</p>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="mail-message muted">
+                                <span class="mail-avatar soft">M</span>
+                                <div class="mail-content">
+                                    <div class="mail-row">
+                                        <strong>Mei &amp; Zonen</strong>
+                                        <span class="mail-label soft">Statusupdate</span>
+                                        <time>11:22</time>
+                                    </div>
+                                    <h3>Dossier compleet voor verwerking</h3>
+                                    <p>Alle stukken zijn binnen. Taak staat klaar voor samenstel met korte interne overdracht.</p>
+                                </div>
+                            </article>
                         </div>
                     </div>
-                    <div class="panel-footer">
-                        <span>Teamtijd bespaard</span>
-                        <strong>8 u / week</strong>
+                    <div class="tool-strip" aria-label="Voorbeelden van tools rondom het proces">
+                        <span class="tool-badge gmail">Gmail</span>
+                        <span class="tool-badge outlook">Outlook</span>
+                        <span class="tool-badge exact">Exact</span>
+                        <span class="tool-badge twinfield">Twinfield</span>
+                        <span class="tool-badge moneybird">Moneybird</span>
+                        <span class="tool-badge snelstart">SnelStart</span>
                     </div>
                 </div>
             </div>
@@ -304,7 +342,7 @@
     <footer>
         <div class="container footer-inner">
             <a href="/" class="logo">
-                <img src="/branding/logo-canva-wordmark.svg" alt="AchterKantoor" class="logo-img">
+                <img src="/branding/logo-nav-user.png" alt="AchterKantoor" class="logo-img">
             </a>
             <div>
                 <p>&copy; 2026 AchterKantoor. Alle rechten voorbehouden.</p>
