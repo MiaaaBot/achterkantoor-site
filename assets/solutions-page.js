@@ -24,6 +24,7 @@ function brandIcon(name) {
   return brandIcons[name] || `<svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect width="22" height="22" rx="6" fill="#598DDB"/><text x="11" y="16" text-anchor="middle" fill="white" font-size="13" font-weight="700" font-family="system-ui,sans-serif">${(name[0]||'?').toUpperCase()}</text></svg>`;
 }
 
+
 const grid = document.getElementById('solutionsGrid');
 const wizard = document.getElementById('solutionWizard');
 const wizardForm = document.getElementById('solutionWizardForm');
@@ -576,7 +577,6 @@ function handleWizardNavigation(action) {
 }
 
 function bindEvents() {
-  if (typeof document.querySelectorAll === 'function') {
   if (grid) {
     grid.addEventListener('click', (event) => {
       const actionButton = event.target.closest('[data-solution-action]');
