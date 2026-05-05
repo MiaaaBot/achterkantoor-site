@@ -12,7 +12,7 @@
     <meta property="og:image" content="https://achterkantoor.nl/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://achterkantoor.nl/blog/toekomst-boekhouden-automatisering.html">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' achterkantoor.goatcounter.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at https://app.cal.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://app.cal.com; connect-src 'self' achterkantoor.goatcounter.com https://app.cal.com; frame-src https://app.cal.com;">
     <link rel="icon" href="/favicon.ico">
     <script type="application/ld+json">
     {
@@ -158,20 +158,26 @@
         }
         html { scroll-behavior: smooth; }
     </style>
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<nav>
-    <div class="container">
+<nav class="site-nav" aria-label="Hoofdnavigatie">
+    <div class="container nav-inner">
         <a href="/" class="logo" aria-label="AchterKantoor home">
             <img src="/branding/logo-nav-user.png" alt="AchterKantoor" class="logo-img">
         </a>
-        <div class="nav-links">
-            <a href="/" class="cta-link">Home</a>
-            <a href="/blog/" class="cta-link">Blog</a>
-            <a href="/#contact" class="cta-link">Contact</a>
+        <button class="nav-toggle" type="button" aria-label="Open navigatie" aria-expanded="false">Menu</button>
+        <div class="nav-links" id="navLinks">
+            <a href="/oplossingen/">Oplossingen</a>
+            <a href="/wat-we-doen/">Werkwijze</a>
+            <a href="/blog/">Blog</a>
+            <a href="/oplossingen/" class="nav-cta">Start hier</a>
         </div>
-        <button class="nav-toggle" type="button" aria-label="Open navigatie">Menu</button>
     </div>
 </nav>
 
@@ -220,13 +226,25 @@
     <div class="container">
         <h2>Klaar voor de toekomst?</h2>
         <p>Ontdek hoe automatisering uw kantoor kan transformeren. Plan een gratis gesprek.</p>
-        <a href="https://cal.com/achterkantoor/kennismaking" class="btn" target="_blank" rel="noopener">Plan een gratis kennismaking</a>
+        <a href="https://cal.com/achterkantoor-app/30min" class="btn" data-cal-link="achterkantoor-app/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Plan een gratis kennismaking</a>
     </div>
 </section>
 
 <footer>
-    <div class="container">
-        <p>&copy; 2026 AchterKantoor. Alle rechten voorbehouden.</p>
+    <div class="container footer-inner">
+        <a href="/" class="logo">
+            <img src="/branding/logo-nav-user.png" alt="AchterKantoor" class="logo-img">
+        </a>
+        <nav class="footer-links" aria-label="Footernavigatie">
+            <a href="/oplossingen/">Oplossingen</a>
+            <a href="/wat-we-doen/">Werkwijze</a>
+            <a href="/blog/">Blog</a>
+            <a href="mailto:info@achterkantoor.nl">info@achterkantoor.nl</a>
+        </nav>
+        <div>
+            <p>&copy; 2026 AchterKantoor. Alle rechten voorbehouden.</p>
+            <p class="powered-by">Een product van M3trics Lab</p>
+        </div>
     </div>
 </footer>
 
@@ -247,5 +265,12 @@
 <!-- GoatCounter analytics — free, no cookies, GDPR compliant -->
 <!-- ACTION REQUIRED: Mia must create a free account at https://www.goatcounter.com/ with site code "achterkantoor" to activate tracking -->
 <script data-goatcounter="https://achterkantoor.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<!-- Cal element-click embed code begins -->
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "30min", {origin:"https://app.cal.com"});
+  Cal.ns["30min"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#1e1e1e"},"dark":{"cal-brand":"#598DDB"}},"hideEventTypeDetails":false,"layout":"month_view"});
+</script>
+<!-- Cal element-click embed code ends -->
 </body>
 </html>

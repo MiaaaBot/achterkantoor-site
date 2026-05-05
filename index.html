@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="KQu0bjUsAWASuNC1tGRFTzB3dk5TxmTwNNPj4azR6ak">
-    <title>AchterKantoor - 8 uur per week terug in je agenda</title>
-    <meta name="description" content="AchterKantoor helpt kleine Nederlandse accountants- en administratiekantoren met praktische automatisering voor documentverzoeken, reminders, statusvragen en interne overdracht.">
+    <title>AchterKantoor — Backoffice-automatisering voor accountantskantoren</title>
+    <meta name="description" content="AchterKantoor automatiseert backoffice-taken voor kleine accountantskantoren: documenten najagen, reminders, statusvragen en interne overdracht. Start met een gratis quickscan.">
     <meta property="og:title" content="AchterKantoor - 8 uur per week terug in je agenda">
     <meta property="og:description" content="Minder najagen, minder losse mails en meer rust in je accountantskantoor. Start met een gratis quickscan.">
     <meta property="og:type" content="website">
@@ -16,8 +16,13 @@
     <meta name="twitter:description" content="Praktische automatisering voor kleine Nederlandse accountantskantoren.">
     <meta name="twitter:image" content="https://achterkantoor.nl/og-image.png">
     <link rel="canonical" href="https://achterkantoor.nl">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: www.google-analytics.com; connect-src 'self' achterkantoor.goatcounter.com www.google-analytics.com region1.google-analytics.com; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' gc.zgo.at www.googletagmanager.com https://app.cal.com; style-src 'self' 'unsafe-inline' https://api.fontshare.com https://fonts.googleapis.com; font-src 'self' https://api.fontshare.com https://fonts.gstatic.com; img-src 'self' data: www.google-analytics.com https://app.cal.com; connect-src 'self' achterkantoor.goatcounter.com www.google-analytics.com region1.google-analytics.com https://app.cal.com; frame-src https://app.cal.com;">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J77FF15YMK"></script>
     <script>
@@ -53,6 +58,21 @@
       "name": "AchterKantoor",
       "url": "https://achterkantoor.nl",
       "publisher": { "@id": "https://achterkantoor.nl/#organization" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "AchterKantoor Automatiseringsoplossingen",
+      "description": "Vaste backoffice-automatiseringen voor kleine accountantskantoren",
+      "url": "https://achterkantoor.nl/oplossingen/",
+      "numberOfItems": 3,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Opvolging", "description": "Automatische documentopvolging en klantreminders voor accountantskantoren", "url": "https://achterkantoor.nl/oplossingen/" },
+        { "@type": "ListItem", "position": 2, "name": "Triage", "description": "Automatische inbox-triage en statusantwoorden voor accountantskantoren", "url": "https://achterkantoor.nl/oplossingen/" },
+        { "@type": "ListItem", "position": 3, "name": "Overdracht", "description": "Gestructureerde interne dossieroverdracht voor accountantskantoren", "url": "https://achterkantoor.nl/oplossingen/" }
+      ]
     }
     </script>
     <script type="application/ld+json">
@@ -96,11 +116,10 @@
             </a>
             <button class="nav-toggle" type="button" aria-label="Open navigatie" aria-expanded="false">Menu</button>
             <div class="nav-links" id="navLinks">
-                <a href="#voorbeelden">Voorbeelden</a>
-                <a href="#werkwijze">Werkwijze</a>
                 <a href="/oplossingen/">Oplossingen</a>
+                <a href="/wat-we-doen/">Werkwijze</a>
                 <a href="/blog/">Blog</a>
-                <a href="#contact" class="nav-cta">Quickscan</a>
+                <a href="/oplossingen/" class="nav-cta">Start hier</a>
             </div>
         </div>
     </nav>
@@ -108,16 +127,106 @@
     <main>
         <header class="hero">
             <div class="neural-bg" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+              <svg class="neural-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 560" preserveAspectRatio="none">
+                <!-- faint secondary connections -->
+                <g stroke="rgba(89,141,219,0.07)" stroke-width="0.8" fill="none">
+                  <line x1="80" y1="110" x2="440" y2="60"/><line x1="220" y1="55" x2="660" y2="90"/>
+                  <line x1="170" y1="240" x2="510" y2="400"/><line x1="640" y1="260" x2="960" y2="440"/>
+                  <line x1="880" y1="110" x2="1220" y2="260"/><line x1="1160" y1="100" x2="1320" y2="150"/>
+                  <line x1="340" y1="140" x2="660" y2="90"/><line x1="760" y1="180" x2="1160" y2="100"/>
+                </g>
+                <!-- main connection lines -->
+                <g stroke="rgba(89,141,219,0.12)" stroke-width="1" fill="none">
+                  <line x1="80" y1="110" x2="220" y2="55"/>
+                  <line x1="80" y1="110" x2="170" y2="240"/>
+                  <line x1="220" y1="55" x2="340" y2="140"/>
+                  <line x1="220" y1="55" x2="440" y2="60"/>
+                  <line x1="170" y1="240" x2="340" y2="140"/>
+                  <line x1="170" y1="240" x2="390" y2="300"/>
+                  <line x1="340" y1="140" x2="440" y2="60"/>
+                  <line x1="340" y1="140" x2="540" y2="180"/>
+                  <line x1="440" y1="60" x2="540" y2="180"/>
+                  <line x1="440" y1="60" x2="660" y2="90"/>
+                  <line x1="390" y1="300" x2="540" y2="180"/>
+                  <line x1="390" y1="300" x2="510" y2="400"/>
+                  <line x1="390" y1="300" x2="640" y2="260"/>
+                  <line x1="540" y1="180" x2="660" y2="90"/>
+                  <line x1="540" y1="180" x2="640" y2="260"/>
+                  <line x1="540" y1="180" x2="760" y2="180"/>
+                  <line x1="510" y1="400" x2="640" y2="260"/>
+                  <line x1="510" y1="400" x2="730" y2="380"/>
+                  <line x1="660" y1="90" x2="760" y2="180"/>
+                  <line x1="660" y1="90" x2="880" y2="110"/>
+                  <line x1="640" y1="260" x2="760" y2="180"/>
+                  <line x1="640" y1="260" x2="730" y2="380"/>
+                  <line x1="760" y1="180" x2="880" y2="110"/>
+                  <line x1="760" y1="180" x2="850" y2="300"/>
+                  <line x1="730" y1="380" x2="850" y2="300"/>
+                  <line x1="730" y1="380" x2="960" y2="440"/>
+                  <line x1="880" y1="110" x2="1000" y2="180"/>
+                  <line x1="880" y1="110" x2="1160" y2="100"/>
+                  <line x1="850" y1="300" x2="1000" y2="180"/>
+                  <line x1="850" y1="300" x2="1080" y2="340"/>
+                  <line x1="960" y1="440" x2="1080" y2="340"/>
+                  <line x1="1000" y1="180" x2="1160" y2="100"/>
+                  <line x1="1000" y1="180" x2="1220" y2="260"/>
+                  <line x1="1080" y1="340" x2="1220" y2="260"/>
+                  <line x1="1160" y1="100" x2="1320" y2="150"/>
+                  <line x1="1220" y1="260" x2="1320" y2="150"/>
+                </g>
+                <!-- highlighted active connections -->
+                <g stroke="rgba(89,141,219,0.22)" stroke-width="1" fill="none">
+                  <line x1="340" y1="140" x2="540" y2="180"/>
+                  <line x1="660" y1="90" x2="760" y2="180"/>
+                  <line x1="760" y1="180" x2="1000" y2="180"/>
+                  <line x1="1000" y1="180" x2="1160" y2="100"/>
+                </g>
+                <!-- regular nodes -->
+                <g fill="rgba(89,141,219,0.35)">
+                  <circle cx="80" cy="110" r="3"><animate attributeName="opacity" values="0.3;0.7;0.3" dur="4.2s" begin="0s" repeatCount="indefinite"/></circle>
+                  <circle cx="220" cy="55" r="3"><animate attributeName="opacity" values="0.3;0.6;0.3" dur="3.5s" begin="-1.2s" repeatCount="indefinite"/></circle>
+                  <circle cx="170" cy="240" r="3"><animate attributeName="opacity" values="0.2;0.6;0.2" dur="5.1s" begin="-0.7s" repeatCount="indefinite"/></circle>
+                  <circle cx="440" cy="60" r="3"><animate attributeName="opacity" values="0.3;0.65;0.3" dur="3.8s" begin="-2.1s" repeatCount="indefinite"/></circle>
+                  <circle cx="390" cy="300" r="3"><animate attributeName="opacity" values="0.2;0.55;0.2" dur="4.6s" begin="-3.3s" repeatCount="indefinite"/></circle>
+                  <circle cx="510" cy="400" r="3"><animate attributeName="opacity" values="0.3;0.6;0.3" dur="3.9s" begin="-1.8s" repeatCount="indefinite"/></circle>
+                  <circle cx="640" cy="260" r="3"><animate attributeName="opacity" values="0.25;0.6;0.25" dur="4.4s" begin="-0.4s" repeatCount="indefinite"/></circle>
+                  <circle cx="730" cy="380" r="3"><animate attributeName="opacity" values="0.2;0.55;0.2" dur="5.3s" begin="-2.8s" repeatCount="indefinite"/></circle>
+                  <circle cx="850" cy="300" r="3"><animate attributeName="opacity" values="0.3;0.6;0.3" dur="4.1s" begin="-1.5s" repeatCount="indefinite"/></circle>
+                  <circle cx="960" cy="440" r="3"><animate attributeName="opacity" values="0.2;0.5;0.2" dur="4.8s" begin="-3.6s" repeatCount="indefinite"/></circle>
+                  <circle cx="1080" cy="340" r="3"><animate attributeName="opacity" values="0.25;0.6;0.25" dur="3.7s" begin="-0.9s" repeatCount="indefinite"/></circle>
+                  <circle cx="1220" cy="260" r="3"><animate attributeName="opacity" values="0.3;0.65;0.3" dur="4.5s" begin="-2.2s" repeatCount="indefinite"/></circle>
+                  <circle cx="1320" cy="150" r="3"><animate attributeName="opacity" values="0.2;0.55;0.2" dur="5.0s" begin="-1.0s" repeatCount="indefinite"/></circle>
+                </g>
+                <!-- active/prominent nodes with glow ring -->
+                <g>
+                  <circle cx="340" cy="140" r="10" fill="none" stroke="rgba(89,141,219,0.12)" stroke-width="1"><animate attributeName="r" values="8;14;8" dur="3.2s" begin="0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0;0.5" dur="3.2s" begin="0s" repeatCount="indefinite"/></circle>
+                  <circle cx="340" cy="140" r="4" fill="rgba(46,93,168,0.65)"><animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.2s" begin="0s" repeatCount="indefinite"/></circle>
+
+                  <circle cx="760" cy="180" r="10" fill="none" stroke="rgba(89,141,219,0.12)" stroke-width="1"><animate attributeName="r" values="8;14;8" dur="2.8s" begin="-1.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0;0.5" dur="2.8s" begin="-1.4s" repeatCount="indefinite"/></circle>
+                  <circle cx="760" cy="180" r="4" fill="rgba(46,93,168,0.65)"><animate attributeName="opacity" values="0.5;0.9;0.5" dur="2.8s" begin="-1.4s" repeatCount="indefinite"/></circle>
+
+                  <circle cx="1000" cy="180" r="10" fill="none" stroke="rgba(89,141,219,0.12)" stroke-width="1"><animate attributeName="r" values="8;14;8" dur="3.6s" begin="-0.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0;0.5" dur="3.6s" begin="-0.8s" repeatCount="indefinite"/></circle>
+                  <circle cx="1000" cy="180" r="4" fill="rgba(46,93,168,0.65)"><animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.6s" begin="-0.8s" repeatCount="indefinite"/></circle>
+
+                  <circle cx="660" cy="90" r="4" fill="rgba(46,93,168,0.55)"><animate attributeName="opacity" values="0.4;0.85;0.4" dur="4.0s" begin="-2.0s" repeatCount="indefinite"/></circle>
+                  <circle cx="880" cy="110" r="4" fill="rgba(46,93,168,0.55)"><animate attributeName="opacity" values="0.4;0.8;0.4" dur="3.4s" begin="-1.7s" repeatCount="indefinite"/></circle>
+                  <circle cx="1160" cy="100" r="4" fill="rgba(46,93,168,0.55)"><animate attributeName="opacity" values="0.4;0.85;0.4" dur="3.9s" begin="-0.5s" repeatCount="indefinite"/></circle>
+                </g>
+                <!-- signal travelers -->
+                <circle r="2.5" fill="rgba(46,93,168,0.9)">
+                  <animateMotion dur="5.5s" begin="0s" repeatCount="indefinite" path="M 80,110 L 340,140 L 540,180 L 760,180 L 1000,180 L 1320,150"/>
+                </circle>
+                <circle r="2" fill="rgba(89,141,219,0.75)">
+                  <animateMotion dur="6.2s" begin="-2.5s" repeatCount="indefinite" path="M 220,55 L 440,60 L 660,90 L 880,110 L 1160,100 L 1320,150"/>
+                </circle>
+                <circle r="2" fill="rgba(89,141,219,0.65)">
+                  <animateMotion dur="7.0s" begin="-1.8s" repeatCount="indefinite" path="M 170,240 L 390,300 L 640,260 L 850,300 L 1080,340 L 1220,260"/>
+                </circle>
+              </svg>
             </div>
             <div class="container hero-grid">
                 <div class="hero-copy reveal">
-                    <p class="eyebrow">Voor kleine accountantskantoren</p>
+                    <p class="eyebrow">Voor accountants- en administratiekantoren</p>
                     <h1>
                         8 uur per week terug in je agenda.
                         <span class="headline-switch" aria-label="Zonder extra personeel, technische kennis, langdurende setup of generieke AI teksten">
@@ -132,8 +241,8 @@
                     </h1>
                     <!-- <p class="hero-lead">AchterKantoor neemt het terugkerende opvolgwerk uit je kantoorproces: documenten najagen, reminders sturen, statusvragen beantwoorden en overdrachten strak houden.</p> -->
                     <div class="hero-actions">
-                        <a href="#contact" class="btn">Gratis quickscan aanvragen</a>
-                        <a href="#voorbeelden" class="btn btn-secondary">Bekijk voorbeelden</a>
+                        <a href="/oplossingen/" class="btn">Bekijk oplossingen</a>
+                        <a href="#contact" class="btn btn-secondary">Gratis quickscan</a>
                     </div>
                     <div class="hero-proof" aria-label="Belangrijkste voordelen">
                         <span>Live in kleine stappen</span>
@@ -142,7 +251,7 @@
                     </div>
                 </div>
 
-                <div class="workflow-panel mail-panel reveal" aria-label="Voorbeeld van inbox automatisering">
+                <div class="mail-panel reveal" aria-label="Voorbeeld van inbox automatisering">
                     <div class="mail-window-top">
                         <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
                         <strong>Inbox</strong>
@@ -164,10 +273,10 @@
                                         <time>09:04</time>
                                     </div>
                                     <h3>Ontbrekende btw-stukken Q1</h3>
-                                    <p>We missen nog de bankafschriften van februari. AchterKantoor heeft een reminder klaargezet in jullie toon.</p>
+                                    <p>Bankafschriften feb. ontbreken — concept klaar.</p>
                                     <div class="draft-preview">
                                         <span>Concept</span>
-                                        <p>Beste Jansen BV, voor de btw-aangifte missen we nog de bankafschriften van februari. Kunnen jullie die vandaag uploaden?</p>
+                                        <p>Beste Jansen BV, we missen de bankafschriften van februari. Kunt u die vandaag aanleveren?</p>
                                     </div>
                                 </div>
                             </article>
@@ -180,18 +289,18 @@
                                         <time>11:22</time>
                                     </div>
                                     <h3>Dossier compleet voor verwerking</h3>
-                                    <p>Alle stukken zijn binnen. Taak staat klaar voor samenstel met korte interne overdracht.</p>
+                                    <p>Alle stukken binnen — overdracht naar samenstel ingepland.</p>
                                 </div>
                             </article>
                         </div>
                     </div>
                     <div class="tool-strip" aria-label="Voorbeelden van tools rondom het proces">
-                        <span class="tool-badge gmail">Gmail</span>
-                        <span class="tool-badge outlook">Outlook</span>
-                        <span class="tool-badge exact">Exact</span>
-                        <span class="tool-badge twinfield">Twinfield</span>
-                        <span class="tool-badge moneybird">Moneybird</span>
-                        <span class="tool-badge snelstart">SnelStart</span>
+                        <span class="tool-badge"><svg width="14" height="14" viewBox="0 0 22 22" fill="none"><rect width="22" height="22" rx="5" fill="#FAFAFA" stroke="#E8E8E8" stroke-width="1"/><path d="M4 7l7 5.5L18 7" fill="none" stroke="#EA4335" stroke-width="2" stroke-linecap="round"/></svg>Gmail</span>
+                        <span class="tool-badge"><svg width="14" height="14" viewBox="0 0 22 22" fill="none"><rect width="22" height="22" rx="5" fill="#0078D4"/><rect x="4" y="6" width="9" height="10" rx="2" fill="white"/><rect x="10" y="8" width="8" height="6" rx="1.5" fill="#0078D4" opacity="0.85"/></svg>Outlook</span>
+                        <span class="tool-badge"><svg width="14" height="14" viewBox="0 0 22 22" fill="none"><rect width="22" height="22" rx="5" fill="#003087"/><text x="11" y="16" text-anchor="middle" fill="white" font-size="13" font-weight="800" font-family="system-ui,sans-serif">E</text></svg>Exact</span>
+                        <span class="tool-badge"><svg width="14" height="14" viewBox="0 0 22 22" fill="none"><rect width="22" height="22" rx="5" fill="#005BAC"/><text x="11" y="16" text-anchor="middle" fill="white" font-size="13" font-weight="800" font-family="system-ui,sans-serif">T</text></svg>Twinfield</span>
+                        <span class="tool-badge"><svg width="14" height="14" viewBox="0 0 22 22" fill="none"><rect width="22" height="22" rx="5" fill="#2CA05A"/><text x="11" y="16" text-anchor="middle" fill="white" font-size="11" font-weight="800" font-family="system-ui,sans-serif">MB</text></svg>Moneybird</span>
+                        <span class="tool-badge"><svg width="14" height="14" viewBox="0 0 22 22" fill="none"><rect width="22" height="22" rx="5" fill="#E85D00"/><text x="11" y="16" text-anchor="middle" fill="white" font-size="13" font-weight="800" font-family="system-ui,sans-serif">S</text></svg>SnelStart</span>
                     </div>
                 </div>
             </div>
@@ -210,31 +319,80 @@
 
         <section id="voorbeelden" class="section">
             <div class="container">
-                <div class="section-heading reveal">
-                    <p class="eyebrow">Waar tijd weglekt</p>
-                    <h2>Automatisering begint bij de taken die niemand wil blijven doen.</h2>
-                </div>
-                <div class="example-grid">
-                    <article class="example-card reveal">
-                        <span class="card-number">01</span>
-                        <h3>Documenten najagen</h3>
-                        <p>Bonnen, bankstukken en loonmutaties worden automatisch en netjes opgevolgd.</p>
-                    </article>
-                    <article class="example-card reveal">
-                        <span class="card-number">02</span>
-                        <h3>Statusvragen</h3>
-                        <p>Klanten krijgen sneller antwoord zonder dat je team steeds dossiers hoeft te openen.</p>
-                    </article>
-                    <article class="example-card reveal">
-                        <span class="card-number">03</span>
-                        <h3>Intake en reminders</h3>
-                        <p>Nieuwe klanten en terugkerende deadlines krijgen vaste, professionele opvolging.</p>
-                    </article>
-                    <article class="example-card reveal">
-                        <span class="card-number">04</span>
-                        <h3>Interne overdracht</h3>
-                        <p>Werk blijft minder vaak hangen tussen administratie, samenstel en klantcontact.</p>
-                    </article>
+                <div class="features-split">
+                    <div class="features-copy reveal">
+                        <p class="eyebrow">Waar tijd weglekt</p>
+                        <h2>Elke week dezelfde taken. Elke week opnieuw.</h2>
+                        <p class="section-lead">Kleine kantoren besteden gemiddeld <strong>8 uur per week</strong> aan terugkerend handwerk. AchterKantoor neemt dat over.</p>
+                        <ul class="feature-list">
+                            <li>
+                                <span class="feature-dot"></span>
+                                <div>
+                                    <strong>Documenten najagen</strong>
+                                    <p>Automatische reminders voor ontbrekende stukken, in de toon van het kantoor.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="feature-dot"></span>
+                                <div>
+                                    <strong>Statusvragen beantwoorden</strong>
+                                    <p>Klanten krijgen automatisch een update — zonder dossier openen.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="feature-dot"></span>
+                                <div>
+                                    <strong>Intake &amp; interne overdracht</strong>
+                                    <p>Welkomsflow voor nieuwe klanten, strakke dossieroverdracht intern.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="features-visual reveal" aria-hidden="true">
+                        <div class="task-board">
+                            <div class="task-board-header">
+                                <span class="task-board-title">Automatisch afgehandeld</span>
+                                <span class="task-count-badge">12 taken</span>
+                            </div>
+                            <ul class="task-list-ui">
+                                <li class="task-item">
+                                    <span class="task-check done">✓</span>
+                                    <div class="task-info">
+                                        <span>Reminder bankafschriften Q1</span>
+                                        <span class="task-client">Jansen BV</span>
+                                    </div>
+                                    <span class="task-pill sent">Verstuurd</span>
+                                </li>
+                                <li class="task-item">
+                                    <span class="task-check done">✓</span>
+                                    <div class="task-info">
+                                        <span>Statusupdate belastingaangifte</span>
+                                        <span class="task-client">Mei &amp; Zonen</span>
+                                    </div>
+                                    <span class="task-pill auto">Automatisch</span>
+                                </li>
+                                <li class="task-item">
+                                    <span class="task-check done">✓</span>
+                                    <div class="task-info">
+                                        <span>Welkomstmail nieuwe klant</span>
+                                        <span class="task-client">De Vries Holding</span>
+                                    </div>
+                                    <span class="task-pill sent">Verstuurd</span>
+                                </li>
+                                <li class="task-item muted">
+                                    <span class="task-check wait">·</span>
+                                    <div class="task-info">
+                                        <span>Overdracht dossier samenstel</span>
+                                        <span class="task-client">Bakker &amp; Partners</span>
+                                    </div>
+                                    <span class="task-pill wait">Wacht op stuk</span>
+                                </li>
+                            </ul>
+                            <div class="task-board-footer">
+                                <span class="task-saving">↑ 8 uur bespaard deze week</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -243,7 +401,8 @@
             <div class="container split-feature">
                 <div class="reveal">
                     <p class="eyebrow">Wat verandert</p>
-                    <h2>Meer grip op de week, zonder harder te werken.</h2>
+                    <h2>Meer rust in je kantoor. Zonder harder te werken.</h2>
+                    <p class="section-lead" style="margin-top:16px">Niet één grote software-migratie, maar één concreet proces dat stopt met energie lekken.</p>
                 </div>
                 <div class="outcome-list reveal">
                     <div>
@@ -266,23 +425,24 @@
             <div class="container">
                 <div class="section-heading reveal">
                     <p class="eyebrow">Werkwijze</p>
-                    <h2>In drie stappen naar je eerste automatisering.</h2>
+                    <h2>Klein beginnen. Eén proces. Twee weken.</h2>
+                    <p class="section-lead">Geen lange selectietrajecten. Na de quickscan weet je direct of het past — en gaan we aan de slag.</p>
                 </div>
                 <div class="steps-grid">
                     <article class="step-card reveal">
                         <span>1</span>
-                        <h3>Quickscan</h3>
-                        <p>Je vertelt welk proces nu het meeste tijd kost. Wij prikken door naar het echte knelpunt.</p>
+                        <h3>Quickscan <em style="font-style:normal;color:var(--muted);font-size:0.85em;font-weight:500">— 30 min</em></h3>
+                        <p>Vertel welk proces elke week terugkomt. In 30 minuten weten we precies waar de tijd weglekt.</p>
                     </article>
                     <article class="step-card reveal">
                         <span>2</span>
-                        <h3>Pilot bouwen</h3>
-                        <p>We richten een kleine workflow in met jullie teksten, regels en controlepunten.</p>
+                        <h3>Pilot bouwen <em style="font-style:normal;color:var(--muted);font-size:0.85em;font-weight:500">— 2 weken</em></h3>
+                        <p>We richten één workflow in — met jouw teksten, regels en controlepunten. Jij houdt volledige controle.</p>
                     </article>
                     <article class="step-card reveal">
                         <span>3</span>
                         <h3>Rust opschalen</h3>
-                        <p>Als het werkt, breiden we uit naar de volgende terugkerende taak.</p>
+                        <p>Als de pilot werkt, pakken we het volgende knelpunt. Klein beginnen, goed uitbouwen.</p>
                     </article>
                 </div>
             </div>
@@ -292,13 +452,67 @@
             <div class="container trust-grid">
                 <div class="trust-copy reveal">
                     <p class="eyebrow">Rustig en controleerbaar</p>
-                    <h2>Gebouwd voor kantoren die professioneel willen blijven communiceren.</h2>
-                    <p>Automatisering mag nooit voelen alsof je grip verliest. Daarom starten we klein, werken we met duidelijke regels en blijft klantcommunicatie onder jullie controle.</p>
+                    <h2>Jij houdt de controle. Altijd.</h2>
+                    <p>Automatisering mag nooit voelen alsof je grip verliest. Niets gaat automatisch naar klanten zonder jullie expliciete afspraken.</p>
+                    <p style="margin-top:10px">We werken AVG-bewust, starten met minimale data en leggen verwerkingsafspraken vast vóór we beginnen.</p>
                 </div>
                 <div class="trust-list reveal">
-                    <div><strong>AVG-bewust</strong><span>Data en processen worden terughoudend ingericht.</span></div>
-                    <div><strong>Jullie toon</strong><span>Geen generieke AI-teksten, maar communicatie die past bij je kantoor.</span></div>
-                    <div><strong>Vast aanspreekpunt</strong><span>Kort schakelen, geen groot implementatieteam.</span></div>
+                    <div><strong>AVG-bewust</strong><span>Minimale dataverwerking, heldere verwerkingsafspraken vooraf.</span></div>
+                    <div><strong>Jullie toon</strong><span>Geen robottaal. Elke automatisering gebruikt jullie eigen teksten en communicatiestijl.</span></div>
+                    <div><strong>Vast aanspreekpunt</strong><span>Eén contactpersoon, korte lijnen. Geen groot implementatieteam of ticketsysteem.</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-paths">
+            <div class="container">
+                <div class="paths-intro reveal">
+                    <p class="eyebrow">Altijd een concreet beginpunt</p>
+                    <h2>Wil je AI inzetten maar heb je geen idee hoe of waar? Prima — we puzzelen het samen uit.</h2>
+                    <p class="paths-intro-sub">De meeste kantoren die bij ons aankloppen weten dat het slimmer kan, maar weten niet precies wat dat voor hen betekent. Dáár beginnen we: een gesprek van 30 minuten, geen verkooppraatje. Daarna weet je of een vaste oplossing past, of dat maatwerk de betere keuze is.</p>
+                    <div class="path-flow" aria-hidden="true">
+                        <div class="path-flow-node path-flow-start">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="var(--signal-deep)" stroke-width="1.5"/><circle cx="8" cy="8" r="3" fill="var(--signal-deep)"/></svg>
+                            Gratis quickscan
+                        </div>
+                        <div class="path-flow-arrow">→</div>
+                        <div class="path-flow-branches">
+                            <div class="path-flow-branch path-flow-branch-a">
+                                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="3" fill="var(--signal-deep)" opacity="0.15"/><path d="M5 8h6M8 5v6" stroke="var(--signal-deep)" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                Maatwerk
+                            </div>
+                            <div class="path-flow-branch path-flow-branch-b">
+                                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="3" fill="var(--ink)" opacity="0.08"/><path d="M4 6h8M4 10h5" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                Vaste pakketten
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="paths-grid">
+                    <div class="path-card reveal">
+                        <div class="path-tag">Meest gekozen startpunt</div>
+                        <h3>Gratis quickscan (30 min)</h3>
+                        <p>We kijken samen naar jouw backoffice en geven je een helder beeld van wat er mogelijk is — inclusief een concrete eerste stap. Daarna bepaal je zelf of je verder wilt met een vast pakket of een maatwerkoplossing.</p>
+                        <ul class="path-points">
+                            <li>30 minuten via video of telefoon</li>
+                            <li>Geen voorbereiding nodig</li>
+                            <li>Altijd een concreet advies mee naar huis</li>
+                        </ul>
+                        <a href="https://cal.com/achterkantoor-app/30min" class="btn" data-cal-link="achterkantoor-app/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Plan een gesprek →</a>
+                        <p class="path-note">Gratis, vrijblijvend, binnen 2 werkdagen</p>
+                    </div>
+                    <div class="path-card path-card-alt reveal">
+                        <div class="path-tag path-tag-alt">Weet je al wat je wilt</div>
+                        <h3>Direct een oplossing</h3>
+                        <p>Kies één van de drie vaste pakketten als je al weet welk proces je wilt automatiseren. Of vraag maatwerk aan als je situatie niet past in een standaard box.</p>
+                        <ul class="path-points">
+                            <li>Vaste pakketten — scope en prijs direct duidelijk</li>
+                            <li>Maatwerk — op aanvraag, na een gesprek</li>
+                            <li>Live in 10–15 werkdagen</li>
+                        </ul>
+                        <a href="/oplossingen/" class="btn">Bekijk de pakketten →</a>
+                        <p class="path-note">Exact Online, Twinfield, Moneybird &amp; meer</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -308,7 +522,7 @@
                 <div class="contact-copy">
                     <p class="eyebrow">Gratis quickscan</p>
                     <h2>Ontdek waar je kantoor tijd lekt</h2>
-                    <p>Deel kort welk proces elke week blijft terugkomen. We reageren persoonlijk met een concrete eerste inschatting en een logische pilotstap.</p>
+                    <p>Beschrijf kort welk proces blijft terugkomen. Je ontvangt binnen één werkdag een persoonlijke inschatting en een concrete eerste stap — geen demo-verplichtingen.</p>
                 </div>
 
                 <form class="signup-form" id="ideaBoxForm" novalidate>
@@ -336,7 +550,7 @@
     </main>
 
     <div class="sticky-cta" id="stickyCta">
-        <a href="#contact" class="btn">Gratis quickscan aanvragen</a>
+        <a href="/oplossingen/" class="btn">Bekijk oplossingen</a>
     </div>
 
     <footer>
@@ -344,6 +558,12 @@
             <a href="/" class="logo">
                 <img src="/branding/logo-nav-user.png" alt="AchterKantoor" class="logo-img">
             </a>
+            <nav class="footer-links" aria-label="Footernavigatie">
+                <a href="/oplossingen/">Oplossingen</a>
+                <a href="/wat-we-doen/">Werkwijze</a>
+                <a href="/blog/">Blog</a>
+                <a href="mailto:info@achterkantoor.nl">info@achterkantoor.nl</a>
+            </nav>
             <div>
                 <p>&copy; 2026 AchterKantoor. Alle rechten voorbehouden.</p>
                 <p class="powered-by">Een product van M3trics Lab</p>
@@ -462,5 +682,12 @@
     </script>
 
     <script data-goatcounter="https://achterkantoor.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<!-- Cal element-click embed code begins -->
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "30min", {origin:"https://app.cal.com"});
+  Cal.ns["30min"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#1e1e1e"},"dark":{"cal-brand":"#598DDB"}},"hideEventTypeDetails":false,"layout":"month_view"});
+</script>
+<!-- Cal element-click embed code ends -->
 </body>
 </html>
